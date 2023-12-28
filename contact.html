@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Investa's website">
+    <meta name="keywords" content="Investment, UK, Government Bonds, Gilts, Money, Income">
+    <meta name="author" content="Amit Sarkar">
+    <title>Investa</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="icon" type="image/png" href="assets/images/profile-144.png">
+    <script type="text/javascript" src="https://kit.fontawesome.com/878884ebe6.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/scripts.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <!-- Logo -->
+    <h1><a href="index2.html">Investa</a></h1>
+    
+    <!-- Navigation menu -->
+    <nav>
+        <ul>
+          <li><a href="product.html">Products</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Burger icon on smaller screens -->
+    <div class="bar-block">
+      <button class="burger-icon"><i class="fa fa-bars"></i></button>
+      <div class="bar-item">
+        <a href="product.html">Products</a>
+        <a href="about.html">About us</a>
+        <a href="faq.html">FAQs</a>
+        <a href="contact.html">Contact us</a>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h2>Contact us</h2>
+
+    <main>
+   
+        <p>If you have any questions or inquiries, please feel free to contact us. We are here to assist you!</p>
+    
+        <address>
+          <strong>Investa Bonds</strong><br>
+          123 Investment Street<br>
+          Financial District, City<br>
+          Country<br>
+          <br>
+          <strong>Email:</strong> info@investabonds.com<br>
+          <strong>Phone:</strong> +1 (555) 123-4567
+        </address>
+    
+        <p>You can also reach out to us through the contact form below:</p>
+    
+        <form action="submit_form.php" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+    
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+    
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+    
+          <button type="submit">Submit</button>
+        </form>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 Investa. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
