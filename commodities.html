@@ -3,195 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Investa's stock page">
+    <meta name="description" content="Welcome to Investa's commodities page">
     <title>Investa - Commodities</title>
-    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" type="image/png" href="assets/images/profile-144.png">
     <script type="text/javascript" src="https://kit.fontawesome.com/878884ebe6.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .tool-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tool-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        nav, .navbar {
+            z-index: 1000; /* Higher z-index to stay on top */
+        }
+    </style>
+    <script>
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      // Used to toggle the menu when clicking on the menu button
+      function toggleNavMenu() {
+        const nav = document.getElementById("nav");
+        const overlay = document.getElementById("navOverlay");
+        const body = document.body;
+        if (nav.classList.contains("translate-x-full")) {
+          nav.classList.remove("translate-x-full");
+          overlay.classList.remove("hidden");
+          body.classList.add("overflow-hidden");
+        } else {
+          nav.classList.add("translate-x-full");
+          overlay.classList.add("hidden");
+          body.classList.remove("overflow-hidden");
+        }
+      }
+      function toggleMoreMenu() {
+        const moreMenu = document.getElementById("moreMenu");
+        moreMenu.classList.toggle("hidden");
+      }
+    </script>
 </head>
-<body>
-    <header>
-        <h1><a href="invest2.html">Investa</a></h1>
-        <nav>
-            <ul>
-                <li><a href="stocks.html">Stocks</a></li>
-                <li><a href="bonds.html">Bonds</a></li>
-                <li><a href="funds.html">Mutual Funds</a></li>
-                <li><a href="etf.html">ETFs</a></li>
-                <li><a href="realestate.html">Real Estate</a></li>
-                <li><a href="commodities.html">Commodities</a></li>
-                <li><a href="crypto.html">Cryptocurrencies</a></li>
-                <li><a href="p2plending.html">Peer-to-Peer Lending</a></li>
-                <li><a href="collectibles.html">Collectibles</a></li>
-                <li><a href="pension.html">Pension Funds</a></li>
-                <li><a href="isa.html">ISAs</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="font-roboto bg-gray-100">
+
+     <!-- START NAVBAR -->
+<div class="w-full">
+  <div class="bg-blue-800 relative">
+    <!-- Mobile Menu Button -->
+    <button class="lg:hidden float-right p-4 text-white" onclick="toggleNavMenu()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="flex justify-between items-center">
+      <a class="inline-block p-4 hover:bg-blue-500 transition duration-200" href="index.html">
+        <span class="text-white text-3xl font-bold">
+          Investa
+        </span>
+      </a>
+      <div class="hidden lg:flex">
+        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="about.html">About Us</a>
+        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="faq.html">FAQs</a>
+
+        <!-- Dropdown Menu -->
+        <div class="relative">
+          <button class="p-4 hover:bg-blue-500 transition duration-200 text-white" onclick="toggleMoreMenu()">Asset Class <i class="fa fa-fw fa-caret-down"></i></button>
+          <div id="moreMenu" class="hidden absolute bg-blue-800 shadow-lg w-48 right-0 z-50">
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Navbar (Overlay) -->
+<div id="navOverlay" class="fixed top-0 left-0 w-full h-full bg-blue bg-opacity-50 hidden z-50" onclick="toggleNavMenu()"></div>
+<div id="nav" class="fixed top-0 right-0 w-64 h-full bg-blue-800 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+  <button class="p-4 float-right text-white" onclick="toggleNavMenu()" title="Close Navigation Menu">
+    <i class="fa fa-times"></i>
+  </button>
+  <div class="mt-12">
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="about.html">About Us</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="faq.html">FAQs</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
+  </div>
+</div>
+<!-- END NAVBAR -->
+
+  <!-- Main Content -->
+  <div class="container mx-auto p-4">
+    <h2 class="text-3xl font-bold mb-4 text-center">Commodities</h2>
 
     <!-- Commodities definition -->
-    <div class="asset-class">
-      <div class="asset-title">Commodities</div>
-      <div class="asset-description">
-        Commodities include physical goods like gold, silver, oil, agricultural products, and more. They can be bought directly or through specialized investment vehicles like commodity ETFs.
+    <div class="asset-class mb-8 bg-white p-6 rounded-lg shadow-md">
+      <div class="asset-title text-xl font-semibold mb-2">Commodities</div>
+      <div class="asset-description text-gray-700">
+          Commodities are raw materials or primary agricultural products that can be bought and sold, such as gold, oil, and wheat. Investing in commodities can provide diversification and a hedge against inflation.
       </div>
     </div>
 
     <!-- Commodities affiliate links -->
-    <div class="asset-class">
-        <div class="asset-title">Where to invest?</div>
-        <ul class="platform-list">
-            <li><a href="https://www.etoro.com">eToro</a></li>
-            <li><a href="https://www.plus500.com">Plus500</a></li>
-            <li><a href="https://www.interactivebrokers.co.uk">Interactive Brokers</a></li>
+    <div class="asset-class mb-8 bg-white p-6 rounded-lg shadow-md">
+        <div class="asset-title text-xl font-semibold mb-2">Where to invest?</div>
+        <ul class="platform-list list-disc pl-5 text-blue-500">
+            <li><a href="https://www.hl.co.uk" class="hover:underline">Hargreaves Lansdown</a></li>
+            <li><a href="https://www.youinvest.co.uk" class="hover:underline">AJ Bell Youinvest</a></li>
+            <li><a href="https://www.ii.co.uk" class="hover:underline">Interactive Investor</a></li>
+            <li><a href="https://www.etoro.com" class="hover:underline">eToro</a></li>
+            <li><a href="https://www.plus500.com" class="hover:underline">Plus500</a></li>
+            <li><a href="https://www.interactivebrokers.co.uk" class="hover:underline">Interactive Brokers</a></li>
             <!-- Add more platform links -->
         </ul>
     </div>
     
     <!-- Commodities categories -->
-    <div class="asset-class">
-      <div class="asset-title">Common categories for classifying stocks</div>
+    <div class="asset-class mb-8 bg-white p-6 rounded-lg shadow-md">
+      <div class="asset-title text-xl font-semibold mb-2">Common categories for classifying commodities</div>
       <ul class="category-list">
+        <table class="table-auto w-full border-collapse border border-gray-300">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="border border-gray-300 px-4 py-2">Category</th>
+              <th class="border border-gray-300 px-4 py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-300 px-4 py-2">Precious Metals</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Commodities such as gold, silver, platinum, and palladium. They are often used as a store of value and a hedge against inflation.
+              </td>
+            </tr>
+            <tr>
+              <td class="border border-gray-300 px-4 py-2">Energy</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Commodities such as crude oil, natural gas, and coal. They are essential for powering industries and transportation.
+              </td>
+            </tr>
+            <tr>
+              <td class="border border-gray-300 px-4 py-2">Agricultural</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Commodities such as wheat, corn, soybeans, and coffee. They are essential for food production and consumption.
+              </td>
+            </tr>
+            <tr>
+              <td class="border border-gray-300 px-4 py-2">Industrial Metals</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Commodities such as copper, aluminum, and zinc. They are used in construction, manufacturing, and other industrial applications.
+              </td>
+            </tr>
+            <tr>
+              <td class="border border-gray-300 px-4 py-2">Livestock</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Commodities such as cattle and hogs. They are essential for meat production and consumption.
+              </td>
+            </tr>
+            <tr>
+              <td class="border border-gray-300 px-4 py-2">Soft Commodities</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Commodities such as cotton, sugar, and cocoa. They are used in various industries, including textiles and food production.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ul>
+    </div>
+  </div>
 
-        <table>
-            <tr>
-              <th>Category</th>
-              <th>Description</th>
-              <th>Examples</th>
-            </tr>
-            <tr>
-              <td rowspan="2">Metals</td>
-              <td>Precious Metals</td>
-              <td>Gold, Silver, Platinum, Palladium</td>
-            </tr>
-            <tr>
-              <td>Base Metals</td>
-              <td>Copper, Aluminum, Nickel, Zinc</td>
-            </tr>
-            <tr>
-              <td rowspan="3">Energy</td>
-              <td>Crude Oil</td>
-              <td>Primary energy source for transportation and industries</td>
-            </tr>
-            <tr>
-              <td>Natural Gas</td>
-              <td>Heating, electricity, and vehicle fuel</td>
-            </tr>
-            <tr>
-              <td>Coal</td>
-              <td>Electricity generation, industrial processes</td>
-            </tr>
-            <tr>
-              <td rowspan="3">Agricultural Commodities</td>
-              <td>Grains</td>
-              <td>Wheat, Corn, Rice, Oats</td>
-            </tr>
-            <tr>
-              <td>Soft Commodities</td>
-              <td>Coffee, Cocoa, Sugar, Cotton</td>
-            </tr>
-            <tr>
-              <td>Livestock</td>
-              <td>Cattle, Hogs, Poultry</td>
-            </tr>
-            <tr>
-              <td>Livestock</td>
-              <td>Cattle</td>
-              <td>Beef production, dairy products</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Hogs</td>
-              <td>Pork production</td>
-            </tr>
-            <tr>
-              <td rowspan="4">Food and Fiber</td>
-              <td>Coffee</td>
-              <td>Popular beverage crop</td>
-            </tr>
-            <tr>
-              <td>Cocoa</td>
-              <td>Used in chocolate production</td>
-            </tr>
-            <tr>
-              <td>Sugar</td>
-              <td>Sweetener in food and beverages</td>
-            </tr>
-            <tr>
-              <td>Cotton</td>
-              <td>Textile and clothing manufacturing</td>
-            </tr>
-            <tr>
-              <td rowspan="3">Industrial and Specialty Commodities</td>
-              <td>Timber</td>
-              <td>Construction, furniture, paper</td>
-            </tr>
-            <tr>
-              <td>Rubber</td>
-              <td>Tires, industrial products</td>
-            </tr>
-            <tr>
-              <td>Industrial Metals</td>
-              <td>Manufacturing, construction</td>
-            </tr>
-            <tr>
-              <td rowspan="2">Precursors and Chemicals</td>
-              <td>Chemical Commodities</td>
-              <td>Raw materials for chemical production</td>
-            </tr>
-            <tr>
-              <td>Fertilizers</td>
-              <td>Enhance soil fertility, promote plant growth</td>
-            </tr>
-            <tr>
-              <td rowspan="2">Alternative Commodities</td>
-              <td>Water Rights</td>
-              <td>Access and use of water resources</td>
-            </tr>
-            <tr>
-              <td>Carbon Credits</td>
-              <td>Tradable certificates for reducing emissions</td>
-            </tr>
-            <tr>
-              <td rowspan="1">Renewable Energy Commodities</td>
-              <td>Biofuels</td>
-              <td>Organic materials as fuel alternatives</td>
-            </tr>
-            <tr>
-              <td>Rare Earth Elements</td>
-              <td>Unique minerals for high-tech applications</td>
-            </tr>
-            <tr>
-              <td rowspan="1">Minerals and Gemstones</td>
-              <td>Various Minerals</td>
-              <td>Industrial processes, jewelry, gemstones</td>
-            </tr>
-          </table>
-        
-  </ul>
-</div>
-    <footer>
-        <div class="contact-info">
-            <p>Contact Us:</p>
-            <ul>
-                <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
-                <li>Phone: +123-456-7890</li>
-            </ul>
-        </div>
-        <div class="social-links">
-            <p>Connect with Us:</p>
-            <ul>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
-            </ul>
-        </div>
-        <div class="footer-text">
-          <p>&copy; 2023 Investa</p>
-        </div>
-    </footer>
-    
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop()" class="fixed bottom-4 bg-white shadow-md right-4 text-black p-3 rounded-full shadow-x3 hover:shadow-2xl transition-transform transform hover:scale-105">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- START FOOTER -->
+<footer class="bg-blue-800 text-white text-center py-16 px-6 md:px-12">
+  <p class="text-lg">
+  All Rights Reserved <i class="fas fa-copyright text-white"></i> 2025 Investa
+  </p>
+</footer>
+<!-- END FOOTER -->
+
 </body>
 </html>

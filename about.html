@@ -3,73 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Investa's website">
-    <meta name="keywords" content="Investment, UK, Government Bonds, Gilts, Money, Income">
-    <meta name="author" content="Amit Sarkar">
-    <title>Investa</title>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="icon" type="image/png" href="assets/images/profile-144.png">
+    <meta name="description" content="Learn more about Investa">
+    <title>Investa - About Us</title>
     <script type="text/javascript" src="https://kit.fontawesome.com/878884ebe6.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="scripts/scripts.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .tool-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tool-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        nav, .navbar {
+            z-index: 1000; /* Higher z-index to stay on top */
+        }
+    </style>
+    <script>
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      // Used to toggle the menu when clicking on the menu button
+      function toggleNavMenu() {
+        const nav = document.getElementById("nav");
+        const overlay = document.getElementById("navOverlay");
+        const body = document.body;
+        if (nav.classList.contains("translate-x-full")) {
+          nav.classList.remove("translate-x-full");
+          overlay.classList.remove("hidden");
+          body.classList.add("overflow-hidden");
+        } else {
+          nav.classList.add("translate-x-full");
+          overlay.classList.add("hidden");
+          body.classList.remove("overflow-hidden");
+        }
+      }
+      function toggleMoreMenu() {
+        const moreMenu = document.getElementById("moreMenu");
+        moreMenu.classList.toggle("hidden");
+      }
+    </script>
 </head>
+<body class="font-roboto bg-gray-100">
+   
+    <!-- START NAVBAR -->
+<div class="w-full">
+  <div class="bg-blue-800 relative">
+    <!-- Mobile Menu Button -->
+    <button class="lg:hidden float-right p-4 text-white" onclick="toggleNavMenu()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </button>
 
-<body>
+    <div class="flex justify-between items-center">
+      <a class="inline-block p-4 hover:bg-blue-500 transition duration-200" href="index.html">
+        <span class="text-white text-3xl font-bold">
+          Investa
+        </span>
+      </a>
+      <div class="hidden lg:flex">
+        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="about.html">About Us</a>
+        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="faq.html">FAQs</a>
 
-  <!-- Navigation -->
-  <header>
-    <!-- Logo -->
-    <h1><a href="index2.html">Investa</a></h1>
-    
-    <!-- Navigation menu -->
-    <nav>
-        <ul>
-          <li><a href="product.html">Products</a></li>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="faq.html">FAQs</a></li>
-          <li><a href="contact.html">Contact us</a></li>
-        </ul>
-    </nav>
-
-    <!-- Burger icon on smaller screens -->
-    <div class="bar-block">
-      <button class="burger-icon"><i class="fa fa-bars"></i></button>
-      <div class="bar-item">
-        <a href="product.html">Products</a>
-        <a href="about.html">About us</a>
-        <a href="faq.html">FAQs</a>
-        <a href="contact.html">Contact us</a>
+        <!-- Dropdown Menu -->
+        <div class="relative">
+          <button class="p-4 hover:bg-blue-500 transition duration-200 text-white" onclick="toggleMoreMenu()">Asset Class <i class="fa fa-fw fa-caret-down"></i></button>
+          <div id="moreMenu" class="hidden absolute bg-blue-800 shadow-lg w-48 right-0 z-50">
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</div>
 
-  </header>
+<!-- Mobile Navbar (Overlay) -->
+<div id="navOverlay" class="fixed top-0 left-0 w-full h-full bg-blue bg-opacity-50 hidden z-50" onclick="toggleNavMenu()"></div>
+<div id="nav" class="fixed top-0 right-0 w-64 h-full bg-blue-800 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+  <button class="p-4 float-right text-white" onclick="toggleNavMenu()" title="Close Navigation Menu">
+    <i class="fa fa-times"></i>
+  </button>
+  <div class="mt-12">
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="about.html">About Us</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="faq.html">FAQs</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
+  </div>
+</div>
+<!-- END NAVBAR -->
 
   <!-- Main Content -->
-  <div class="container">
-    <h2>About Us</h2>
+  <div class="container mx-auto p-4">
+    <h2 class="text-3xl font-bold mb-4 text-center">About Us</h2>
 
-    <main>
-        <p>Welcome to Investa Bonds, your trusted partner in government bond investments. At Investa, we specialize in providing secure and profitable investment opportunities in government bonds.</p>
-    
-        <p>Our mission is to help you build a strong and stable financial future by offering investment options that prioritize safety and reliability. With a team of experienced financial experts, we guide you through the process of investing in government bonds, ensuring transparency and clarity at every step.</p>
-    
-        <p>Why choose Investa Bonds?</p>
-        <ul>
-          <li>Expertise in government bond investments</li>
-          <li>Commitment to financial security</li>
-          <li>Personalized investment strategies</li>
-          <li>Transparent and ethical practices</li>
-        </ul>
-    
-        <p>Join us on this journey towards financial success. Invest with confidence, invest with Investa Bonds.</p>
-      </main>
-
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <p class="mb-4">Welcome to Investa, your comprehensive guide to understanding the diverse world of investment asset classes in the United Kingdom. Whether you're a seasoned investor looking to diversify your portfolio or a beginner seeking insights into where to start, Investa is your go-to resource. Our platform offers a user-friendly experience, delivering valuable information, insights, and resources to help you make informed investment decisions.</p>
+      
+      <h3 class="text-2xl font-semibold mb-2">Our Values</h3>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Integrity: We uphold the highest standards of integrity in all our actions.</li>
+        <li>Client Focus: Our clients are at the heart of everything we do.</li>
+        <li>Innovation: We continuously seek innovative solutions to meet our clients' needs.</li>
+        <li>Excellence: We strive for excellence in every aspect of our business.</li>
+      </ul>
+      
+      <h3 class="text-2xl font-semibold mb-2">Our Team</h3>
+      <p class="mb-4">Our team of experienced professionals is dedicated to providing personalized investment advice and support. We work closely with our clients to understand their unique financial objectives and develop tailored investment strategies.</p>
+      
+      <h3 class="text-2xl font-semibold mb-2">Contact Us</h3>
+      <p>If you have any questions or would like to learn more about our services, please <a href="contact.html" class="text-blue-500 hover:underline">contact us</a>.</p>
+    </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2023 Investa. All rights reserved.</p>
-  </footer>
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop()" class="fixed bottom-4 bg-white shadow-md right-4 text-black p-3 rounded-full shadow-x3 hover:shadow-2xl transition-transform transform hover:scale-105">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- START FOOTER -->
+<footer class="bg-blue-800 text-white text-center py-16 px-6 md:px-12">
+  <p class="text-lg">
+  All Rights Reserved <i class="fas fa-copyright text-white"></i> 2025 Investa
+  </p>
+</footer>
+<!-- END FOOTER -->
 
 </body>
 </html>

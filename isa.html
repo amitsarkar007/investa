@@ -3,157 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Investa's ISA page">
-    <title>Investa - ISA</title>
-    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" type="image/png" href="assets/images/profile-144.png">
+    <meta name="description" content="Welcome to Investa's ISAs page">
+    <title>Investa - ISAs</title>
     <script type="text/javascript" src="https://kit.fontawesome.com/878884ebe6.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .tool-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tool-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        nav, .navbar {
+            z-index: 1000; /* Higher z-index to stay on top */
+        }
+    </style>
+    <script>
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      // Used to toggle the menu when clicking on the menu button
+      function toggleNavMenu() {
+        const nav = document.getElementById("nav");
+        const overlay = document.getElementById("navOverlay");
+        const body = document.body;
+        if (nav.classList.contains("translate-x-full")) {
+          nav.classList.remove("translate-x-full");
+          overlay.classList.remove("hidden");
+          body.classList.add("overflow-hidden");
+        } else {
+          nav.classList.add("translate-x-full");
+          overlay.classList.add("hidden");
+          body.classList.remove("overflow-hidden");
+        }
+      }
+      function toggleMoreMenu() {
+        const moreMenu = document.getElementById("moreMenu");
+        moreMenu.classList.toggle("hidden");
+      }
+    </script>
 </head>
-<body>
-    <header>
-        <h1><a href="invest2.html">Investa</a></h1>
-        <nav>
-            <ul>
-                <li><a href="stocks.html">Stocks</a></li>
-                <li><a href="bonds.html">Bonds</a></li>
-                <li><a href="funds.html">Mutual Funds</a></li>
-                <li><a href="etf.html">ETFs</a></li>
-                <li><a href="realestate.html">Real Estate</a></li>
-                <li><a href="commodities.html">Commodities</a></li>
-                <li><a href="crypto.html">Cryptocurrencies</a></li>
-                <li><a href="p2plending.html">Peer-to-Peer Lending</a></li>
-                <li><a href="collectibles.html">Collectibles</a></li>
-                <li><a href="pension.html">Pension Funds</a></li>
-                <li><a href="isa.html">ISAs</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="font-roboto bg-gray-100">
 
-    <!-- ISA definition -->
-    <div class="asset-class">
-      <div class="asset-title">Individual Savings Accounts (ISAs)</div>
-      <div class="asset-description">
-        ISAs are tax-advantaged accounts that allow UK citizens to save and invest up to a certain limit each year without paying income tax or capital gains tax on the returns.
+    <!-- START NAVBAR -->
+<div class="w-full">
+  <div class="bg-blue-800 relative">
+    <!-- Mobile Menu Button -->
+    <button class="lg:hidden float-right p-4 text-white" onclick="toggleNavMenu()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="flex justify-between items-center">
+      <a class="inline-block p-4 hover:bg-blue-500 transition duration-200" href="index.html">
+        <span class="text-white text-3xl font-bold">
+          Investa
+        </span>
+      </a>
+      <div class="hidden lg:flex">
+        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="about.html">About Us</a>
+        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="faq.html">FAQs</a>
+
+        <!-- Dropdown Menu -->
+        <div class="relative">
+          <button class="p-4 hover:bg-blue-500 transition duration-200 text-white" onclick="toggleMoreMenu()">Asset Class <i class="fa fa-fw fa-caret-down"></i></button>
+          <div id="moreMenu" class="hidden absolute bg-blue-800 shadow-lg w-48 right-0 z-50">
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Navbar (Overlay) -->
+<div id="navOverlay" class="fixed top-0 left-0 w-full h-full bg-blue bg-opacity-50 hidden z-50" onclick="toggleNavMenu()"></div>
+<div id="nav" class="fixed top-0 right-0 w-64 h-full bg-blue-800 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+  <button class="p-4 float-right text-white" onclick="toggleNavMenu()" title="Close Navigation Menu">
+    <i class="fa fa-times"></i>
+  </button>
+  <div class="mt-12">
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="about.html">About Us</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="faq.html">FAQs</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
+  </div>
+</div>
+<!-- END NAVBAR -->
+
+  <!-- Main Content -->
+  <div class="container mx-auto p-4">
+    <h2 class="text-3xl font-bold mb-4 text-center">Individual Savings Accounts (ISAs)</h2>
+
+    <!-- ISAs definition -->
+    <div class="asset-class mb-8 bg-white p-6 rounded-lg shadow-md">
+      <div class="asset-title text-xl font-semibold mb-2">Individual Savings Accounts (ISAs)</div>
+      <div class="asset-description text-gray-700">
+          ISAs are tax-efficient savings and investment accounts available to residents of the UK. They allow individuals to save or invest up to a certain limit each year without paying tax on the interest, dividends, or capital gains.
       </div>
     </div>
 
-    <!-- ISA affiliate links -->
-    <div class="asset-class">
-        <div class="asset-title">Where to invest?</div>
-        <ul class="platform-list">
-            <li><a href="https://www.youinvest.co.uk">AJ Bell Youinvest</a></li>
-            <li><a href="https://www.hl.co.uk">Hargreaves Lansdown</a></li>
-            <li><a href="https://www.nutmeg.com">Nutmeg</a></li>
+    <!-- ISAs affiliate links -->
+    <div class="asset-class mb-8 bg-white p-6 rounded-lg shadow-md">
+        <div class="asset-title text-xl font-semibold mb-2">Where to invest?</div>
+        <ul class="platform-list list-disc pl-5 text-blue-500">
+            <li><a href="https://www.hl.co.uk" class="hover:underline">Hargreaves Lansdown</a></li>
+            <li><a href="https://www.youinvest.co.uk" class="hover:underline">AJ Bell Youinvest</a></li>
+            <li><a href="https://www.ii.co.uk" class="hover:underline">Interactive Investor</a></li>
+            <li><a href="https://www.nutmeg.com" class="hover:underline">Nutmeg</a></li>
             <!-- Add more platform links -->
         </ul>
     </div>
     
-    <!-- ISA categories -->
-    <div class="asset-class">
-      <div class="asset-title">Common categories for classifying ISAs</div>
+    <!-- ISAs categories -->
+    <div class="asset-class mb-8 bg-white p-6 rounded-lg shadow-md">
+      <div class="asset-title text-xl font-semibold mb-2">Common categories for classifying ISAs</div>
       <ul class="category-list">
-    
-        <table>
+        <table class="table-auto w-full border-collapse border border-gray-300">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="border border-gray-300 px-4 py-2">Category</th>
+              <th class="border border-gray-300 px-4 py-2">Description</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
-                <th>Category</th>
-                <th>Description</th>
+              <td class="border border-gray-300 px-4 py-2">Cash ISAs</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Savings accounts that pay interest tax-free. They are generally considered low-risk.
+              </td>
             </tr>
             <tr>
-                <td><strong>Cash ISAs:</strong></td>
-                <td>
-                    <ul>
-                        <li>Regular Cash ISAs: Allow individuals to save money in cash deposits with interest earnings free from income tax.</li>
-                        <li>Flexible Cash ISAs: Offer the flexibility to withdraw and replace funds without affecting the annual contribution limit.</li>
-                    </ul>
-                </td>
+              <td class="border border-gray-300 px-4 py-2">Stocks and Shares ISAs</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Investment accounts that allow individuals to invest in stocks, bonds, and other securities. They offer the potential for higher returns but come with higher risk.
+              </td>
             </tr>
             <tr>
-                <td><strong>Stocks and Shares ISAs:</strong></td>
-                <td>
-                    <ul>
-                        <li>Managed Investment ISAs: Managed by professionals who invest in a diversified portfolio of stocks, bonds, and other assets.</li>
-                        <li>Self-Managed ISAs: Allow individuals to choose and manage their investments within the ISA wrapper.</li>
-                        <li>Ethical or Sustainable ISAs: Invest in companies and assets aligned with ethical or sustainable criteria.</li>
-                    </ul>
-                </td>
+              <td class="border border-gray-300 px-4 py-2">Innovative Finance ISAs</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Accounts that allow individuals to invest in peer-to-peer lending and other alternative finance arrangements. They offer higher returns but come with higher risk.
+              </td>
             </tr>
             <tr>
-                <td><strong>Innovative Finance ISAs (IFISAs):</strong></td>
-                <td>
-                    <ul>
-                        <li>Peer-to-Peer (P2P) ISAs: Invest in P2P lending platforms, potentially offering higher interest rates than traditional savings accounts.</li>
-                        <li>Crowdfunding ISAs: Invest in crowdfunding projects while enjoying tax benefits.</li>
-                    </ul>
-                </td>
+              <td class="border border-gray-300 px-4 py-2">Lifetime ISAs</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Accounts designed to help individuals save for their first home or retirement. They offer a government bonus of 25% on contributions up to a certain limit.
+              </td>
             </tr>
             <tr>
-                <td><strong>Lifetime ISAs (LISAs):</strong></td>
-                <td>
-                    Help individuals save for their first home or retirement. Contributions receive a government bonus, and withdrawals can be tax-free if used for eligible purposes.
-                </td>
+              <td class="border border-gray-300 px-4 py-2">Junior ISAs</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Savings and investment accounts for children under 18. They offer tax-free growth and can be accessed when the child turns 18.
+              </td>
             </tr>
-            <tr>
-                <td><strong>Junior ISAs (JISAs):</strong></td>
-                <td>
-                    For children under 18, JISAs can be cash ISAs or stocks and shares ISAs. Contributions are made by parents or guardians, and the child gains access to the funds upon turning 18.
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Inherited ISAs:</strong></td>
-                <td>
-                    Allow a surviving spouse or civil partner to inherit the tax advantages of their deceased partner's ISA.
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Flexible ISAs:</strong></td>
-                <td>
-                    Offer the flexibility to withdraw and replace funds within the same tax year without affecting the annual contribution limit.
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Structured Product ISAs:</strong></td>
-                <td>
-                    Invest in structured products that offer returns linked to underlying assets such as stock indices, commodities, or currencies.
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Property ISAs:</strong></td>
-                <td>
-                    Invest in property-related assets, such as Real Estate Investment Trusts (REITs), within the ISA wrapper.
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Geographic or International ISAs:</strong></td>
-                <td>
-                    Offer the ability to invest in international assets or funds while still enjoying tax advantages.
-                </td>
-            </tr>
+          </tbody>
         </table>
+      </ul>
+    </div>
+  </div>
 
-  </ul>
-</div>
-    <footer>
-        <div class="contact-info">
-            <p>Contact Us:</p>
-            <ul>
-                <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
-                <li>Phone: +123-456-7890</li>
-            </ul>
-        </div>
-        <div class="social-links">
-            <p>Connect with Us:</p>
-            <ul>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
-            </ul>
-        </div>
-        <div class="footer-text">
-            <p>&copy; 2023 Investa</p>
-        </div>
-    </footer>
-    
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop()" class="fixed bottom-4 bg-white shadow-md right-4 text-black p-3 rounded-full shadow-x3 hover:shadow-2xl transition-transform transform hover:scale-105">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- START FOOTER -->
+<footer class="bg-blue-800 text-white text-center py-16 px-6 md:px-12">
+  <p class="text-lg">
+  All Rights Reserved <i class="fas fa-copyright text-white"></i> 2025 Investa
+  </p>
+</footer>
+<!-- END FOOTER -->
+
 </body>
 </html>

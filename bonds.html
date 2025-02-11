@@ -5,174 +5,215 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to Investa's bonds page">
     <title>Investa - Bonds</title>
-    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="icon" type="image/png" href="assets/images/profile-144.png">
     <script type="text/javascript" src="https://kit.fontawesome.com/878884ebe6.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .tool-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tool-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        nav, .navbar {
+            z-index: 1000; /* Higher z-index to stay on top */
+        }
+    </style>
+    <script>
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      // Used to toggle the menu when clicking on the menu button
+      function toggleNavMenu() {
+        const nav = document.getElementById("nav");
+        const overlay = document.getElementById("navOverlay");
+        const body = document.body;
+        if (nav.classList.contains("translate-x-full")) {
+          nav.classList.remove("translate-x-full");
+          overlay.classList.remove("hidden");
+          body.classList.add("overflow-hidden");
+        } else {
+          nav.classList.add("translate-x-full");
+          overlay.classList.add("hidden");
+          body.classList.remove("overflow-hidden");
+        }
+      }
+      function toggleMoreMenu() {
+        const moreMenu = document.getElementById("moreMenu");
+        moreMenu.classList.toggle("hidden");
+      }
+    </script>
 </head>
-<body>
-    <header>
-        <h1><a href="invest2.html">Investa</a></h1>
-        <nav>
-            <ul>
-                <li><a href="stocks.html">Stocks</a></li>
-                <li><a href="bonds.html">Bonds</a></li>
-                <li><a href="funds.html">Mutual Funds</a></li>
-                <li><a href="etf.html">ETFs</a></li>
-                <li><a href="realestate.html">Real Estate</a></li>
-                <li><a href="commodities.html">Commodities</a></li>
-                <li><a href="crypto.html">Cryptocurrencies</a></li>
-                <li><a href="p2plending.html">Peer-to-Peer Lending</a></li>
-                <li><a href="collectibles.html">Collectibles</a></li>
-                <li><a href="pension.html">Pension Funds</a></li>
-                <li><a href="isa.html">ISAs</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="font-roboto bg-gray-100">
+ 
+        <!-- START NAVBAR -->
+<div class="w-full">
+  <div class="bg-blue-800 relative">
+    <!-- Mobile Menu Button -->
+    <button class="lg:hidden float-right p-4 text-white" onclick="toggleNavMenu()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="flex justify-between items-center">
+      <a class="inline-block p-4 hover:bg-blue-500 transition duration-200" href="index.html">
+        <span class="text-white text-3xl font-bold">
+          Investa
+        </span>
+      </a>
+      <div class="hidden lg:flex">
+        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="about.html">About Us</a>
+        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="faq.html">FAQs</a>
+
+        <!-- Dropdown Menu -->
+        <div class="relative">
+          <button class="p-4 hover:bg-blue-500 transition duration-200 text-white" onclick="toggleMoreMenu()">Asset Class <i class="fa fa-fw fa-caret-down"></i></button>
+          <div id="moreMenu" class="hidden absolute bg-blue-800 shadow-lg w-48 right-0 z-50">
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
+            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Navbar (Overlay) -->
+<div id="navOverlay" class="fixed top-0 left-0 w-full h-full bg-blue bg-opacity-50 hidden z-50" onclick="toggleNavMenu()"></div>
+<div id="nav" class="fixed top-0 right-0 w-64 h-full bg-blue-800 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+  <button class="p-4 float-right text-white" onclick="toggleNavMenu()" title="Close Navigation Menu">
+    <i class="fa fa-times"></i>
+  </button>
+  <div class="mt-12">
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="about.html">About Us</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="faq.html">FAQs</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
+    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
+  </div>
+</div>
+<!-- END NAVBAR -->
+
+  <!-- Main Content -->
+  <div class="container mx-auto p-4">
+    <h2 class="text-3xl font-bold mb-4 text-center">Bonds</h2>
 
     <!-- Bonds definition -->
-    <div class="asset-class">
-      <div class="asset-title">Bonds</div>
-      <div class="asset-description">
-        Bonds are debt securities issued by governments or corporations. Investors lend money in exchange for periodic interest payments and the return of the principal at maturity.
+    <div class="asset-class mb-8 bg-white p-6 rounded-lg shadow-md">
+      <div class="asset-title text-xl font-semibold mb-2">Bonds</div>
+      <div class="asset-description text-gray-700">
+          Bonds are debt securities issued by entities such as governments, municipalities, and corporations to raise capital. Investors lend money to the issuer in exchange for periodic interest payments and the return of the bond's face value at maturity.
       </div>
     </div>
 
     <!-- Bonds affiliate links -->
-    <div class="asset-class">
-        <div class="asset-title">Where to invest?</div>
-        <ul class="platform-list">
-            <li><a href="https://www.nsandi.com">Government's Savings and Investments (NS&I)</a></li>
-            <li><a href="https://www.fidelity.co.uk">Fidelity</a></li>
-            <li><a href="https://www.vanguardinvestor.co.uk">Vanguard Investor</a></li>
+    <div class="asset-class mb-8 bg-white p-6 rounded-lg shadow-md">
+        <div class="asset-title text-xl font-semibold mb-2">Where to invest?</div>
+        <ul class="platform-list list-disc pl-5 text-blue-500">
+            <li><a href="https://www.hl.co.uk" class="hover:underline">Hargreaves Lansdown</a></li>
+            <li><a href="https://www.youinvest.co.uk" class="hover:underline">AJ Bell Youinvest</a></li>
+            <li><a href="https://www.ii.co.uk" class="hover:underline">Interactive Investor</a></li>
+            <li><a href="https://www.nsandi.com" class="hover:underline">Government's Savings and Investments (NS&I)</a></li>
+            <li><a href="https://www.fidelity.co.uk" class="hover:underline">Fidelity</a></li>
+            <li><a href="https://www.vanguardinvestor.co.uk" class="hover:underline">Vanguard Investor</a></li>
             <!-- Add more platform links -->
         </ul>
     </div>
     
     <!-- Bonds categories -->
-    <div class="asset-class">
-      <div class="asset-title">Common categories for classifying bonds</div>
+    <div class="asset-class mb-8 bg-white p-6 rounded-lg shadow-md">
+      <div class="asset-title text-xl font-semibold mb-2">Common categories for classifying bonds</div>
       <ul class="category-list">
-    
-        <table>
-            <tr>
-              <th>Category</th>
-              <th>Description</th>
+        <table class="table-auto w-full border-collapse border border-gray-300">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="border border-gray-300 px-4 py-2">Category</th>
+              <th class="border border-gray-300 px-4 py-2">Description</th>
             </tr>
+          </thead>
+          <tbody>
             <tr>
-              <td><strong>Issuer</strong></td>
-              <td>
-                <ul>
-                  <li>Government Bonds: Issued by governments, such as UK Gilts issued by the UK government.</li>
-                  <li>Corporate Bonds: Issued by corporations to raise capital for various purposes.</li>
-                </ul>
+              <td class="border border-gray-300 px-4 py-2">Government Bonds</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Bonds issued by national governments. They are generally considered low-risk investments.
               </td>
             </tr>
             <tr>
-              <td><strong>Maturity</strong></td>
-              <td>
-                <ul>
-                  <li>Short-Term Bonds: Have a maturity of typically 1 to 3 years.</li>
-                  <li>Intermediate-Term Bonds: Maturity ranges from 3 to 10 years.</li>
-                  <li>Long-Term Bonds: Maturity extends beyond 10 years.</li>
-                </ul>
+              <td class="border border-gray-300 px-4 py-2">Municipal Bonds</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Bonds issued by local governments or municipalities. They often offer tax advantages.
               </td>
             </tr>
             <tr>
-              <td><strong>Coupon Rate</strong></td>
-              <td>
-                <ul>
-                  <li>Fixed-Rate Bonds: Offer a consistent interest rate throughout the bond's life.</li>
-                  <li>Floating-Rate Bonds: The interest rate is tied to a benchmark (e.g., LIBOR) and can adjust periodically.</li>
-                </ul>
+              <td class="border border-gray-300 px-4 py-2">Corporate Bonds</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Bonds issued by corporations to raise capital. They typically offer higher yields than government bonds but come with higher risk.
               </td>
             </tr>
             <tr>
-              <td><strong>Credit Quality</strong></td>
-              <td>
-                <ul>
-                  <li>Investment-Grade Bonds: Issued by companies or governments with a lower risk of default, often rated BBB- or higher by rating agencies.</li>
-                  <li>High-Yield (Junk) Bonds: Issued by entities with higher default risk, typically rated below investment-grade (BB+ and lower).</li>
-                </ul>
+              <td class="border border-gray-300 px-4 py-2">High-Yield Bonds</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Also known as junk bonds, these are bonds with lower credit ratings and higher risk, but they offer higher yields.
               </td>
             </tr>
             <tr>
-              <td><strong>Currency</strong></td>
-              <td>
-                <ul>
-                  <li>Domestic Bonds: Issued in the local currency (e.g., British Pound) of the country where the bond is issued.</li>
-                  <li>Foreign Currency Bonds: Issued in a currency other than the local currency.</li>
-                </ul>
+              <td class="border border-gray-300 px-4 py-2">Convertible Bonds</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Bonds that can be converted into a predetermined number of the issuing company's shares.
               </td>
             </tr>
             <tr>
-              <td><strong>Secured vs. Unsecured</strong></td>
-              <td>
-                <ul>
-                  <li>Secured Bonds: Backed by specific assets that act as collateral in case of default.</li>
-                  <li>Unsecured Bonds: Not backed by specific collateral but rely on the issuer's creditworthiness.</li>
-                </ul>
+              <td class="border border-gray-300 px-4 py-2">Zero-Coupon Bonds</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Bonds that do not pay periodic interest. Instead, they are issued at a discount to their face value and mature at face value.
               </td>
             </tr>
             <tr>
-              <td><strong>Callable vs. Non-Callable</strong></td>
-              <td>
-                <ul>
-                  <li>Callable Bonds: Can be redeemed by the issuer before the maturity date.</li>
-                  <li>Non-Callable Bonds: Cannot be redeemed by the issuer before maturity.</li>
-                </ul>
+              <td class="border border-gray-300 px-4 py-2">Inflation-Linked Bonds</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Bonds that provide protection against inflation. The principal and interest payments are adjusted based on inflation rates.
               </td>
             </tr>
             <tr>
-              <td><strong>Convertible Bonds</strong></td>
-              <td>Bonds that can be converted into a predetermined number of shares of the issuer's common stock.</td>
-            </tr>
-            <tr>
-              <td><strong>Zero-Coupon Bonds</strong></td>
-              <td>Bonds that do not pay periodic interest but are issued at a discount and mature at face value, with the difference being the investor's return.</td>
-            </tr>
-            <tr>
-              <td><strong>Sovereign vs. Sub-sovereign Bonds</strong></td>
-              <td>
-                <ul>
-                  <li>Sovereign Bonds: Issued by national governments.</li>
-                  <li>Sub-sovereign Bonds: Issued by regional or local governments within a country.</li>
-                </ul>
+              <td class="border border-gray-300 px-4 py-2">Foreign Bonds</td>
+              <td class="border border-gray-300 px-4 py-2">
+                Bonds issued by foreign governments or corporations. They can offer diversification but come with currency risk.
               </td>
             </tr>
-            <tr>
-              <td><strong>Inflation-Linked Bonds (Gilts)</strong></td>
-              <td>Bonds whose principal and interest payments are adjusted for inflation.</td>
-            </tr>
-            <tr>
-              <td><strong>Green Bonds</strong></td>
-              <td>Bonds issued to fund environmentally friendly projects.</td>
-            </tr>
-          </table>
+          </tbody>
+        </table>
+      </ul>
+    </div>
+  </div>
 
-  </ul>
-</div>
-    <footer>
-        <div class="contact-info">
-            <p>Contact Us:</p>
-            <ul>
-                <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
-                <li>Phone: +123-456-7890</li>
-            </ul>
-        </div>
-        <div class="social-links">
-            <p>Connect with Us:</p>
-            <ul>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
-            </ul>
-        </div>
-        <div class="footer-text">
-          <p>&copy; 2023 Investa</p>
-        </div>
-    </footer>
-    
+    <!-- Scroll to Top Button -->
+    <button onclick="scrollToTop()" class="fixed bottom-4 bg-white shadow-md right-4 text-black p-3 rounded-full shadow-x3 hover:shadow-2xl transition-transform transform hover:scale-105">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- START FOOTER -->
+<footer class="bg-blue-800 text-white text-center py-16 px-6 md:px-12">
+  <p class="text-lg">
+  All Rights Reserved <i class="fas fa-copyright text-white"></i> 2025 Investa
+  </p>
+</footer>
+<!-- END FOOTER -->
+
 </body>
 </html>
