@@ -1,187 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Investa - Learn how to invest in the UK">
-    <title>Investa</title>
-    <script type="text/javascript" src="https://kit.fontawesome.com/878884ebe6.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .tool-card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .tool-card:hover {
-          transform: scale(1.05);
-          box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        nav, .navbar {
-            z-index: 1000; /* Higher z-index to stay on top */
-        }
-    </style>
-    <script>
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-      // Used to toggle the menu when clicking on the menu button
-      function toggleNavMenu() {
-        const nav = document.getElementById("nav");
-        const overlay = document.getElementById("navOverlay");
-        const body = document.body;
-        if (nav.classList.contains("translate-x-full")) {
-          nav.classList.remove("translate-x-full");
-          overlay.classList.remove("hidden");
-          body.classList.add("overflow-hidden");
-        } else {
-          nav.classList.add("translate-x-full");
-          overlay.classList.add("hidden");
-          body.classList.remove("overflow-hidden");
-        }
-      }
-      function toggleMoreMenu() {
-        const moreMenu = document.getElementById("moreMenu");
-        moreMenu.classList.toggle("hidden");
-      }
-    </script>
-</head>
-<body class="bg-gray-100">
-
-    <!-- START NAVBAR -->
-<div class="w-full">
-  <div class="bg-blue-800 relative">
-    <!-- Mobile Menu Button -->
-    <button class="lg:hidden float-right p-4 text-white" onclick="toggleNavMenu()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </button>
-
-    <div class="flex justify-between items-center">
-      <a class="inline-block p-4 hover:bg-blue-500 transition duration-200" href="index.html">
-        <span class="text-white text-3xl font-bold">
-          Investa
-        </span>
-      </a>
-      <div class="hidden lg:flex">
-        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="about.html">About Us</a>
-        <a class="p-4 hover:bg-blue-500 transition duration-200 text-white" href="faq.html">FAQs</a>
-
-        <!-- Dropdown Menu -->
-        <div class="relative">
-          <button class="p-4 hover:bg-blue-500 transition duration-200 text-white" onclick="toggleMoreMenu()">Asset Class <i class="fa fa-fw fa-caret-down"></i></button>
-          <div id="moreMenu" class="hidden absolute bg-blue-800 shadow-lg w-48 right-0 z-50">
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
-            <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Mobile Navbar (Overlay) -->
-<div id="navOverlay" class="fixed top-0 left-0 w-full h-full bg-blue bg-opacity-50 hidden z-50" onclick="toggleNavMenu()"></div>
-<div id="nav" class="fixed top-0 right-0 w-64 h-full bg-blue-800 shadow-lg transform translate-x-full transition-transform duration-300 z-50">
-  <button class="p-4 float-right text-white" onclick="toggleNavMenu()" title="Close Navigation Menu">
-    <i class="fa fa-times"></i>
-  </button>
-  <div class="mt-12">
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="about.html">About Us</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="faq.html">FAQs</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="stocks.html">Stocks</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="bonds.html">Bonds</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="funds.html">Mutual Funds</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="etf.html">ETFs</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="realestate.html">Real Estate</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="commodities.html">Commodities</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="crypto.html">Cryptocurrencies</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="p2plending.html">Peer-to-Peer Lending</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="collectibles.html">Collectibles</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="pension.html">Pension Funds</a>
-    <a class="block p-4 text-white hover:bg-blue-500 transition duration-200" href="isa.html">ISAs</a>
-  </div>
-</div>
-<!-- END NAVBAR -->
-    
-    <main class="container mx-auto p-6">
-        <h2 class="text-3xl font-semibold text-center mb-8">Investment options in the UK</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Stocks (Equities)</h3>
-                <p class="mt-2">Invest in shares of companies to benefit from growth and dividends.</p>
-                <a href="stocks.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Bonds</h3>
-                <p class="mt-2">Lend money to governments or corporations and earn interest.</p>
-                <a href="bonds.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Mutual Funds</h3>
-                <p class="mt-2">Invest in professionally managed portfolios.</p>
-                <a href="funds.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">ETFs</h3>
-                <p class="mt-2">Diversified investments traded on stock exchanges.</p>
-                <a href="etf.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Real Estate</h3>
-                <p class="mt-2">Invest in properties for rental income and appreciation.</p>
-                <a href="realestate.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Commodities</h3>
-                <p class="mt-2">Invest in gold, oil, and other physical assets.</p>
-                <a href="commodities.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Peer-to-Peer Lending</h3>
-                <p class="mt-2">Lend money directly to individuals or businesses.</p>
-                <a href="p2plending.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Cryptocurrencies</h3>
-                <p class="mt-2">Invest in digital assets like Bitcoin and Ethereum.</p>
-                <a href="crypto.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Collectibles & Alternative Investments</h3>
-                <p class="mt-2">Invest in rare items, art, and other non-traditional assets.</p>
-                <a href="collectibles.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Pension Funds</h3>
-                <p class="mt-2">Save for retirement through pension schemes.</p>
-                <a href="pension.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-            <div class="bg-white p-4 shadow rounded-lg tool-card">
-                <h3 class="text-xl font-bold">Individual Savings Accounts (ISAs)</h3>
-                <p class="mt-2">Tax-efficient savings and investment accounts.</p>
-                <a href="isa.html" class="mt-3 text-blue-600 underline">Learn more</a>
-            </div>
-        </div>
-    </main>
-    
-    <!-- Scroll to Top Button -->
-    <button onclick="scrollToTop()" class="fixed bottom-4 bg-white shadow-md right-4 text-black p-3 rounded-full shadow-x3 hover:shadow-2xl transition-transform transform hover:scale-105">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-    <!-- START FOOTER -->
-<footer class="bg-blue-800 text-white text-center py-16 px-6 md:px-12">
-  <p class="text-lg">
-  All Rights Reserved <i class="fas fa-copyright text-white"></i> 2025 Investa
-  </p>
-</footer>
-<!-- END FOOTER -->
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Investa helps complete beginners build financial confidence with calm, bonds-first investing education across asset classes." />
+    <meta name="keywords" content="investing basics, bonds, gilts, passive investing, active investing, compound interest, financial literacy" />
+    <meta name="author" content="Investa" />
+    <meta property="og:title" content="Investa | Calm, bonds-first investing education" />
+    <meta property="og:description" content="Plain-language investing education for complete beginners. Learn how bonds and other asset classes work, plus tools and calculators." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/vite.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Investa | Bonds-first investing education</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <div id="app"></div>
+    <script type="module" src="./src/main.tsx"></script>
+  </body>
 </html>
