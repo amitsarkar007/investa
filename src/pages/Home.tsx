@@ -338,9 +338,9 @@ export default function Home() {
                         tickFormatter={(value) => `£${(value / 1000).toFixed(0)}k`}
                       />
                       <Tooltip 
-                        formatter={(value: number | undefined, name: string) => {
+                        formatter={(value: number | undefined, name?: string) => {
                           if (value === undefined) return ''
-                          return [formatCurrency(value), name]
+                          return [formatCurrency(value), name || '']
                         }}
                         labelFormatter={(label) => `Year ${label}`}
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
@@ -559,8 +559,8 @@ export default function Home() {
               </div>
               {compoundResult.dataPoints && compoundResult.dataPoints.length > 0 && (
                 <div className="h-64">
-                  <ResponsiveContainer width="100%" height="100%" margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
-                    <LineChart data={compoundResult.dataPoints}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={compoundResult.dataPoints} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                       <XAxis 
                         dataKey="year" 
@@ -573,9 +573,9 @@ export default function Home() {
                         tickFormatter={(value) => `£${(value / 1000).toFixed(0)}k`}
                       />
                       <Tooltip 
-                        formatter={(value: number | undefined, name: string) => {
+                        formatter={(value: number | undefined, name?: string) => {
                           if (value === undefined) return ''
-                          return [formatCurrency(value), name]
+                          return [formatCurrency(value), name || '']
                         }}
                         labelFormatter={(label) => `Year ${label}`}
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
@@ -662,8 +662,8 @@ export default function Home() {
               </div>
               {inflationDataPoints && inflationDataPoints.length > 0 && (
                 <div className="h-64">
-                  <ResponsiveContainer width="100%" height="100%" margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
-                    <LineChart data={inflationDataPoints}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={inflationDataPoints} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                       <XAxis 
                         dataKey="year" 
@@ -676,9 +676,9 @@ export default function Home() {
                         tickFormatter={(value) => `£${(value / 1000).toFixed(0)}k`}
                       />
                       <Tooltip 
-                        formatter={(value: number | undefined, name: string) => {
+                        formatter={(value: number | undefined, name?: string) => {
                           if (value === undefined) return ''
-                          return [formatCurrency(value), name]
+                          return [formatCurrency(value), name || '']
                         }}
                         labelFormatter={(label) => `Year ${label}`}
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
