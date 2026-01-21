@@ -6,8 +6,7 @@ export default function Footer() {
           <div>
             <div className="text-white font-extrabold text-xl mb-2">Investa</div>
             <p className="text-sm text-slate-300">
-              Calm, beginner-friendly education on investing across asset classes, with a clear focus on bonds and
-              long-term thinking.
+              Free, comprehensive UK investment education covering all asset classes. All information is available on-site—no courses or programs required.
             </p>
           </div>
           <div className="text-sm space-y-2">
@@ -16,10 +15,13 @@ export default function Footer() {
               Start Here
             </a>
             <a className="block hover:text-white" href="/learning">
-              Learning Paths
+              Guides
             </a>
             <a className="block hover:text-white" href="/faq">
               FAQs
+            </a>
+            <a className="block hover:text-white" href="/definitions">
+              Definitions
             </a>
           </div>
           <div className="text-sm space-y-2">

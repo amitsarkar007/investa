@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const steps = [
   'Understand what investing is and is not.',
   'Learn the difference between saving and investing.',
-  'Start with bonds to build confidence and stability.',
+  'Explore different asset classes to find what fits your goals.',
   'Use simple tools to estimate long-term growth.'
 ]
 
@@ -15,7 +15,7 @@ export default function Start() {
           <h1 className="text-4xl font-extrabold">Start Here</h1>
           <p className="text-lg text-slate-600">
             Investing is simply using your money to help you later. This site is for complete beginners with no finance
-            background needed. We do not promise quick wins.
+            background needed. All information is free and available here—no courses or programs required.
           </p>
         </div>
         <div className="bg-white rounded-3xl shadow p-8 space-y-4">
@@ -27,11 +27,11 @@ export default function Start() {
           </ul>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link className="rounded-full bg-blue-600 text-white px-5 py-2 font-semibold" to="/bonds">
-            Explore bonds
+          <Link className="rounded-full bg-blue-600 text-white px-5 py-2 font-semibold hover:bg-blue-700 transition-colors shadow-lg" to="/learning">
+            Explore asset classes
           </Link>
-          <Link className="rounded-full border border-slate-300 px-5 py-2 font-semibold text-slate-700" to="/learning">
-            Learning paths
+          <Link className="rounded-full border-2 border-blue-600 px-5 py-2 font-semibold text-blue-700 hover:bg-blue-50 transition-colors" to="/learning">
+            Browse Guides
           </Link>
         </div>
       </div>

@@ -10,6 +10,13 @@ import FAQ from './pages/FAQ'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Ethics from './pages/Ethics'
+import Definitions from './pages/Definitions'
+import Tools from './pages/Tools'
+import WhyInvest from './pages/WhyInvest'
+import Basics from './pages/Basics'
+import Fears from './pages/Fears'
+import RiskReturn from './pages/RiskReturn'
+import HistoricalReturns from './pages/HistoricalReturns'
 import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
@@ -35,6 +42,13 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/ethics" element={<Ethics />} />
+            <Route path="/definitions" element={<Definitions />} />
+            <Route path="/tools" element={<Tools />} />
+            <Route path="/why-invest" element={<WhyInvest />} />
+            <Route path="/basics" element={<Basics />} />
+            <Route path="/fears" element={<Fears />} />
+            <Route path="/risk-return" element={<RiskReturn />} />
+            <Route path="/historical" element={<HistoricalReturns />} />
 
             <Route path="/asset/:id" element={<AssetClassPage />} />
             <Route path="/bonds" element={<AssetClassPage assetId="bonds" />} />

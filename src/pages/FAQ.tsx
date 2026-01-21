@@ -2,12 +2,12 @@ const faqs = [
   {
     question: 'What is Investa?',
     answer:
-      'Investa is a beginner-focused education platform that explains asset classes, investing basics, and long-term habits in plain language.'
+      'Investa is a free resource providing comprehensive guides on UK investment asset classes. We explain investing basics in plain language—no courses or programs, just clear information.'
   },
   {
     question: 'Do I need to open an account?',
     answer:
-      'No account is required to learn. If you want to invest later, start with the Learning Paths and choose a regulated platform that fits your needs.'
+      'No account is required. All guides and tools are free to use. If you want to invest later, browse our guides and choose a regulated platform that fits your needs.'
   },
   {
     question: 'What types of investments do you cover?',
@@ -30,8 +30,8 @@ export default function FAQ() {
         </div>
         <div className="space-y-4">
           {faqs.map((faq) => (
-            <details key={faq.question} className="bg-white rounded-2xl p-5 shadow">
-              <summary className="font-semibold">{faq.question}</summary>
+            <details key={faq.question} className="bg-white rounded-2xl p-5 shadow focus-within:ring-2 focus-within:ring-blue-500">
+              <summary className="font-semibold cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">{faq.question}</summary>
               <p className="text-sm text-slate-600 mt-2">{faq.answer}</p>
             </details>
           ))}

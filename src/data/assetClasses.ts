@@ -148,10 +148,115 @@ export const assetClasses: AssetClass[] = [
     beginnerSteps: ['Learn what a share represents', 'Use broad index funds to diversify', 'Invest regularly'],
     goodFor: ['Long-term growth', 'Building wealth over decades'],
     watchOuts: ['Overtrading', 'Chasing hype'],
+    sections: [
+      {
+        title: 'What are stocks?',
+        body: 'Stocks (also called shares or equities) represent ownership in a company. When you buy a stock, you own a small piece of that company. If the company does well, your share can increase in value. You may also receive dividends—regular payments from the company\'s profits.'
+      },
+      {
+        title: 'Why invest in stocks?',
+        body: 'Historically, stocks have provided higher long-term returns than cash or bonds. Over decades, well-diversified stock portfolios have typically grown faster than inflation, helping build real wealth. However, this comes with higher short-term volatility.',
+        bullets: [
+          'Potential for higher returns over long periods (typically 5-7% annually after inflation)',
+          'Ownership in growing businesses',
+          'Dividend income from profitable companies',
+          'Liquidity—you can usually sell quickly if needed'
+        ]
+      },
+      {
+        title: 'How do stock prices work?',
+        body: 'Stock prices change constantly based on supply and demand. Factors include company earnings, economic conditions, investor sentiment, and news. Prices can swing daily, but long-term investors focus on business fundamentals rather than daily movements.',
+        bullets: [
+          'Prices reflect what buyers are willing to pay and sellers are willing to accept',
+          'Earnings reports, news, and economic data can cause price movements',
+          'Market sentiment and emotions can drive short-term volatility',
+          'Long-term value is driven by company performance and growth'
+        ]
+      },
+      {
+        title: 'Types of stocks',
+        body: 'Stocks can be categorized in many ways. Understanding these categories helps you build a diversified portfolio.',
+        bullets: [
+          'By size: Large-cap (established companies), mid-cap, small-cap (smaller, potentially faster-growing)',
+          'By style: Growth stocks (focus on expansion) vs value stocks (priced below perceived worth)',
+          'By sector: Technology, healthcare, finance, consumer goods, energy, etc.',
+          'By geography: UK stocks, international stocks, emerging markets',
+          'By dividend policy: Dividend-paying vs growth companies that reinvest profits'
+        ]
+      },
+      {
+        title: 'How to buy stocks in the UK',
+        body: 'You can buy stocks through investment platforms, brokers, or stockbrokers. Most beginners use online platforms that offer easy access, research tools, and often lower fees.',
+        bullets: [
+          'Open an account with a UK-regulated investment platform',
+          'Consider using a Stocks and Shares ISA for tax-free investing (up to £20,000 per year)',
+          'Compare platform fees: trading fees, annual charges, and foreign exchange fees',
+          'Start with index funds or ETFs for instant diversification',
+          'Consider fractional shares if you want to invest small amounts'
+        ]
+      },
+      {
+        title: 'Step-by-step: Buying your first stock',
+        body: 'If you want to buy individual stocks, here\'s a simple process. However, most beginners should start with diversified funds.',
+        bullets: [
+          'Research the company: understand what it does, its financial health, and growth prospects',
+          'Check the stock price and valuation metrics (P/E ratio, etc.)',
+          'Decide how much to invest (never invest more than you can afford to lose)',
+          'Place an order through your platform (market order or limit order)',
+          'Monitor your investment, but avoid checking daily—focus on long-term performance',
+          'Consider setting up automatic investments to build discipline'
+        ]
+      },
+      {
+        title: 'Risks and how to manage them',
+        body: 'Stock investing carries risks. Understanding and managing these risks is crucial for long-term success.',
+        bullets: [
+          'Company-specific risk: A single company can fail. Solution: Diversify across many stocks',
+          'Market risk: Entire markets can decline. Solution: Invest for the long term (5+ years)',
+          'Volatility risk: Prices swing daily. Solution: Ignore short-term noise, focus on decades',
+          'Emotional risk: Fear and greed lead to poor decisions. Solution: Stick to a plan, avoid panic selling',
+          'Inflation risk: Returns may not beat inflation. Solution: Choose quality companies with growth potential'
+        ]
+      },
+      {
+        title: 'Tax considerations (UK)',
+        body: 'Understanding UK tax rules helps you keep more of your returns. ISAs and pensions offer tax advantages.',
+        bullets: [
+          'Stocks and Shares ISA: Up to £20,000 per year, all gains and dividends are tax-free',
+          'Capital Gains Tax: Applies if you sell outside an ISA and profits exceed the annual allowance (£6,000 in 2023/24)',
+          'Dividend tax: First £1,000 of dividends are tax-free, then taxed at your income tax rate',
+          'Pension contributions: Get tax relief, but money is locked until age 55+',
+          'Always check current tax rules as they change regularly'
+        ]
+      },
+      {
+        title: 'Common mistakes to avoid',
+        body: 'Many beginners make these mistakes. Learning from them can save you money and stress.',
+        bullets: [
+          'Overtrading: Buying and selling too frequently increases fees and taxes',
+          'Chasing hot stocks: What\'s popular today may not be tomorrow',
+          'Not diversifying: Putting all money in one stock is risky',
+          'Panic selling: Selling during market downturns locks in losses',
+          'Ignoring fees: High fees eat into returns over time',
+          'Trying to time the market: Even professionals struggle with this'
+        ]
+      },
+      {
+        title: 'Who should invest in stocks?',
+        body: 'Stocks suit investors with a long time horizon (5+ years) who can tolerate volatility. They\'re less suitable for money needed soon or for risk-averse investors.'
+      },
+      {
+        title: 'Where to go for more information',
+        body: 'Use trusted, regulated sources. The FCA (Financial Conduct Authority) website has investor guides. Many platforms offer educational content. Avoid get-rich-quick schemes and unregulated "gurus".'
+      }
+    ],
     platforms: [
       { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk' },
       { name: 'AJ Bell Youinvest', url: 'https://www.youinvest.co.uk' },
-      { name: 'Interactive Investor', url: 'https://www.ii.co.uk' }
+      { name: 'Interactive Investor', url: 'https://www.ii.co.uk' },
+      { name: 'Vanguard Investor', url: 'https://www.vanguardinvestor.co.uk' },
+      { name: 'Fidelity', url: 'https://www.fidelity.co.uk' },
+      { name: 'Trading 212', url: 'https://www.trading212.com' }
     ],
     categories: [
       {
@@ -211,6 +316,127 @@ export const assetClasses: AssetClass[] = [
     beginnerSteps: ['Compare fees and strategies', 'Start with broad market funds', 'Review fund objectives'],
     goodFor: ['Hands-off diversification', 'Beginner-friendly investing'],
     watchOuts: ['High fees', 'Style drift'],
+    sections: [
+      {
+        title: 'What are mutual funds?',
+        body: 'Mutual funds pool money from many investors to buy a diversified portfolio of stocks, bonds, or other assets. A professional fund manager makes investment decisions based on the fund\'s stated objectives. You buy units in the fund, and the value of your units rises or falls with the fund\'s performance.'
+      },
+      {
+        title: 'Why invest in mutual funds?',
+        body: 'Funds offer instant diversification, professional management, and convenience. Instead of buying dozens of individual stocks, you can invest in one fund that holds many investments.',
+        bullets: [
+          'Instant diversification across many investments',
+          'Professional management (though this comes with fees)',
+          'Access to investments you might not be able to buy individually',
+          'Convenience: one purchase gives you exposure to many assets',
+          'Suitable for beginners who want hands-off investing'
+        ]
+      },
+      {
+        title: 'Types of mutual funds',
+        body: 'Funds come in many varieties, each with different strategies, risks, and costs.',
+        bullets: [
+          'Equity funds: Invest primarily in stocks (can focus on regions, sectors, or styles)',
+          'Bond funds: Invest in government and corporate bonds',
+          'Balanced funds: Mix of stocks and bonds',
+          'Index funds: Track a market index (usually lower fees)',
+          'Active funds: Managers try to beat the market (usually higher fees)',
+          'Sector funds: Focus on specific industries like technology or healthcare',
+          'International funds: Invest in companies outside the UK'
+        ]
+      },
+      {
+        title: 'Understanding fund fees',
+        body: 'Fees matter significantly over time. A 1% annual fee can reduce your returns by thousands over decades. Always check the Ongoing Charges Figure (OCF) or Total Expense Ratio (TER).',
+        bullets: [
+          'Ongoing Charges Figure (OCF): Annual fee covering management and administration',
+          'Entry/exit fees: Some funds charge when you buy or sell',
+          'Performance fees: Some active funds charge extra if they beat targets',
+          'Platform fees: Your investment platform may charge separately',
+          'Compare funds with similar strategies—lower fees often mean better long-term returns'
+        ]
+      },
+      {
+        title: 'How to choose a fund',
+        body: 'Selecting the right fund depends on your goals, risk tolerance, and time horizon. Here\'s a systematic approach.',
+        bullets: [
+          'Define your goal: What are you investing for? Retirement? House deposit?',
+          'Assess your risk tolerance: Can you handle volatility?',
+          'Check the fund\'s objective: Does it match your goals?',
+          'Review past performance: But remember, past performance doesn\'t guarantee future results',
+          'Compare fees: Lower is usually better, especially for similar strategies',
+          'Check the fund manager\'s track record (for active funds)',
+          'Read the fund factsheet: Understand what the fund invests in'
+        ]
+      },
+      {
+        title: 'Step-by-step: Investing in a fund',
+        body: 'Getting started with funds is straightforward, especially through UK investment platforms.',
+        bullets: [
+          'Open an account with a UK-regulated investment platform',
+          'Consider using a Stocks and Shares ISA for tax-free investing',
+          'Research funds that match your goals and risk tolerance',
+          'Compare fees and performance (but don\'t rely solely on past performance)',
+          'Decide how much to invest (many platforms allow small regular investments)',
+          'Set up automatic monthly investments to build discipline',
+          'Review your funds annually, but avoid constant switching'
+        ]
+      },
+      {
+        title: 'Active vs passive funds',
+        body: 'Active funds have managers who try to beat the market. Passive funds (index funds) simply track a market index. Most evidence suggests passive funds often outperform active funds after fees.',
+        bullets: [
+          'Active funds: Higher fees, managers make investment decisions, aim to beat the market',
+          'Passive funds: Lower fees, track an index automatically, aim to match the market',
+          'For most investors, low-cost passive funds are a better choice',
+          'Active funds can make sense if you find a skilled manager with reasonable fees',
+          'Many investors use passive funds as the core of their portfolio'
+        ]
+      },
+      {
+        title: 'Risks and considerations',
+        body: 'While funds offer diversification, they still carry risks. Understanding these helps you invest wisely.',
+        bullets: [
+          'Market risk: Funds can still lose value if markets decline',
+          'Manager risk: Active fund managers can underperform',
+          'Fees: High fees significantly reduce returns over time',
+          'Style drift: Some funds change strategy over time',
+          'Liquidity: Most funds can be sold quickly, but some specialized funds may have restrictions',
+          'Currency risk: International funds are affected by exchange rates'
+        ]
+      },
+      {
+        title: 'Tax considerations (UK)',
+        body: 'Fund investing has tax implications. Using tax-advantaged accounts can help you keep more of your returns.',
+        bullets: [
+          'Stocks and Shares ISA: Up to £20,000 per year, all gains are tax-free',
+          'Dividend tax: Applies outside ISAs after the £1,000 annual dividend allowance',
+          'Capital Gains Tax: Applies if you sell outside an ISA and profits exceed the annual allowance',
+          'Pension funds: Get tax relief on contributions, but money is locked until age 55+',
+          'Always check current tax rules as they change regularly'
+        ]
+      },
+      {
+        title: 'Common mistakes to avoid',
+        body: 'Avoid these common pitfalls when investing in funds.',
+        bullets: [
+          'Chasing past performance: Top performers often revert to average',
+          'Ignoring fees: Small percentage differences compound over decades',
+          'Over-diversifying: Too many similar funds doesn\'t help',
+          'Switching funds too often: This increases costs and taxes',
+          'Not reading fund documents: Understand what you\'re investing in',
+          'Paying for active management when passive would work'
+        ]
+      },
+      {
+        title: 'Who should invest in mutual funds?',
+        body: 'Funds suit investors who want diversification without picking individual stocks. They\'re especially good for beginners and those who prefer hands-off investing.'
+      },
+      {
+        title: 'Where to go for more information',
+        body: 'Use trusted sources. The FCA website, fund factsheets, and reputable investment platforms offer educational content. Avoid unregulated advice and get-rich-quick schemes.'
+      }
+    ],
     platforms: [
       { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk' },
       { name: 'AJ Bell Youinvest', url: 'https://www.youinvest.co.uk' },
@@ -269,6 +495,142 @@ export const assetClasses: AssetClass[] = [
     beginnerSteps: ['Start with broad market ETFs', 'Check expense ratios', 'Avoid overly complex products'],
     goodFor: ['Passive investing', 'Low-cost diversification'],
     watchOuts: ['Overly narrow or leveraged ETFs'],
+    sections: [
+      {
+        title: 'What are ETFs?',
+        body: 'ETFs (Exchange Traded Funds) are investment funds that trade on stock exchanges like individual stocks. They hold a basket of assets (stocks, bonds, commodities) and aim to track an index or follow a specific strategy. You can buy and sell ETF shares throughout the trading day at market prices.'
+      },
+      {
+        title: 'Why invest in ETFs?',
+        body: 'ETFs combine the diversification of mutual funds with the flexibility of stocks. They\'re often low-cost, transparent, and easy to trade.',
+        bullets: [
+          'Low costs: Many ETFs have expense ratios under 0.5%',
+          'Diversification: One ETF can hold hundreds of investments',
+          'Transparency: Holdings are usually disclosed daily',
+          'Flexibility: Trade throughout the day like stocks',
+          'Tax efficiency: Often more tax-efficient than mutual funds',
+          'Access: Easy to buy through most investment platforms'
+        ]
+      },
+      {
+        title: 'How ETFs work',
+        body: 'ETFs are created by financial institutions that buy the underlying assets and issue ETF shares. The price should track the value of the underlying assets, though it can deviate slightly during trading hours.',
+        bullets: [
+          'Creation/redemption process: Large institutions can create or redeem ETF shares',
+          'Market price vs NAV: ETF price may differ slightly from net asset value',
+          'Bid-ask spread: The difference between buying and selling prices',
+          'Trading: Buy and sell like stocks through your investment platform',
+          'Dividends: Many ETFs pay dividends from underlying holdings'
+        ]
+      },
+      {
+        title: 'Types of ETFs',
+        body: 'ETFs cover virtually every asset class and investment strategy. Understanding the types helps you choose wisely.',
+        bullets: [
+          'Equity ETFs: Track stock indices (FTSE 100, S&P 500, etc.)',
+          'Bond ETFs: Provide exposure to government and corporate bonds',
+          'Commodity ETFs: Track gold, oil, agricultural products',
+          'Sector ETFs: Focus on specific industries (technology, healthcare)',
+          'International ETFs: Provide exposure to global markets',
+          'Thematic ETFs: Focus on trends (renewable energy, AI, etc.)',
+          'Leveraged/inverse ETFs: Use derivatives (high risk, avoid unless you understand them)'
+        ]
+      },
+      {
+        title: 'ETFs vs mutual funds',
+        body: 'ETFs and mutual funds are similar but have key differences. ETFs often have lower costs and more flexibility.',
+        bullets: [
+          'Trading: ETFs trade throughout the day; mutual funds price once daily',
+          'Costs: ETFs often have lower expense ratios',
+          'Minimum investment: ETFs can be bought for the price of one share; mutual funds may have minimums',
+          'Tax efficiency: ETFs are often more tax-efficient due to structure',
+          'Transparency: ETFs usually disclose holdings daily; mutual funds monthly/quarterly',
+          'Both offer diversification and professional management'
+        ]
+      },
+      {
+        title: 'How to choose an ETF',
+        body: 'Selecting the right ETF involves understanding what it tracks, its costs, and whether it fits your goals.',
+        bullets: [
+          'Check what index or strategy it tracks: Does it match your goals?',
+          'Compare expense ratios: Lower is usually better for similar strategies',
+          'Check tracking error: How closely does it follow its index?',
+          'Review assets under management: Very small ETFs may have liquidity issues',
+          'Understand the underlying holdings: Read the ETF factsheet',
+          'Check dividend policy: Does it pay dividends? How often?',
+          'Consider currency hedging: International ETFs may or may not hedge currency risk'
+        ]
+      },
+      {
+        title: 'Step-by-step: Buying an ETF',
+        body: 'Buying ETFs is straightforward through UK investment platforms.',
+        bullets: [
+          'Open an account with a UK-regulated investment platform',
+          'Consider using a Stocks and Shares ISA for tax-free investing',
+          'Research ETFs that match your investment goals',
+          'Compare costs: expense ratio, trading fees, platform fees',
+          'Decide how many shares to buy (you can buy fractional shares on some platforms)',
+          'Place a market order or limit order through your platform',
+          'Set up automatic investments if your platform supports it',
+          'Monitor your investment, but focus on long-term performance'
+        ]
+      },
+      {
+        title: 'Understanding ETF costs',
+        body: 'ETF costs include the expense ratio, trading fees, and platform fees. Understanding all costs helps you make better decisions.',
+        bullets: [
+          'Expense ratio: Annual fee (shown as a percentage) deducted from the fund',
+          'Trading fees: Commission charged by your platform (many platforms offer free ETF trading)',
+          'Bid-ask spread: Difference between buying and selling prices (usually small for popular ETFs)',
+          'Platform fees: Annual charges from your investment platform',
+          'Foreign exchange fees: May apply to international ETFs',
+          'Total cost: Add all fees to understand your true cost'
+        ]
+      },
+      {
+        title: 'Risks and considerations',
+        body: 'ETFs carry market risk and other considerations. Understanding these helps you invest appropriately.',
+        bullets: [
+          'Market risk: ETF values can decline if underlying assets fall',
+          'Tracking error: ETF may not perfectly match its index',
+          'Liquidity risk: Some niche ETFs may be harder to sell',
+          'Currency risk: International ETFs are affected by exchange rates',
+          'Concentration risk: Sector or thematic ETFs may be less diversified',
+          'Leveraged ETFs: Use derivatives and are very risky—avoid unless you fully understand them'
+        ]
+      },
+      {
+        title: 'Tax considerations (UK)',
+        body: 'ETFs have tax implications. Using tax-advantaged accounts maximizes your returns.',
+        bullets: [
+          'Stocks and Shares ISA: Up to £20,000 per year, all gains are tax-free',
+          'Dividend tax: Applies outside ISAs after the £1,000 annual dividend allowance',
+          'Capital Gains Tax: Applies if you sell outside an ISA and profits exceed the annual allowance',
+          'Withholding tax: Some international ETFs may have foreign tax implications',
+          'Always check current tax rules as they change regularly'
+        ]
+      },
+      {
+        title: 'Common mistakes to avoid',
+        body: 'Avoid these pitfalls when investing in ETFs.',
+        bullets: [
+          'Chasing performance: Past returns don\'t guarantee future results',
+          'Over-complicating: Simple broad-market ETFs often work best',
+          'Ignoring costs: Small fee differences compound over time',
+          'Trading too frequently: Increases costs and taxes',
+          'Using leveraged ETFs: These are complex and risky',
+          'Not understanding what you\'re buying: Read the ETF factsheet'
+        ]
+      },
+      {
+        title: 'Who should invest in ETFs?',
+        body: 'ETFs suit investors who want low-cost, diversified exposure to markets. They\'re especially good for passive investors and those building long-term portfolios.'
+      },
+      {
+        title: 'Where to go for more information',
+        body: 'Use trusted sources. ETF providers\' websites, the FCA website, and reputable investment platforms offer educational content. Avoid unregulated advice.'
+      }
+    ],
     platforms: [
       { name: 'Vanguard', url: 'https://www.vanguard.com' },
       { name: 'iShares', url: 'https://www.ishares.com' },

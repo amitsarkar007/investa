@@ -1,12 +1,16 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `hover:text-blue-700 ${isActive ? 'text-blue-700' : 'text-slate-700'}`
 
+const assetClassRoutes = ['/bonds', '/stocks', '/funds', '/etf', '/realestate', '/commodities', '/crypto', '/p2plending', '/collectibles', '/pension', '/isa']
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [showAssets, setShowAssets] = useState(false)
+  const location = useLocation()
+  const isAssetClassPage = assetClassRoutes.includes(location.pathname)
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
@@ -21,24 +25,31 @@ export default function Navbar() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold" aria-label="Primary">
-            <NavLink to="/" className={navLinkClass}>
+            <NavLink to="/" end className={navLinkClass}>
               Home
             </NavLink>
-            <NavLink to="/bonds" className={navLinkClass}>
-              Bonds
-            </NavLink>
             <NavLink to="/learning" className={navLinkClass}>
-              Learning Paths
+              Guides
+            </NavLink>
+            <NavLink to="/tools" className={navLinkClass}>
+              Tools
+            </NavLink>
+            <NavLink to="/definitions" className={navLinkClass}>
+              Definitions
             </NavLink>
             <NavLink to="/faq" className={navLinkClass}>
               FAQs
             </NavLink>
             <div className="relative">
               <button
-                className="inline-flex items-center gap-1 text-slate-700 hover:text-blue-700"
+                className={`inline-flex items-center gap-1 hover:text-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none rounded ${isAssetClassPage ? 'text-blue-700' : 'text-slate-700'}`}
                 onClick={() => setShowAssets((prev) => !prev)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') setShowAssets(false)
+                }}
                 aria-expanded={showAssets}
                 aria-controls="assetMenu"
+                aria-label="Toggle asset classes menu"
                 type="button"
               >
                 Asset Classes
@@ -72,7 +83,7 @@ export default function Navbar() {
                     <NavLink
                       key={path}
                       to={path}
-                      className="block px-4 py-3 text-slate-700 hover:bg-slate-50"
+                      className={({ isActive }) => `block px-4 py-3 ${isActive ? 'bg-blue-50 text-blue-700 font-semibold' : 'text-slate-700 hover:bg-slate-50'}`}
                       role="menuitem"
                       onClick={() => setShowAssets(false)}
                     >
@@ -92,7 +103,7 @@ export default function Navbar() {
               className="inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700"
               to="/start"
             >
-              Start Learning
+              Get Started
             </Link>
           </div>
 
@@ -114,14 +125,17 @@ export default function Navbar() {
       {isOpen && (
         <div className="lg:hidden bg-white border-t border-slate-200" id="mobile-nav">
           <div className="px-4 py-4 space-y-3 text-slate-700 font-semibold">
-            <NavLink to="/" className="block" onClick={() => setIsOpen(false)}>
+            <NavLink to="/" end className="block" onClick={() => setIsOpen(false)}>
               Home
             </NavLink>
-            <NavLink to="/bonds" className="block" onClick={() => setIsOpen(false)}>
-              Bonds
-            </NavLink>
             <NavLink to="/learning" className="block" onClick={() => setIsOpen(false)}>
-              Learning Paths
+              Guides
+            </NavLink>
+            <NavLink to="/tools" className="block" onClick={() => setIsOpen(false)}>
+              Tools
+            </NavLink>
+            <NavLink to="/definitions" className="block" onClick={() => setIsOpen(false)}>
+              Definitions
             </NavLink>
             <NavLink to="/faq" className="block" onClick={() => setIsOpen(false)}>
               FAQs
@@ -143,7 +157,12 @@ export default function Navbar() {
               ['Pension Funds', '/pension'],
               ['ISAs', '/isa']
             ].map(([label, path]) => (
-              <NavLink key={path} to={path} className="block" onClick={() => setIsOpen(false)}>
+              <NavLink 
+                key={path} 
+                to={path} 
+                className={({ isActive }) => `block ${isActive ? 'text-blue-700 font-semibold' : ''}`}
+                onClick={() => setIsOpen(false)}
+              >
                 {label}
               </NavLink>
             ))}
@@ -152,7 +171,7 @@ export default function Navbar() {
               to="/start"
               onClick={() => setIsOpen(false)}
             >
-              Start Learning
+              Get Started
             </Link>
           </div>
         </div>
