@@ -1,7 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false)
+  const [searchParams] = useSearchParams()
+  const [submitted, setSubmitted] = useState(searchParams.get('submitted') === 'true')
+
+  useEffect(() => {
+    if (searchParams.get('submitted') === 'true') {
+      setSubmitted(true)
+      // Clean up URL
+      window.history.replaceState({}, '', '/contact')
+    }
+  }, [searchParams])
 
   return (
     <main id="main" className="px-6 py-16">
@@ -24,7 +34,7 @@ export default function Contact() {
             >
               <input type="hidden" name="_subject" value="New Contact Form Submission from Investa" />
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value={window.location.origin + '/contact?submitted=true'} />
+              <input type="hidden" name="_next" value="https://investa-amit.netlify.app/contact?submitted=true" />
               
               <div>
                 <label className="block mb-2 text-sm font-medium text-slate-700" htmlFor="name">
