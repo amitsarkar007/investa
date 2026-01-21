@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom'
+import { assetClasses } from '../data/assetClasses'
+
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-200">
@@ -11,48 +14,38 @@ export default function Footer() {
           </div>
           <div className="text-sm space-y-2">
             <div className="text-white font-semibold">Learn</div>
-            <a className="block hover:text-white" href="/start">
+            <Link className="block hover:text-white" to="/start">
               Start Here
-            </a>
-            <a className="block hover:text-white" href="/learning">
+            </Link>
+            <Link className="block hover:text-white" to="/learning">
               Guides
-            </a>
-            <a className="block hover:text-white" href="/faq">
+            </Link>
+            <Link className="block hover:text-white" to="/faq">
               FAQs
-            </a>
-            <a className="block hover:text-white" href="/definitions">
+            </Link>
+            <Link className="block hover:text-white" to="/definitions">
               Definitions
-            </a>
+            </Link>
           </div>
           <div className="text-sm space-y-2">
             <div className="text-white font-semibold">Asset Classes</div>
-            <a className="block hover:text-white" href="/bonds">
-              Bonds
-            </a>
-            <a className="block hover:text-white" href="/stocks">
-              Stocks
-            </a>
-            <a className="block hover:text-white" href="/funds">
-              Mutual Funds
-            </a>
-            <a className="block hover:text-white" href="/etf">
-              ETFs
-            </a>
-            <a className="block hover:text-white" href="/realestate">
-              Real Estate
-            </a>
+            {assetClasses.map((asset) => (
+              <Link key={asset.id} className="block hover:text-white" to={`/${asset.id}`}>
+                {asset.name}
+              </Link>
+            ))}
           </div>
           <div className="text-sm space-y-2">
             <div className="text-white font-semibold">Trust & Support</div>
-            <a className="block hover:text-white" href="/about">
+            <Link className="block hover:text-white" to="/about">
               About
-            </a>
-            <a className="block hover:text-white" href="/contact">
+            </Link>
+            <Link className="block hover:text-white" to="/contact">
               Contact
-            </a>
-            <a className="block hover:text-white" href="/ethics">
+            </Link>
+            <Link className="block hover:text-white" to="/ethics">
               Ethics & Warnings
-            </a>
+            </Link>
           </div>
         </div>
         <div className="mt-10 border-t border-slate-700 pt-6 text-sm text-slate-400 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
