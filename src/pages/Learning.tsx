@@ -89,25 +89,6 @@ export default function Learning() {
           </section>
         ))}
 
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-100">
-          <h2 className="text-2xl font-semibold mb-4">All Asset Classes</h2>
-          <p className="text-slate-700 mb-6">
-            Explore comprehensive guides on every major investment type available in the UK.
-          </p>
-          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {assetClasses.map((asset) => (
-              <Link
-                key={asset.id}
-                to={`/${asset.id}`}
-                className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-medium hover:underline"
-              >
-                <span aria-hidden="true">→</span>
-                {asset.name}
-              </Link>
-            ))}
-          </div>
-        </div>
-
         <div className="grid gap-6 md:grid-cols-2">
           <div className="bg-white rounded-3xl shadow-lg p-8 border border-slate-100">
             <h2 className="text-2xl font-semibold mb-4">How to Use These Guides</h2>
