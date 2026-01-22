@@ -19,11 +19,12 @@ export default function Navbar() {
       </a>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link className="flex items-center gap-2" to="/" aria-label="Investa Home">
+          <Link className="flex items-center gap-2 overflow-hidden" to="/" aria-label="Investa Home">
             <img 
               src="/assets/images/Investa.png" 
               alt="Investa" 
-              className="h-10 w-auto"
+              className="h-16 w-auto object-contain object-left"
+              style={{ transform: 'scale(1.5)', transformOrigin: 'left center' }}
             />
           </Link>
 
