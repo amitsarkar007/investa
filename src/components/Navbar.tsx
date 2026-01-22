@@ -19,9 +19,12 @@ export default function Navbar() {
       </a>
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link className="flex items-center gap-2 text-slate-900 font-extrabold text-xl" to="/">
-            <span className="inline-flex items-center justify-center h-9 w-9 rounded-xl bg-blue-600 text-white text-sm">IV</span>
-            Investa
+          <Link className="flex items-center gap-2" to="/" aria-label="Investa Home">
+            <img 
+              src="/assets/images/Investa.png" 
+              alt="Investa" 
+              className="h-10 w-auto"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold" aria-label="Primary">
