@@ -7,7 +7,13 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="text-white font-extrabold text-xl mb-2">Investa</div>
+            <div className="mb-3">
+              <img 
+                src="/assets/images/Investa.png" 
+                alt="Investa" 
+                className="h-12 w-auto"
+              />
+            </div>
             <p className="text-sm text-slate-300">
               Free, comprehensive UK investment education covering all asset classes. All information is available on-site—no courses or programs required.
             </p>
