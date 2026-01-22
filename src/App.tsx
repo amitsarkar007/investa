@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToTopButton from './components/ScrollToTop'
 import Home from './pages/Home'
 import AssetClassPage from './pages/AssetClassPage'
 import Learning from './pages/Learning'
@@ -67,6 +68,7 @@ export default function App() {
           </Routes>
         </div>
         <Footer />
+        <ScrollToTopButton />
       </div>
     </BrowserRouter>
   )
