@@ -11,7 +11,7 @@ export default function Footer() {
               <img 
                 src="/assets/images/Investa.png" 
                 alt="Investa" 
-                className="h-12 w-auto"
+                className="h-20 w-auto"
               />
             </div>
             <p className="text-sm text-slate-300">
