@@ -22,72 +22,66 @@ export type AssetClass = {
 export const assetClasses: AssetClass[] = [
   {
     id: 'bonds',
+
     name: 'Bonds',
-    tagline: 'The calm foundation of many long-term portfolios.',
+    tagline: 'Lend your money, get paid interest. The steady one in the family.',
     overview:
-      'Bonds are loans you make to governments or companies. In return, they pay interest and return your original amount at maturity.',
+      'A bond is an IOU. You lend money to a government or a company. They pay you interest while they have it. At the end, they hand your money back.',
     whyItMatters:
-      'Bonds can add stability and income, especially when markets are volatile. They help balance riskier assets like stocks.',
+      'Bonds are the calm part of a money pot. When shares jump up and down, bonds usually move less. They also pay a steady income, which is why people near retirement like them.',
     howItWorks:
-      'Bond prices move based on interest rates and the issuer’s credit quality. You can hold a bond to maturity or trade it along the way.',
+      'Think of lending a friend £20. A reliable friend pays you back with a thank-you on top. A flaky friend might not pay at all. Bonds work the same way. Safe borrowers, like the UK government, pay less interest. Risky companies have to pay more to tempt you.',
     keyIdeas: [
-      'Government bonds are usually more stable than corporate bonds.',
-      'Bond prices move opposite to interest rates.',
-      'Inflation-linked bonds help protect purchasing power.'
+      'A bond is a loan, not a share. You are the bank.',
+      'When interest rates rise, old bond prices fall. It works like a seesaw.',
+      'UK government bonds are called gilts. They are about as safe as lending gets.'
     ],
     risks: [
-      'Interest rate risk when rates rise.',
-      'Credit risk if the issuer struggles.',
-      'Inflation risk for fixed payments.'
+      'Rate risk: if interest rates rise, your bond is worth less if you sell early.',
+      'Default risk: a weak company might not pay you back.',
+      'Inflation risk: if prices rise faster than your interest, your money buys less.'
     ],
     beginnerSteps: [
-      'Start by learning government vs corporate bonds.',
-      'Consider bond funds for diversification.',
-      'Match bond duration to your time horizon.'
+      'Learn two words: gilt (a UK government bond) and yield (the interest you earn).',
+      'Most beginners buy a bond fund: one pot holding hundreds of bonds.',
+      'Hold bonds inside an Individual Savings Account (ISA) so the interest is tax-free.'
     ],
-    goodFor: ['Stability', 'Income-focused goals', 'Balancing a stock-heavy portfolio'],
-    watchOuts: ['Chasing yield without understanding risk', 'Ignoring inflation effects'],
+    goodFor: ['Steady income', 'Calming a share-heavy pot', 'Money you need in 5 to 10 years'],
+    watchOuts: ['Chasing high interest from shaky borrowers', 'Panic-selling when rates rise', 'Thinking bonds can never lose money - they can'],
     sections: [
       {
+        title: 'What are bonds?',
+        body: 'A bond is a written promise. It says: you lent us £100, we will pay you interest every year, and on a set date we will give you your £100 back. Governments and big companies sell bonds to raise money, the way you might borrow from family to fix the roof.'
+      },
+      {
         title: 'What are gilts?',
-        body: 'Gilts are UK government bonds. When you buy one, you are lending money to the government in exchange for interest payments.'
+        body: 'Gilts are bonds from the UK government. The name comes from old paper certificates with gold (gilt) edges. The UK government has never missed a payment on its own £ GBP debt, so gilts are treated as one of the safest loans in the world. Safe means lower interest: you swap excitement for sleep.'
       },
       {
-        title: 'Why are they interesting right now?',
-        body: 'Rising interest rates can make new gilt yields more attractive, but prices of older bonds may fall. Focus on your time horizon and income needs.'
-      },
-      {
-        title: 'Tax advantages (UK)',
-        body: 'Some UK government bonds can offer tax advantages depending on your account type. Always check current rules and use ISAs or pensions where possible.'
-      },
-      {
-        title: 'Where can you buy them?',
-        body: 'You can buy gilts through brokers, investment platforms, or via bond funds.'
-      },
-      {
-        title: 'How can you buy them?',
-        body: 'You can buy individual gilts or bond funds/ETFs. Funds can offer instant diversification and simpler access.'
-      },
-      {
-        title: 'Step-by-step guide',
-        body: 'Know what you are buying. Focus on maturity date, yield, and how prices move when interest rates change.',
+        title: 'How do you make money?',
         bullets: [
-          'Understand cash flows: interest payments plus principal at maturity.',
-          'Learn terms like clean price vs dirty price.',
-          'Decide whether you want income now or stability over time.'
-        ]
+          'Interest: the borrower pays you a fixed amount, usually once or twice a year. This payment is called the coupon.',
+          'Selling early: if interest rates fall after you buy, your bond becomes more attractive and you can sell it for more than you paid.',
+          'Or both together.'
+        ],
+        body: 'There are two ways bonds pay you.'
       },
       {
-        title: 'Who should consider them?',
-        body: 'People who want stability, predictable income, or a lower-risk anchor in a diversified portfolio.'
+        title: 'What can go wrong?',
+        bullets: [
+          'Interest rates rise. New bonds pay more, so nobody wants your old one at full price.',
+          'The borrower goes bust. Rare for the UK government, real for weak companies. This is called default.',
+          'Inflation runs hot. If prices rise 5% and your bond pays 3%, you are going backwards in buying power.'
+        ],
+        body: 'Bonds feel safe, but three things can still bite.'
       },
       {
-        title: 'Who should not consider them?',
-        body: 'Anyone needing very high growth or who cannot tolerate interest-rate driven price changes.'
+        title: 'Bonds and tax (UK)',
+        body: 'Gilts have a handy tax quirk. You pay income tax on the interest, but no Capital Gains Tax (CGT) when you sell a gilt or it pays out at the end. Inside an ISA or a pension, even the interest is tax-free. Rules are set by HM Revenue and Customs (HMRC) and can change.'
       },
       {
-        title: 'Where to go for more information',
-        body: 'Use trusted, regulated sources and official government resources when learning about gilts.'
+        title: 'How do you buy bonds?',
+        body: 'One single gilt is fiddly for most people. The simple route is a bond fund through a normal investment platform: one buy spreads your money across hundreds of bonds. The platforms below are regulated by the Financial Conduct Authority (FCA), the UK’s money referee, and we have checked each firm’s FCA registration number.'
       }
     ],
     platforms: [
@@ -133,119 +127,71 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'stocks',
+
     name: 'Stocks',
-    tagline: 'Ownership in companies with long-term growth potential.',
+    tagline: 'Own a tiny slice of a real business.',
     overview:
-      'Stocks represent a share of a company. When the company grows, the value of your share can increase.',
+      'A stock (also called a share) is a small piece of a company. Buy one share of Tesco and you own a tiny bit of Tesco. If the business does well, your slice becomes worth more. Many companies also share their profits with owners. Those payments are called dividends.',
     whyItMatters:
-      'Stocks historically offer higher long-term returns than cash or bonds, but they can be volatile.',
+      'Shares have beaten cash and bonds over long periods. Broad share funds in the UK and US have returned roughly 5-7% a year after inflation over long stretches. That growth is lumpy: some years are strongly negative.',
     howItWorks:
-      'Prices move based on earnings, expectations, and sentiment. Long-term investors focus on business quality and time.',
-    keyIdeas: ['Ownership, not lottery tickets', 'Diversify across sectors', 'Time smooths volatility'],
-    risks: ['Short-term price swings', 'Company-specific risk', 'Emotional decision-making'],
-    beginnerSteps: ['Learn what a share represents', 'Use broad index funds to diversify', 'Invest regularly'],
-    goodFor: ['Long-term growth', 'Building wealth over decades'],
-    watchOuts: ['Overtrading', 'Chasing hype'],
+      'Imagine a pizza cut into a million slices. Buying a share is buying one slice. If the pizza place gets popular, everyone wants a slice, so yours costs more. If the place burns down, slices are worthless. Share prices move every day because millions of people keep changing their minds about the future.',
+    keyIdeas: [
+      'A share is part-ownership of a business, not a lottery ticket.',
+      'Price is what you pay. Value is what the company actually earns.',
+      'Time in the market beats timing the market: missing just a few of the best days badly hurts long-term returns.'
+    ],
+    risks: [
+      'Prices swing. A bad year can mean minus 20% or worse.',
+      'One company can fail completely. Owning many protects you.',
+      'Your own behaviour is the biggest risk: panic-selling turns a dip into a real loss.'
+    ],
+    beginnerSteps: [
+      'Start with a fund holding hundreds of companies, not a single company.',
+      'Use a Stocks and Shares Individual Savings Account (ISA): up to £20,000 a year, and all growth and dividends inside are tax-free.',
+      'Invest monthly. Small regular amounts beat big one-off guesses.'
+    ],
+    goodFor: ['Long-term growth (5+ years)', 'Beating inflation', 'Building wealth slowly and steadily'],
+    watchOuts: ['Checking prices every day', 'Buying whatever is popular this month', 'Thinking a fall means you must sell'],
     sections: [
       {
         title: 'What are stocks?',
-        body: 'Stocks (also called shares or equities) represent ownership in a company. When you buy a stock, you own a small piece of that company. If the company does well, your share can increase in value. You may also receive dividends—regular payments from the company\'s profits.'
+        body: 'When a company wants money to grow, it can sell small pieces of itself to the public. Each piece is a share. Together all the shares are the company’s stock. After the first sale, shares trade between investors on a stock exchange, like second-hand tickets changing hands.'
       },
       {
-        title: 'Why invest in stocks?',
-        body: 'Historically, stocks have provided higher long-term returns than cash or bonds. Over decades, well-diversified stock portfolios have typically grown faster than inflation, helping build real wealth. However, this comes with higher short-term volatility.',
+        title: 'How do you make money?',
         bullets: [
-          'Potential for higher returns over long periods (typically 5-7% annually after inflation)',
-          'Ownership in growing businesses',
-          'Dividend income from profitable companies',
-          'Liquidity—you can usually sell quickly if needed'
-        ]
+          'Growth: you sell your shares for more than you paid.',
+          'Dividends: some companies pay owners a slice of profits, usually every few months.',
+          'Both: over decades, reinvested dividends have made up a big chunk of total returns.'
+        ],
+        body: 'Shares pay you in two ways.'
       },
       {
-        title: 'How do stock prices work?',
-        body: 'Stock prices change constantly based on supply and demand. Factors include company earnings, economic conditions, investor sentiment, and news. Prices can swing daily, but long-term investors focus on business fundamentals rather than daily movements.',
+        title: 'What can go wrong?',
         bullets: [
-          'Prices reflect what buyers are willing to pay and sellers are willing to accept',
-          'Earnings reports, news, and economic data can cause price movements',
-          'Market sentiment and emotions can drive short-term volatility',
-          'Long-term value is driven by company performance and growth'
-        ]
+          'The whole market falls. Even great companies get dragged down for a while.',
+          'Your company stumbles. Profits shrink, the price follows.',
+          'You sell at the bottom. The loss only becomes real when you sell in fear.'
+        ],
+        body: 'Shares reward patience and punish panic.'
       },
       {
-        title: 'Types of stocks',
-        body: 'Stocks can be categorized in many ways. Understanding these categories helps you build a diversified portfolio.',
+        title: 'How do you buy shares in the UK?',
         bullets: [
-          'By size: Large-cap (established companies), mid-cap, small-cap (smaller, potentially faster-growing)',
-          'By style: Growth stocks (focus on expansion) vs value stocks (priced below perceived worth)',
-          'By sector: Technology, healthcare, finance, consumer goods, energy, etc.',
-          'By geography: UK stocks, international stocks, emerging markets',
-          'By dividend policy: Dividend-paying vs growth companies that reinvest profits'
-        ]
+          'Open an account with a platform regulated by the Financial Conduct Authority (FCA), the UK’s money referee.',
+          'Pick a Stocks and Shares ISA first. It is a tax-free wrapper, not an investment itself.',
+          'Then buy: a broad fund for most people, individual shares only if you have done the homework.'
+        ],
+        body: 'Three steps, in order.'
       },
       {
-        title: 'How to buy stocks in the UK',
-        body: 'You can buy stocks through investment platforms, brokers, or stockbrokers. Most beginners use online platforms that offer easy access, research tools, and often lower fees.',
-        bullets: [
-          'Open an account with a UK-regulated investment platform',
-          'Consider using a Stocks and Shares ISA for tax-free investing (up to £20,000 per year)',
-          'Compare platform fees: trading fees, annual charges, and foreign exchange fees',
-          'Start with index funds or ETFs for instant diversification',
-          'Consider fractional shares if you want to invest small amounts'
-        ]
+        title: 'Tax on shares (UK, 2026/27)',
+        body: 'Inside an ISA you pay no tax at all. Outside one, you get a £3,000 Capital Gains Tax (CGT) allowance and a £500 dividend allowance each year. Above those, CGT is 18% or 24% depending on your income, and dividends are taxed at 10.75%, 35.75% or 39.35% by band. You report taxable gains to HM Revenue and Customs (HMRC) through Self Assessment. See our income tax guide for the full picture.'
       },
       {
-        title: 'Step-by-step: Buying your first stock',
-        body: 'If you want to buy individual stocks, here\'s a simple process. However, most beginners should start with diversified funds.',
-        bullets: [
-          'Research the company: understand what it does, its financial health, and growth prospects',
-          'Check the stock price and valuation metrics (P/E ratio, etc.)',
-          'Decide how much to invest (never invest more than you can afford to lose)',
-          'Place an order through your platform (market order or limit order)',
-          'Monitor your investment, but avoid checking daily—focus on long-term performance',
-          'Consider setting up automatic investments to build discipline'
-        ]
-      },
-      {
-        title: 'Risks and how to manage them',
-        body: 'Stock investing carries risks. Understanding and managing these risks is crucial for long-term success.',
-        bullets: [
-          'Company-specific risk: A single company can fail. Solution: Diversify across many stocks',
-          'Market risk: Entire markets can decline. Solution: Invest for the long term (5+ years)',
-          'Volatility risk: Prices swing daily. Solution: Ignore short-term noise, focus on decades',
-          'Emotional risk: Fear and greed lead to poor decisions. Solution: Stick to a plan, avoid panic selling',
-          'Inflation risk: Returns may not beat inflation. Solution: Choose quality companies with growth potential'
-        ]
-      },
-      {
-        title: 'Tax considerations (UK)',
-        body: 'Understanding UK tax rules helps you keep more of your returns. ISAs and pensions offer tax advantages.',
-        bullets: [
-          'Stocks and Shares ISA: Up to £20,000 per year, all gains and dividends are tax-free',
-          'Capital Gains Tax: Applies if you sell outside an ISA and total gains exceed the annual exempt amount (£3,000 in 2026/27), taxed at 18% or 24% depending on your income tax band',
-          'Dividend tax: First £500 of dividends are tax-free (2026/27), then taxed at 10.75%, 35.75% or 39.35% depending on your income tax band',
-          'Pension contributions: Get tax relief, but money is locked until the minimum pension age (55 now, rising to 57 from April 2028)',
-          'Always check current tax rules as they change regularly'
-        ]
-      },
-      {
-        title: 'Common mistakes to avoid',
-        body: 'Many beginners make these mistakes. Learning from them can save you money and stress.',
-        bullets: [
-          'Overtrading: Buying and selling too frequently increases fees and taxes',
-          'Chasing hot stocks: What\'s popular today may not be tomorrow',
-          'Not diversifying: Putting all money in one stock is risky',
-          'Panic selling: Selling during market downturns locks in losses',
-          'Ignoring fees: High fees eat into returns over time',
-          'Trying to time the market: Even professionals struggle with this'
-        ]
-      },
-      {
-        title: 'Who should invest in stocks?',
-        body: 'Stocks suit investors with a long time horizon (5+ years) who can tolerate volatility. They\'re less suitable for money needed soon or for risk-averse investors.'
-      },
-      {
-        title: 'Where to go for more information',
-        body: 'Use trusted, regulated sources. The FCA (Financial Conduct Authority) website has investor guides. Many platforms offer educational content. Avoid get-rich-quick schemes and unregulated "gurus".'
+        title: 'Who are shares for?',
+        body: 'Anyone with money they will not need for at least five years, and the stomach to watch it dip without selling. If you need the cash next year, shares are the wrong home for it.'
       }
     ],
     platforms: [
@@ -299,138 +245,56 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'funds',
-    name: 'Mutual Funds',
-    tagline: 'Professionally managed baskets of investments.',
+
+    name: 'Funds',
+    tagline: 'One pot, hundreds of investments, someone else does the picking.',
     overview:
-      'Mutual funds pool money from many investors and invest in a diversified set of assets.',
+      'A fund pools money from lots of people and spreads it across many investments. One buy gives you a slice of everything inside. A professional manager picks for an active fund. A computer following a list picks for a passive (index) fund.',
     whyItMatters:
-      'They make diversification easier and can fit different risk levels depending on the fund strategy.',
+      'Diversification: if you own 500 companies, one going bust barely dents you. Funds make that possible with £50 instead of £50,000. They are the main building block for most UK investors.',
     howItWorks:
-      'You buy units in the fund, and the manager invests according to the fund’s stated goals.',
-    keyIdeas: ['Diversification built in', 'Check fees carefully', 'Understand the fund’s strategy'],
-    risks: ['Manager risk', 'Fees reduce returns', 'Not all funds are diversified'],
-    beginnerSteps: ['Compare fees and strategies', 'Start with broad market funds', 'Review fund objectives'],
-    goodFor: ['Hands-off diversification', 'Beginner-friendly investing'],
-    watchOuts: ['High fees', 'Style drift'],
+      'Think of a fruit basket instead of one apple. One bad apple does not spoil your lunch. You pay a small yearly fee called the Ongoing Charges Figure (OCF): often around 0.1% for a simple index fund, 1% or more for an active one.',
+    keyIdeas: [
+      'One fund can hold hundreds of companies, bonds or both.',
+      'Fees matter more than almost anything: 1% a year compounds into a fortune over decades.',
+      'Most active managers fail to beat their index over ten years or more, after fees.'
+    ],
+    risks: [
+      'Market risk stays: funds spread company risk, not whole-market crashes.',
+      'High fees quietly eat your returns year after year.',
+      'Some funds are riskier than their name suggests. Always read what is inside.'
+    ],
+    beginnerSteps: [
+      'Look at a global index fund first: the whole world’s big companies in one buy.',
+      'Check the OCF before anything else. Lower is usually better.',
+      'Hold it inside an Individual Savings Account (ISA) or a pension so growth is sheltered from tax.'
+    ],
+    goodFor: ['Beginners', 'Hands-off investing', 'Diversification on a small budget'],
+    watchOuts: ['Paying 1%+ for a fund that quietly copies an index', 'Chasing last year’s winner', 'Owning five funds that all hold the same companies'],
     sections: [
       {
-        title: 'What are mutual funds?',
-        body: 'Mutual funds pool money from many investors to buy a diversified portfolio of stocks, bonds, or other assets. A professional fund manager makes investment decisions based on the fund\'s stated objectives. You buy units in the fund, and the value of your units rises or falls with the fund\'s performance.'
+        title: 'Active vs passive',
+        body: 'An active fund pays clever humans to pick winners. A passive fund (also called an index fund or tracker) just buys everything on a list. Decades of data say the list usually wins after fees. Passive funds are also far cheaper, which is why most beginners start there.'
       },
       {
-        title: 'Why invest in mutual funds?',
-        body: 'Funds offer instant diversification, professional management, and convenience. Instead of buying dozens of individual stocks, you can invest in one fund that holds many investments.',
-        bullets: [
-          'Instant diversification across many investments',
-          'Professional management (though this comes with fees)',
-          'Access to investments you might not be able to buy individually',
-          'Convenience: one purchase gives you exposure to many assets',
-          'Suitable for beginners who want hands-off investing'
-        ]
+        title: 'What is an index?',
+        body: 'An index is just a list. The FTSE 100 is a list of the 100 biggest companies on the London market. The S&P 500 lists 500 big US companies. An index fund buys the list and holds it. No genius required, which is exactly why it is cheap.'
       },
       {
-        title: 'Types of mutual funds',
-        body: 'Funds come in many varieties, each with different strategies, risks, and costs.',
-        bullets: [
-          'Equity funds: Invest primarily in stocks (can focus on regions, sectors, or styles)',
-          'Bond funds: Invest in government and corporate bonds',
-          'Balanced funds: Mix of stocks and bonds',
-          'Index funds: Track a market index (usually lower fees)',
-          'Active funds: Managers try to beat the market (usually higher fees)',
-          'Sector funds: Focus on specific industries like technology or healthcare',
-          'International funds: Invest in companies outside the UK'
-        ]
+        title: 'What does a fund cost?',
+        body: 'The OCF is skimmed quietly from the fund every day, so you never see a bill. A 0.2% fee on £10,000 is about £20 a year. A 1.5% fee is about £150. Over 25 years of growth, that gap can cost you tens of thousands of pounds. This is why fee-checking is the one habit every investor needs.'
       },
       {
-        title: 'Understanding fund fees',
-        body: 'Fees matter significantly over time. A 1% annual fee can reduce your returns by thousands over decades. Always check the Ongoing Charges Figure (OCF) or Total Expense Ratio (TER).',
-        bullets: [
-          'Ongoing Charges Figure (OCF): Annual fee covering management and administration',
-          'Entry/exit fees: Some funds charge when you buy or sell',
-          'Performance fees: Some active funds charge extra if they beat targets',
-          'Platform fees: Your investment platform may charge separately',
-          'Compare funds with similar strategies—lower fees often mean better long-term returns'
-        ]
+        title: 'Accumulating or income?',
+        body: 'Funds come in two flavours. Income (Inc) funds pay dividends out to you as cash. Accumulation (Acc) funds roll the dividends back in to buy more, like a snowball picking up snow. For long-term growth inside an ISA, accumulation is usually the tidy choice.'
       },
       {
-        title: 'How to choose a fund',
-        body: 'Selecting the right fund depends on your goals, risk tolerance, and time horizon. Here\'s a systematic approach.',
-        bullets: [
-          'Define your goal: What are you investing for? Retirement? House deposit?',
-          'Assess your risk tolerance: Can you handle volatility?',
-          'Check the fund\'s objective: Does it match your goals?',
-          'Review past performance: But remember, past performance doesn\'t guarantee future results',
-          'Compare fees: Lower is usually better, especially for similar strategies',
-          'Check the fund manager\'s track record (for active funds)',
-          'Read the fund factsheet: Understand what the fund invests in'
-        ]
+        title: 'Funds and tax (UK)',
+        body: 'Inside an ISA or pension: no tax on growth or income. Outside one: dividends and gains can be taxable above your allowances. The same Capital Gains Tax (CGT) and dividend rules apply as for shares. Keep it sheltered and the paperwork mostly disappears.'
       },
       {
-        title: 'Step-by-step: Investing in a fund',
-        body: 'Getting started with funds is straightforward, especially through UK investment platforms.',
-        bullets: [
-          'Open an account with a UK-regulated investment platform',
-          'Consider using a Stocks and Shares ISA for tax-free investing',
-          'Research funds that match your goals and risk tolerance',
-          'Compare fees and performance (but don\'t rely solely on past performance)',
-          'Decide how much to invest (many platforms allow small regular investments)',
-          'Set up automatic monthly investments to build discipline',
-          'Review your funds annually, but avoid constant switching'
-        ]
-      },
-      {
-        title: 'Active vs passive funds',
-        body: 'Active funds have managers who try to beat the market. Passive funds (index funds) simply track a market index. Most evidence suggests passive funds often outperform active funds after fees.',
-        bullets: [
-          'Active funds: Higher fees, managers make investment decisions, aim to beat the market',
-          'Passive funds: Lower fees, track an index automatically, aim to match the market',
-          'For most investors, low-cost passive funds are a better choice',
-          'Active funds can make sense if you find a skilled manager with reasonable fees',
-          'Many investors use passive funds as the core of their portfolio'
-        ]
-      },
-      {
-        title: 'Risks and considerations',
-        body: 'While funds offer diversification, they still carry risks. Understanding these helps you invest wisely.',
-        bullets: [
-          'Market risk: Funds can still lose value if markets decline',
-          'Manager risk: Active fund managers can underperform',
-          'Fees: High fees significantly reduce returns over time',
-          'Style drift: Some funds change strategy over time',
-          'Liquidity: Most funds can be sold quickly, but some specialized funds may have restrictions',
-          'Currency risk: International funds are affected by exchange rates'
-        ]
-      },
-      {
-        title: 'Tax considerations (UK)',
-        body: 'Fund investing has tax implications. Using tax-advantaged accounts can help you keep more of your returns.',
-        bullets: [
-          'Stocks and Shares ISA: Up to £20,000 per year, all gains are tax-free',
-          'Dividend tax: Applies outside ISAs after the £500 annual dividend allowance (2026/27)',
-          'Capital Gains Tax: Applies if you sell outside an ISA and profits exceed the annual allowance',
-          'Pension funds: Get tax relief on contributions, but money is locked until the minimum pension age (55 now, rising to 57 from April 2028)',
-          'Always check current tax rules as they change regularly'
-        ]
-      },
-      {
-        title: 'Common mistakes to avoid',
-        body: 'Avoid these common pitfalls when investing in funds.',
-        bullets: [
-          'Chasing past performance: Top performers often revert to average',
-          'Ignoring fees: Small percentage differences compound over decades',
-          'Over-diversifying: Too many similar funds doesn\'t help',
-          'Switching funds too often: This increases costs and taxes',
-          'Not reading fund documents: Understand what you\'re investing in',
-          'Paying for active management when passive would work'
-        ]
-      },
-      {
-        title: 'Who should invest in mutual funds?',
-        body: 'Funds suit investors who want diversification without picking individual stocks. They\'re especially good for beginners and those who prefer hands-off investing.'
-      },
-      {
-        title: 'Where to go for more information',
-        body: 'Use trusted sources. The FCA website, fund factsheets, and reputable investment platforms offer educational content. Avoid unregulated advice and get-rich-quick schemes.'
+        title: 'Who are funds for?',
+        body: 'Almost everyone. If picking individual companies sounds like homework, funds are the answer. They are the default choice of most pensions for a reason.'
       }
     ],
     platforms: [
@@ -476,153 +340,57 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'etf',
-    name: 'ETFs',
-    tagline: 'Index-style diversification that trades like a stock.',
+
+    name: 'ETFs (Exchange Traded Funds)',
+    tagline: 'A fund that trades like a share.',
     overview:
-      'ETFs (Exchange Traded Funds) bundle many assets and trade on an exchange throughout the day.',
+      'An Exchange Traded Fund (ETF) is a fund you buy and sell on a stock exchange, any time the market is open, exactly like buying a share. Most ETFs follow an index and charge very small fees.',
     whyItMatters:
-      'They are flexible, often low-cost, and can give broad exposure with one purchase.',
+      'ETFs made investing cheap for everyone. One global ETF can spread your money across thousands of companies for around 0.1-0.25% a year. Before ETFs, that kind of spread was for the wealthy only.',
     howItWorks:
-      'Prices move throughout the day, but the underlying assets follow the index or strategy.',
-    keyIdeas: ['Low cost', 'Diversified', 'Transparent holdings'],
-    risks: ['Market risk', 'Niche ETFs can be volatile'],
-    beginnerSteps: ['Start with broad market ETFs', 'Check expense ratios', 'Avoid overly complex products'],
-    goodFor: ['Passive investing', 'Low-cost diversification'],
-    watchOuts: ['Overly narrow or leveraged ETFs'],
+      'A normal fund sets one price a day, like a shop that updates its price tag each evening. An ETF has a live price tag that moves every second. You buy it through any investment platform, the same way you would buy a share.',
+    keyIdeas: [
+      'An ETF is a fund with a live price.',
+      'Fees are usually very low, but always compare the Ongoing Charges Figure (OCF).',
+      'Check what the ETF actually holds. The name alone can mislead.'
+    ],
+    risks: [
+      'Same market risk as any fund: the whole market can fall.',
+      'Some ETFs use complex machinery (leverage or synthetic copies). Avoid those until you fully understand them.',
+      'Buying and selling often stacks up dealing fees and bid-offer spreads.'
+    ],
+    beginnerSteps: [
+      'Search your platform for a global equity ETF, for example one tracking the MSCI World index.',
+      'Compare fees: the big providers publish them clearly on their factsheets.',
+      'Buy inside your Stocks and Shares Individual Savings Account (ISA), and set up a monthly purchase if the platform allows it.'
+    ],
+    goodFor: ['Low-cost long-term investing', 'Beginners who want the whole market', 'Monthly drip-feeding'],
+    watchOuts: ['Leveraged and inverse ETFs: not for beginners', 'Owning many ETFs that quietly hold the same companies', 'Trading in and out like a day trader'],
     sections: [
       {
-        title: 'What are ETFs?',
-        body: 'ETFs (Exchange Traded Funds) are investment funds that trade on stock exchanges like individual stocks. They hold a basket of assets (stocks, bonds, commodities) and aim to track an index or follow a specific strategy. You can buy and sell ETF shares throughout the trading day at market prices.'
+        title: 'ETF vs ordinary fund',
+        body: 'Both are baskets of investments. The differences are practical: an ETF trades all day at live prices, while an ordinary fund prices once a day. Ordinary funds often let you invest from £25 a month with no dealing fee; ETFs usually charge a small dealing fee per trade but often have the very lowest OCFs. Either works. Pick on cost and convenience.'
       },
       {
-        title: 'Why invest in ETFs?',
-        body: 'ETFs combine the diversification of mutual funds with the flexibility of stocks. They\'re often low-cost, transparent, and easy to trade.',
+        title: 'What does an ETF cost?',
         bullets: [
-          'Low costs: Many ETFs have expense ratios under 0.5%',
-          'Diversification: One ETF can hold hundreds of investments',
-          'Transparency: Holdings are usually disclosed daily',
-          'Flexibility: Trade throughout the day like stocks',
-          'Tax efficiency: Often more tax-efficient than mutual funds',
-          'Access: Easy to buy through most investment platforms'
-        ]
+          'OCF: the yearly fund fee, often 0.07-0.25% for plain index ETFs.',
+          'Dealing fee: what your platform charges per trade, often £0-£12.',
+          'Spread: the tiny gap between the buy and sell price, like a currency exchange booth’s margin.'
+        ],
+        body: 'Three small costs add up.'
       },
       {
-        title: 'How ETFs work',
-        body: 'ETFs are created by financial institutions that buy the underlying assets and issue ETF shares. The price should track the value of the underlying assets, though it can deviate slightly during trading hours.',
-        bullets: [
-          'Creation/redemption process: Large institutions can create or redeem ETF shares',
-          'Market price vs NAV: ETF price may differ slightly from net asset value',
-          'Bid-ask spread: The difference between buying and selling prices',
-          'Trading: Buy and sell like stocks through your investment platform',
-          'Dividends: Many ETFs pay dividends from underlying holdings'
-        ]
+        title: 'Physical or synthetic?',
+        body: 'A physical ETF really buys the companies on its list. A synthetic ETF uses a contract with a bank to copy the list’s returns. Both are legal and regulated, but synthetic adds a layer of bank risk. Beginners usually stick with physical.'
       },
       {
-        title: 'Types of ETFs',
-        body: 'ETFs cover virtually every asset class and investment strategy. Understanding the types helps you choose wisely.',
-        bullets: [
-          'Equity ETFs: Track stock indices (FTSE 100, S&P 500, etc.)',
-          'Bond ETFs: Provide exposure to government and corporate bonds',
-          'Commodity ETFs: Track gold, oil, agricultural products',
-          'Sector ETFs: Focus on specific industries (technology, healthcare)',
-          'International ETFs: Provide exposure to global markets',
-          'Thematic ETFs: Focus on trends (renewable energy, AI, etc.)',
-          'Leveraged/inverse ETFs: Use derivatives (high risk, avoid unless you understand them)'
-        ]
+        title: 'ETFs and tax (UK)',
+        body: 'Tax works the same as for funds: free inside an Individual Savings Account (ISA) or pension, taxable above your allowances outside. One UK wrinkle: stamp duty does not apply to most ETF purchases, unlike individual UK shares which carry 0.5%.'
       },
       {
-        title: 'ETFs vs mutual funds',
-        body: 'ETFs and mutual funds are similar but have key differences. ETFs often have lower costs and more flexibility.',
-        bullets: [
-          'Trading: ETFs trade throughout the day; mutual funds price once daily',
-          'Costs: ETFs often have lower expense ratios',
-          'Minimum investment: ETFs can be bought for the price of one share; mutual funds may have minimums',
-          'Tax efficiency: ETFs are often more tax-efficient due to structure',
-          'Transparency: ETFs usually disclose holdings daily; mutual funds monthly/quarterly',
-          'Both offer diversification and professional management'
-        ]
-      },
-      {
-        title: 'How to choose an ETF',
-        body: 'Selecting the right ETF involves understanding what it tracks, its costs, and whether it fits your goals.',
-        bullets: [
-          'Check what index or strategy it tracks: Does it match your goals?',
-          'Compare expense ratios: Lower is usually better for similar strategies',
-          'Check tracking error: How closely does it follow its index?',
-          'Review assets under management: Very small ETFs may have liquidity issues',
-          'Understand the underlying holdings: Read the ETF factsheet',
-          'Check dividend policy: Does it pay dividends? How often?',
-          'Consider currency hedging: International ETFs may or may not hedge currency risk'
-        ]
-      },
-      {
-        title: 'Step-by-step: Buying an ETF',
-        body: 'Buying ETFs is straightforward through UK investment platforms.',
-        bullets: [
-          'Open an account with a UK-regulated investment platform',
-          'Consider using a Stocks and Shares ISA for tax-free investing',
-          'Research ETFs that match your investment goals',
-          'Compare costs: expense ratio, trading fees, platform fees',
-          'Decide how many shares to buy (you can buy fractional shares on some platforms)',
-          'Place a market order or limit order through your platform',
-          'Set up automatic investments if your platform supports it',
-          'Monitor your investment, but focus on long-term performance'
-        ]
-      },
-      {
-        title: 'Understanding ETF costs',
-        body: 'ETF costs include the expense ratio, trading fees, and platform fees. Understanding all costs helps you make better decisions.',
-        bullets: [
-          'Expense ratio: Annual fee (shown as a percentage) deducted from the fund',
-          'Trading fees: Commission charged by your platform (many platforms offer free ETF trading)',
-          'Bid-ask spread: Difference between buying and selling prices (usually small for popular ETFs)',
-          'Platform fees: Annual charges from your investment platform',
-          'Foreign exchange fees: May apply to international ETFs',
-          'Total cost: Add all fees to understand your true cost'
-        ]
-      },
-      {
-        title: 'Risks and considerations',
-        body: 'ETFs carry market risk and other considerations. Understanding these helps you invest appropriately.',
-        bullets: [
-          'Market risk: ETF values can decline if underlying assets fall',
-          'Tracking error: ETF may not perfectly match its index',
-          'Liquidity risk: Some niche ETFs may be harder to sell',
-          'Currency risk: International ETFs are affected by exchange rates',
-          'Concentration risk: Sector or thematic ETFs may be less diversified',
-          'Leveraged ETFs: Use derivatives and are very risky—avoid unless you fully understand them'
-        ]
-      },
-      {
-        title: 'Tax considerations (UK)',
-        body: 'ETFs have tax implications. Using tax-advantaged accounts maximizes your returns.',
-        bullets: [
-          'Stocks and Shares ISA: Up to £20,000 per year, all gains are tax-free',
-          'Dividend tax: Applies outside ISAs after the £500 annual dividend allowance (2026/27)',
-          'Capital Gains Tax: Applies if you sell outside an ISA and profits exceed the annual allowance',
-          'Withholding tax: Some international ETFs may have foreign tax implications',
-          'Always check current tax rules as they change regularly'
-        ]
-      },
-      {
-        title: 'Common mistakes to avoid',
-        body: 'Avoid these pitfalls when investing in ETFs.',
-        bullets: [
-          'Chasing performance: Past returns don\'t guarantee future results',
-          'Over-complicating: Simple broad-market ETFs often work best',
-          'Ignoring costs: Small fee differences compound over time',
-          'Trading too frequently: Increases costs and taxes',
-          'Using leveraged ETFs: These are complex and risky',
-          'Not understanding what you\'re buying: Read the ETF factsheet'
-        ]
-      },
-      {
-        title: 'Who should invest in ETFs?',
-        body: 'ETFs suit investors who want low-cost, diversified exposure to markets. They\'re especially good for passive investors and those building long-term portfolios.'
-      },
-      {
-        title: 'Where to go for more information',
-        body: 'Use trusted sources. ETF providers\' websites, the FCA website, and reputable investment platforms offer educational content. Avoid unregulated advice.'
+        title: 'Who are ETFs for?',
+        body: 'Anyone who wants the whole market at the lowest possible cost and is happy to place the trade themselves. If your platform offers free regular investing into ordinary funds, that can be even cheaper for small monthly amounts.'
       }
     ],
     platforms: [
@@ -656,19 +424,60 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'realestate',
+
     name: 'Real Estate',
-    tagline: 'Property exposure through ownership or funds.',
+    tagline: 'Bricks, mortar and rent: investing you can touch.',
     overview:
-      'Real estate includes physical property or real estate funds/REITs that provide property exposure.',
+      'Property investing means owning buildings or land. You can buy a whole property yourself, or buy small slices through funds and Real Estate Investment Trusts (REITs), which are companies that own property and trade on the stock market.',
     whyItMatters:
-      'Real estate can provide income and diversification, but it is less liquid than stocks or bonds.',
+      'Property has two ways to pay: rent coming in and the building hopefully rising in value. For many UK families their home is their biggest asset, so understanding property matters even if you never buy to let.',
     howItWorks:
-      'Returns come from rental income and property value changes. REITs trade like stocks.',
-    keyIdeas: ['Location matters', 'Income potential', 'Illiquid compared to markets'],
-    risks: ['Property market cycles', 'High transaction costs', 'Liquidity constraints'],
-    beginnerSteps: ['Learn about REITs as a starting point', 'Understand total costs', 'Avoid over-leverage'],
-    goodFor: ['Income seekers', 'Diversification'],
-    watchOuts: ['Too much concentration in one property'],
+      'Think of buying a vending machine. You pay a big sum up front. People keep putting coins in (rent). Some years the machine itself becomes worth more. But it can break, sit empty, or fall in value - and you cannot sell half a vending machine quickly.',
+    keyIdeas: [
+      'Rent is income; price growth is a bonus. Do not count on both.',
+      'REITs let you own property slices from a few pounds, without being a landlord.',
+      'Property is illiquid: selling takes months, not seconds.'
+    ],
+    risks: [
+      'Prices fall too: UK house prices have dropped 20%+ in past slumps.',
+      'Empty months, repairs and bad tenants eat rent.',
+      'Mortgage rates rise: leveraged property magnifies losses as well as gains.'
+    ],
+    beginnerSteps: [
+      'Start paper-free: a REIT or property fund inside your Individual Savings Account (ISA).',
+      'Learn the words yield (rent as a % of price) and leverage (buying with borrowed money).',
+      'Before any buy-to-let, add up every cost: stamp duty, agent fees, repairs, empty months, tax.'
+    ],
+    goodFor: ['Income from rent', 'Diversifying away from shares', 'Long holding periods (10+ years)'],
+    watchOuts: ['Forgetting the 3% extra Stamp Duty Land Tax on second properties in England and Northern Ireland', 'Assuming house prices only go up', 'Being a landlord with no cash buffer for repairs'],
+    sections: [
+      {
+        title: 'Ways to invest in property',
+        bullets: [
+          'Buy-to-let: you buy a whole property and rent it out. High effort, high cost, concentrated risk.',
+          'REITs: companies that own offices, shops or warehouses. You buy shares in them like any stock, from a few pounds.',
+          'Property funds: pooled pots that own buildings or REIT shares.',
+          'Your own home: an investment you live in, though not one that pays rent.'
+        ],
+        body: 'Four very different routes.'
+      },
+      {
+        title: 'What is a REIT?',
+        body: 'A Real Estate Investment Trust (REIT) is a company that owns income-producing property. UK law says REITs must pay out most of their rental profits to shareholders. You get property income without fixing a single boiler, and you can sell your shares in seconds. Inside an ISA, that income and any growth is tax-free.'
+      },
+      {
+        title: 'The true cost of buy-to-let',
+        body: 'The sticker price is just the start. Add Stamp Duty Land Tax (with a 3% surcharge on second properties in England and Northern Ireland), legal fees, letting agent fees of around 10-15% of rent, insurance, safety certificates, repairs and months with no tenant. Many new landlords find the real yield is half what they expected.'
+      },
+      {
+        title: 'Property and tax (UK, 2026/27)',
+        body: 'Rent is taxed as income at your band (20%, 40% or 45%). The first £1,000 of property income is covered by the property allowance. When you sell a property that is not your main home, you pay Capital Gains Tax (CGT): 18% or 24% above the £3,000 annual exempt amount. Your own main home is usually free of CGT thanks to Private Residence Relief.'
+      },
+      {
+        title: 'Who is property for?',
+        body: 'People with a long horizon, a cash buffer, and either the patience to be a landlord or the sense to use REITs instead. If you might need the money at short notice, property is a risky place to park it.'
+      }
+    ],
     platforms: [
       { name: 'Hargreaves Lansdown (property funds and REITs)', url: 'https://www.hl.co.uk', frn: '115248' },
       { name: 'AJ Bell (property funds and REITs)', url: 'https://www.ajbell.co.uk', frn: '155593' },
@@ -699,19 +508,60 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'commodities',
+
     name: 'Commodities',
-    tagline: 'Exposure to physical resources like gold or oil.',
+    tagline: 'Gold, oil, wheat: the raw stuff the world runs on.',
     overview:
-      'Commodities include energy, metals, and agriculture. They often behave differently than stocks and bonds.',
+      'Commodities are raw materials: gold, silver, oil, gas, wheat, coffee. Investors buy them hoping prices rise, often as protection when inflation bites or markets panic.',
     whyItMatters:
-      'They can help hedge inflation or provide diversification in certain market conditions.',
+      'Commodities often move differently from shares. When inflation jumps, the price of raw stuff usually jumps too, so a small slice can steady a portfolio. Gold in particular is the age-old hiding place in scary times.',
     howItWorks:
-      'Prices move based on global supply, demand, and geopolitics.',
-    keyIdeas: ['Cyclical', 'Sensitive to global events', 'Useful in small doses'],
-    risks: ['High volatility', 'Complex pricing drivers'],
-    beginnerSteps: ['Keep exposure small', 'Use diversified funds', 'Understand what drives prices'],
-    goodFor: ['Diversification', 'Inflation hedging'],
-    watchOuts: ['Speculation without a plan'],
+      'Think of a bag of sugar. It does not grow, pay you pocket money or build anything. You only profit if someone pays more for it later. Gold is the same: a shiny rock that pays nothing. Its price depends purely on what the next person will pay.',
+    keyIdeas: [
+      'Commodities pay no interest and no dividends. Price moves are everything.',
+      'Gold is the classic crisis hedge, but it can fall for years at a stretch.',
+      'Most beginners should use an Exchange Traded Commodity (ETC): a stock-market product that tracks the price.'
+    ],
+    risks: [
+      'No income: dead money if prices go nowhere.',
+      'Big swings: oil has halved in weeks before.',
+      'Fancy products (futures, leveraged trackers) can lose more than you put in.'
+    ],
+    beginnerSteps: [
+      'Decide why you want it: inflation hedge, crisis hedge, or speculation. Only the first two make sense for most.',
+      'Use a simple physical-gold ETC inside your Individual Savings Account (ISA).',
+      'Keep it small: many investors cap commodities at 5-10% of their pot.'
+    ],
+    goodFor: ['Inflation protection', 'Diversification', 'A small crisis hedge'],
+    watchOuts: ['Buying gold after it has already soared on fear', 'Leveraged commodity trackers', 'Thinking commodities always beat inflation year by year - they do not'],
+    sections: [
+      {
+        title: 'The main types',
+        bullets: [
+          'Precious metals: gold and silver. The classic stores of value.',
+          'Energy: oil and gas. Prices swing with wars, weather and politics.',
+          'Agriculture: wheat, coffee, cocoa. Harvests and droughts rule prices.',
+          'Industrial metals: copper, lithium. They follow the world economy’s ups and downs.'
+        ],
+        body: 'Four families, four different moods.'
+      },
+      {
+        title: 'How do beginners buy gold?',
+        body: 'You do not need a safe. A gold ETC on the stock exchange tracks the gold price, backed by real bars in a vault. You buy it like a share through any Financial Conduct Authority (FCA) regulated platform. Inside an ISA, gains are tax-free. Sovereign and Britannia coins from the Royal Mint are also free of Capital Gains Tax (CGT) for UK residents, as they are legal tender.'
+      },
+      {
+        title: 'Why do prices swing so much?',
+        body: 'Commodities obey supply and demand in its rawest form. A war closes an oil route: price spikes. A bumper wheat harvest: price sinks. There is no company quietly earning profits underneath to steady things, so the ride is bumpier than shares.'
+      },
+      {
+        title: 'Commodities and tax (UK)',
+        body: 'Gains on commodity ETCs count for Capital Gains Tax (CGT) above the £3,000 annual exempt amount, at 18% or 24% (2026/27). Inside an ISA or pension: no tax. UK legal-tender gold coins are CGT-free even outside a wrapper.'
+      },
+      {
+        title: 'Who are commodities for?',
+        body: 'Investors who already own shares and bonds and want a small slice of something that zigs when they zag. As a first or only investment, commodities are a poor choice: no income, no growth engine, just price hope.'
+      }
+    ],
     platforms: [
       { name: 'Hargreaves Lansdown (gold and commodity ETCs)', url: 'https://www.hl.co.uk', frn: '115248' },
       { name: 'interactive investor (gold and commodity ETCs)', url: 'https://www.ii.co.uk', frn: '141282' },
@@ -746,19 +596,54 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'crypto',
+
     name: 'Cryptocurrencies',
-    tagline: 'High-risk digital assets with extreme volatility.',
+    tagline: 'Digital money bets. Huge swings, real losses, zero safety net.',
     overview:
-      'Cryptocurrencies are digital tokens that rely on blockchain technology. They are highly speculative.',
+      'Cryptocurrencies like Bitcoin are digital tokens recorded on a shared database called a blockchain. No government or bank backs them. Their price is set purely by what buyers will pay.',
     whyItMatters:
-      'Some investors use crypto for diversification, but it requires a high risk tolerance.',
+      'Crypto is the loudest corner of investing, and the one where beginners lose most. Understanding what it is (and what it is not) protects you from hype, scams and adverts promising riches.',
     howItWorks:
-      'Prices are driven by adoption, speculation, and sentiment, with large daily swings.',
-    keyIdeas: ['Very volatile', 'Still evolving', 'Speculative by nature'],
-    risks: ['Regulatory risk', 'Security risk', 'Extreme volatility'],
-    beginnerSteps: ['Learn basics before buying', 'Only invest what you can lose', 'Avoid leverage'],
-    goodFor: ['High-risk tolerance', 'Speculative learning'],
-    watchOuts: ['Scams and hype cycles'],
+      'Think of a rare trading card. It has value only because other collectors agree it does. If the crowd loses interest, the price can fall to near zero. Crypto is the same, but traded globally, 24 hours a day, by people often using borrowed money.',
+    keyIdeas: [
+      'Crypto pays no interest or dividends. Only price moves.',
+      'Swings of minus 50% or more in months have happened repeatedly.',
+      'If a platform fails or your keys are stolen, there is usually no compensation. The Financial Services Compensation Scheme (FSCS) does not cover crypto.'
+    ],
+    risks: [
+      'Total loss is possible. Many tokens have gone to zero.',
+      'Scams are everywhere: fake coins, fake platforms, fake giveaways.',
+      'The Financial Conduct Authority (FCA) bans crypto adverts to UK consumers unless registered, and says you should be prepared to lose everything.'
+    ],
+    beginnerSteps: [
+      'Learn before you buy: our guide explains blockchains without jargon.',
+      'Never invest money you cannot afford to lose completely.',
+      'If you still want exposure, keep it tiny (many suggest under 5% of a portfolio) and use an FCA-registered firm.'
+    ],
+    goodFor: ['Nobody, as a core investment', 'A very small speculative slice for people who accept total loss'],
+    watchOuts: ['Social media tips and celebrity coins', 'Platforms that are not FCA-registered', 'Borrowing money to buy crypto'],
+    sections: [
+      {
+        title: 'What is a blockchain?',
+        body: 'A blockchain is a shared notebook that thousands of computers keep identical copies of. Every transaction is a new line in the notebook. Once written, lines cannot be changed. That is the whole trick: no bank needed to keep score, but also no bank to call when things go wrong.'
+      },
+      {
+        title: 'Why do prices swing so wildly?',
+        body: 'There is no profit, rent or interest underneath to anchor the price. It floats on mood alone: news, tweets, fear and greed. When mood flips, everyone runs for the exit at once, and there is no floor.'
+      },
+      {
+        title: 'Is crypto regulated in the UK?',
+        body: 'Partly. Crypto firms serving UK customers must register with the Financial Conduct Authority (FCA) for anti-money-laundering checks, and financial promotions rules mean only registered firms can advertise crypto to UK consumers. But crypto itself is largely unregulated: if you lose money to a collapse or hack, you are on your own. The FCA’s line is blunt: be prepared to lose all your money. A new, fuller UK regime is being built now.'
+      },
+      {
+        title: 'Crypto and tax (UK)',
+        body: 'HM Revenue and Customs (HMRC) treats crypto as an asset. Selling, swapping one coin for another, or spending it can all trigger Capital Gains Tax (CGT): 18% or 24% above the £3,000 annual exempt amount (2026/27). You must keep records and report gains on Self Assessment. Our income tax and extra income guides walk through the forms.'
+      },
+      {
+        title: 'Our honest view',
+        body: 'Crypto is speculation, not investing. Speculation can be fine as entertainment money you can afford to lose. It is not a retirement plan, not a savings pot, and never something to borrow for. Nothing on this page is a recommendation or a financial promotion - it is education only.'
+      }
+    ],
     platforms: [
       { name: 'FCA Financial Services Register', url: 'https://register.fca.org.uk', note: 'Check any crypto firm is on the FCA cryptoasset register before using it. Crypto is not FSCS protected and scams are common.' },
     ],
@@ -787,19 +672,59 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'p2plending',
+
     name: 'Peer-to-Peer Lending',
-    tagline: 'Lending directly to individuals or businesses.',
+    tagline: 'Be the bank: lend your money to strangers for interest.',
     overview:
-      'Peer-to-peer platforms connect borrowers and lenders. You earn interest if borrowers repay.',
+      'Peer-to-peer (P2P) lending platforms match people who want to lend with people or businesses who want to borrow. Your money is sliced into many small loans, and borrowers repay with interest.',
     whyItMatters:
-      'It can offer steady income, but risks depend on borrower defaults.',
+      'P2P pays more interest than a savings account - that is the attraction. The extra interest exists because the risk is real: borrowers can stop paying, and unlike a bank account there is no £85,000 Financial Services Compensation Scheme (FSCS) safety net.',
     howItWorks:
-      'You spread your money across many loans to reduce default risk.',
-    keyIdeas: ['Diversify loans', 'Understand platform risk', 'Income focused'],
-    risks: ['Borrower defaults', 'Platform failures', 'Liquidity limits'],
-    beginnerSteps: ['Start small', 'Diversify across many loans', 'Review platform track record'],
-    goodFor: ['Income seekers', 'Alternative diversification'],
-    watchOuts: ['Concentration in few loans'],
+      'Imagine lending £10 each to 100 strangers at a market. Most pay you back with interest. A few vanish. The platform does the collecting and takes a cut. Your return is the interest minus the vanishers and the fees.',
+    keyIdeas: [
+      'Higher interest means higher risk. Always.',
+      'Spreading across hundreds of loans softens the blow of defaults.',
+      'No FSCS protection: if borrowers default or the platform collapses, you can lose money.'
+    ],
+    risks: [
+      'Default risk: borrowers stop paying, especially in recessions.',
+      'Platform risk: the P2P firm itself can fail.',
+      'Liquidity risk: getting your money out early can take months or cost you.'
+    ],
+    beginnerSteps: [
+      'Check the platform is authorised by the Financial Conduct Authority (FCA) - our list below shows verified registration numbers.',
+      'Start small and spread across the maximum number of loans.',
+      'Consider an Innovative Finance Individual Savings Account (ISA) so the interest is tax-free.'
+    ],
+    goodFor: ['A small income-seeking slice for people who accept the risks', 'Investors who understand there is no FSCS cover'],
+    watchOuts: ['Chasing double-digit rates', 'Putting in money you might need back quickly', 'Assuming it works like a savings account - it does not'],
+    sections: [
+      {
+        title: 'How does P2P make money?',
+        body: 'Borrowers pay interest on their loans. The platform keeps some as its fee and passes the rest to you. Advertised rates of 5-9% look great next to savings accounts, but they are before defaults. After bad debts, real returns are lower and bumpier.'
+      },
+      {
+        title: 'What can go wrong?',
+        bullets: [
+          'A recession hits and many borrowers default at once. Diversification helps, but bad years still bite.',
+          'The platform fails. Your loans are contracts with borrowers, but collecting them without the platform is messy.',
+          'You need money out fast. Selling loans early depends on other investors buying them.'
+        ],
+        body: 'Three honest answers.'
+      },
+      {
+        title: 'The Innovative Finance ISA',
+        body: 'An Innovative Finance Individual Savings Account (IF ISA) wraps P2P loans so the interest is tax-free, within your overall £20,000 ISA allowance. Tax-free is nice, but it does not reduce the risk of the loans themselves.'
+      },
+      {
+        title: 'P2P and tax (UK)',
+        body: 'Outside an ISA, P2P interest counts as savings income and is taxed at your income band. You can usually offset losses from defaulted loans against interest from other P2P loans. Report it through Self Assessment - see our extra income guide.'
+      },
+      {
+        title: 'Who is P2P for?',
+        body: 'Experienced savers who already have a cash buffer and understand that no FSCS cover means real losses are possible. As a first home for your money, a high-street savings account or a cash ISA is far safer.'
+      }
+    ],
     platforms: [
       { name: 'Funding Circle (loans to small businesses)', url: 'https://www.fundingcircle.com/uk/', frn: '722513' },
       { name: 'FCA Financial Services Register', url: 'https://register.fca.org.uk', note: 'Retail P2P lending has shrunk in the UK and is not FSCS protected - check any platform here first.' },
@@ -829,19 +754,50 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'collectibles',
+
     name: 'Collectibles',
-    tagline: 'Alternative assets like art, wine, or rare items.',
+    tagline: 'Watches, art, cards: passion purchases, not pension plans.',
     overview:
-      'Collectibles are tangible items whose value depends on scarcity and demand.',
+      'Collectibles are physical things people buy hoping they rise in value: art, watches, wine, trading cards, classic cars. They pay no income, cost money to keep, and are worth only what the next fan will pay.',
     whyItMatters:
-      'They can provide diversification but require expertise and patience.',
+      'Collectibles are where hobby meets money - and where beginners most often confuse the two. A love of watches is a fine hobby. It is not a retirement strategy. Knowing the difference saves painful lessons.',
     howItWorks:
-      'Value is subjective and often tied to trends or cultural demand.',
-    keyIdeas: ['Illiquid', 'Hard to value', 'High transaction costs'],
-    risks: ['Market illiquidity', 'Authenticity risk', 'Storage costs'],
-    beginnerSteps: ['Learn the market deeply', 'Avoid speculative hype', 'Start with small purchases'],
-    goodFor: ['Passion-driven investing'],
-    watchOuts: ['Overpaying due to hype'],
+      'Think of a rare toy in its original box. If more collectors want it next year, the price rises. If tastes change, it is just an old toy. Meanwhile you pay to insure it, store it, and prove it is real. Unlike shares, one collectible is one single bet with no earnings underneath.',
+    keyIdeas: [
+      'No income: the only return is selling for more than you paid.',
+      'Value depends on fashion, rarity and condition - all three can change.',
+      'Fakes are a real industry. Provenance (proof of history) is everything.'
+    ],
+    risks: [
+      'Illiquid: finding a buyer at a fair price can take months.',
+      'Costs eat returns: insurance, storage, auction fees of 15-25%.',
+      'Fashion risk: what is hot today can be unloved for decades.'
+    ],
+    beginnerSteps: [
+      'Buy with your heart, not your spreadsheet: only spend what you would enjoy owning at zero profit.',
+      'Learn the market for years before spending serious money.',
+      'Keep records and receipts: HM Revenue and Customs (HMRC) may want them when you sell.'
+    ],
+    goodFor: ['Joy first, money second', 'Genuine experts in a niche', 'Money you can lock away for decades'],
+    watchOuts: ['Anyone who calls collectibles a safe investment', 'Storage and insurance costs quietly compounding', 'Selling through auction without adding up the fees'],
+    sections: [
+      {
+        title: 'Why do people invest in collectibles?',
+        body: 'Part passion, part scarcity. There are only so many vintage Rolex watches or first-edition Charizard cards. When rich collectors compete for fixed supply, prices rocket. The same scarcity story is told about everything from whisky casks to trainers - sometimes true, often marketing.'
+      },
+      {
+        title: 'What do the numbers really look like?',
+        body: 'Headlines love record auction prices. They rarely mention the seller’s 20% auction fee, ten years of insurance, or the hundreds of similar items that never rose at all. After costs, most collectibles underperform a simple global index fund - with far more effort and risk.'
+      },
+      {
+        title: 'Collectibles and tax (UK)',
+        body: 'HMRC calls these chattels: tangible, movable objects. Good news: items sold for under £6,000 are usually free of Capital Gains Tax (CGT). Above that, gains count towards your £3,000 annual exempt amount, taxed at 18% or 24% (2026/27). Wasting assets with a predictable life of 50 years or less (like most cars and wine) are usually CGT-free, but rules have traps - check GOV.UK.'
+      },
+      {
+        title: 'Who are collectibles for?',
+        body: 'Collectors who would buy the item anyway and treat any profit as a happy accident. If your goal is building wealth, boring index funds beat shiny objects for almost everyone.'
+      }
+    ],
     platforms: [
       { name: "Sotheby's (auction house)", url: 'https://www.sothebys.com', note: 'Auction houses are not FCA-regulated - no FSCS protection' },
       { name: "Christie's (auction house)", url: 'https://www.christies.com', note: 'Auction houses are not FCA-regulated - no FSCS protection' },
@@ -871,19 +827,58 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'pension',
+
     name: 'Pension Funds',
-    tagline: 'Long-term retirement investing with tax advantages.',
+    tagline: 'The government’s best gift to your future self.',
     overview:
-      'Pension funds are retirement accounts that invest across asset classes to grow over decades.',
+      'A pension is a long-term savings pot with powerful tax breaks. Money goes in before income tax, grows untaxed, and from age 55 (rising to 57 in 2028) you can start taking it out - usually 25% of it tax-free.',
     whyItMatters:
-      'They often come with employer contributions and tax benefits, making them powerful for long-term goals.',
+      'The tax boost is unbeatable. For a basic-rate payer, £100 in your pocket becomes £125 in a pension instantly, because the tax you paid is handed back. Higher-rate payers get even more. Plus most employers must add money on top: turning that down is refusing part of your pay.',
     howItWorks:
-      'Contributions are invested in diversified portfolios, usually with a long-term strategy.',
-    keyIdeas: ['Tax advantages', 'Long time horizon', 'Diversified by default'],
-    risks: ['Market risk', 'Access restrictions'],
-    beginnerSteps: ['Understand contribution rules', 'Review fund choices', 'Stay invested long term'],
-    goodFor: ['Retirement planning', 'Long-term wealth building'],
-    watchOuts: ['Ignoring fees and fund selection'],
+      'Think of a locked money box with a generous sponsor. Every time you put in £80, the government adds £20 (basic rate). Your boss often adds more. The box stays locked until your mid-to-late fifties, then a quarter comes out tax-free and the rest is taxed as income when you withdraw it.',
+    keyIdeas: [
+      'Tax relief is free money: the government adds 20% automatically, and 40/45% payers claim back more.',
+      'Employer contributions are part of your pay - always grab the full match.',
+      'Your pension is usually invested in funds, so it grows like any other investing pot.'
+    ],
+    risks: [
+      'Locked away: you cannot touch it until at least age 55 (57 from 2028).',
+      'Rules change: governments tinker with ages, limits and tax.',
+      'Fees and poor fund choices can quietly shrink the pot over decades.'
+    ],
+    beginnerSteps: [
+      'Check you are opted into your workplace pension and getting the full employer match.',
+      'Find old pensions from past jobs and consider combining them.',
+      'Look at what your pension is actually invested in - many default funds are more cautious than a young saver needs.'
+    ],
+    goodFor: ['Almost everyone with earned income', 'Employed people (free employer money)', 'Higher-rate taxpayers (biggest relief)'],
+    watchOuts: ['Opting out to boost take-home pay - you lose free employer cash', 'Ignoring old small pots', 'Paying high fees for decades without noticing'],
+    sections: [
+      {
+        title: 'The two main types',
+        bullets: [
+          'Defined Contribution (DC): your pot depends on what goes in and how investments grow. Most modern workplace pensions and all personal pensions (SIPPs) work this way.',
+          'Defined Benefit (DB): a promised income based on your salary and years of service. Common in the public sector, rare elsewhere now. Also called final salary schemes.'
+        ],
+        body: 'One is a pot, one is a promise.'
+      },
+      {
+        title: 'What is a SIPP?',
+        body: 'A Self-Invested Personal Pension (SIPP) is a pension you run yourself: you pick the provider and the investments, usually cheap index funds. It suits freelancers, or employees who want more choice than their workplace scheme offers. The same tax relief applies.'
+      },
+      {
+        title: 'How much can you put in?',
+        body: 'For 2026/27 the annual allowance is £60,000 or 100% of your earnings, whichever is lower. Very high earners see this taper down. Unused allowance from the last three years can sometimes be carried forward. Check GOV.UK for the latest, as these rules change often.'
+      },
+      {
+        title: 'Taking money out',
+        body: 'From age 55 (57 from April 2028) you can normally take 25% of the pot tax-free. The rest is taxed as income in the year you withdraw it, so taking it all at once can push you into a higher band. Many people draw it gradually, or buy an annuity (a guaranteed income for life).'
+      },
+      {
+        title: 'Pension vs ISA',
+        body: 'Pensions give tax relief going in but tax withdrawals later; an Individual Savings Account (ISA) gets no relief going in but everything out is tax-free. The classic answer: grab the employer match and pension relief first, then use ISAs for flexibility, since ISA money is never locked away.'
+      }
+    ],
     platforms: [
       { name: 'PensionBee', url: 'https://www.pensionbee.com', frn: '744931' },
       { name: 'Vanguard Investor UK', url: 'https://www.vanguardinvestor.co.uk', frn: '527839' },
@@ -915,19 +910,66 @@ export const assetClasses: AssetClass[] = [
   },
   {
     id: 'isa',
+
     name: 'ISAs',
-    tagline: 'Tax-efficient savings and investing accounts in the UK.',
+    tagline: 'The tax-free wrapper every UK saver should use first.',
     overview:
-      'ISAs are wrappers that allow your investments to grow tax-free, subject to annual limits.',
+      'An Individual Savings Account (ISA) is not an investment - it is a tax-free wrapper around savings or investments. Whatever grows inside is free of income tax and Capital Gains Tax (CGT), forever. You can put in up to £20,000 each tax year (2026/27).',
     whyItMatters:
-      'They help you keep more of your returns by reducing tax on gains and income.',
+      'Tax is the silent leak in every money pot. An ISA plugs it. Over 30 years, avoiding tax on growth and dividends can leave you tens of thousands of pounds better off than the same investments in a plain account.',
     howItWorks:
-      'You choose investments inside the ISA, which can include cash, stocks, or funds.',
-    keyIdeas: ['Tax advantages', 'Flexible investment choices', 'Annual contribution limits'],
-    risks: ['Still subject to market risk', 'Penalties for exceeding limits'],
-    beginnerSteps: ['Choose the ISA type that fits your goal', 'Automate contributions', 'Invest simply'],
-    goodFor: ['Tax-efficient investing', 'General savings goals'],
-    watchOuts: ['Leaving money idle in cash'],
+      'Think of a greenhouse. Plants (your investments) grow inside exactly the same as outside, but the weather (tax) cannot touch them. You can grow cash, shares, funds or peer-to-peer loans in there. Each tax year you get a fresh £20,000 allowance to add - use it or lose it.',
+    keyIdeas: [
+      'ISA = a wrapper, not an investment. You choose what goes inside.',
+      '£20,000 per tax year across all your ISAs combined (2026/27).',
+      'No tax ever on what happens inside: no income tax, no CGT, no paperwork.'
+    ],
+    risks: [
+      'The wrapper has no risk - but whatever you put inside carries its normal risk.',
+      'Unused annual allowance does not roll over: 5 April is the deadline each year.',
+      'Withdrawing from a normal (non-flexible) ISA does not give you the allowance back.'
+    ],
+    beginnerSteps: [
+      'Pick your type: Cash ISA for safety, Stocks and Shares ISA for growth (see below).',
+      'Open one with an FCA-regulated provider - our list shows verified registration numbers.',
+      'Set a monthly payment. Using the allowance steadily beats a panicked lump sum in March.'
+    ],
+    goodFor: ['Literally every UK adult saver and investor', 'Long-term tax-free growth', 'Keeping tax paperwork at zero'],
+    watchOuts: ['Opening a Stocks and Shares ISA and leaving the money as cash', 'Paying platform fees you have not compared', 'Forgetting the £20,000 limit covers all ISAs together'],
+    sections: [
+      {
+        title: 'The four main types',
+        bullets: [
+          'Cash ISA: a savings account where interest is always tax-free. Safe, steady, low growth.',
+          'Stocks and Shares ISA: holds funds, shares and Exchange Traded Funds (ETFs). All growth and dividends tax-free.',
+          'Lifetime ISA (LISA): for 18-39 year olds. Save up to £4,000 a year and the government adds 25%. For a first home (up to £450,000) or retirement from 60. Early withdrawals for anything else lose 25%.',
+          'Innovative Finance ISA (IF ISA): wraps peer-to-peer lending so the interest is tax-free.'
+        ],
+        body: 'One allowance, four flavours.'
+      },
+      {
+        title: 'Cash ISA or Stocks and Shares ISA?',
+        body: 'Money you need within five years belongs in cash: markets can drop right when you need it. Money for the long haul has historically grown far faster invested. Many people use both: a Cash ISA for the emergency fund, a Stocks and Shares ISA for the future.'
+      },
+      {
+        title: 'What is the Lifetime ISA catch?',
+        body: 'The 25% government bonus is generous, but the exit rules are strict. Withdraw for anything other than a first home (under £450,000) or age 60, and the government takes 25% of the whole pot back - which claws back its bonus plus a slice of your own money. Only open one if you are sure about the purpose.'
+      },
+      {
+        title: 'ISA rules worth knowing',
+        bullets: [
+          'The tax year runs 6 April to 5 April. Allowance resets on 6 April.',
+          'You can pay into one of each type per year (one Cash, one Stocks and Shares, and so on).',
+          'Transfers between providers keep the tax-free status - never just withdraw and move the cash.',
+          'Some ISAs are flexible: take money out and put it back in the same tax year without losing allowance.'
+        ],
+        body: 'Four rules that catch people out.'
+      },
+      {
+        title: 'Where to open one',
+        body: 'Banks, building societies and investment platforms all offer ISAs. For a Stocks and Shares ISA, compare platform fees and fund choice - the platforms below are regulated by the Financial Conduct Authority (FCA) and we have verified each registration number on the FCA register.'
+      }
+    ],
     platforms: [
       { name: 'Moneybox', url: 'https://www.moneyboxapp.com', frn: '712935' },
       { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk', frn: '115248' },
