@@ -32,8 +32,8 @@ export default function RiskReturn() {
                   <YAxis dataKey="name" type="category" width={100} />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="risk" fill="#ef4444" name="Risk (1-10)" />
-                  <Bar dataKey="return" fill="#10b981" name="Expected Return %" />
+                  <Bar isAnimationActive={false} dataKey="risk" fill="#ef4444" name="Risk (1-10)" />
+                  <Bar isAnimationActive={false} dataKey="return" fill="#10b981" name="Expected Return %" />
                 </BarChart>
               </ResponsiveContainer>
             </div>

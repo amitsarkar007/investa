@@ -309,7 +309,7 @@ export default function Home() {
                   <XAxis dataKey="year" label={{ value: 'Years', position: 'insideBottom', offset: -5 }} />
                   <YAxis label={{ value: '£ Value', angle: -90, position: 'insideLeft' }} />
                   <Tooltip formatter={(value: number | undefined) => value !== undefined ? formatCurrency(value) : ''} />
-                  <Line type="monotone" dataKey="value" stroke="#ef4444" strokeWidth={3} name="Purchasing Power" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="value" stroke="#ef4444" strokeWidth={3} name="Purchasing Power" />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -373,7 +373,7 @@ export default function Home() {
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
                       />
                       <Legend />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="balance" 
                         stroke="#3b82f6" 
@@ -382,7 +382,7 @@ export default function Home() {
                         dot={{ r: 3 }}
                         activeDot={{ r: 5 }}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="contributions" 
                         stroke="#94a3b8" 
@@ -391,7 +391,7 @@ export default function Home() {
                         name="Your Contributions"
                         dot={false}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="growth" 
                         stroke="#10b981" 
@@ -466,8 +466,8 @@ export default function Home() {
                   <YAxis dataKey="name" type="category" width={100} />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="risk" fill="#ef4444" name="Risk (1-10)" />
-                  <Bar dataKey="return" fill="#10b981" name="Expected Return %" />
+                  <Bar isAnimationActive={false} dataKey="risk" fill="#ef4444" name="Risk (1-10)" />
+                  <Bar isAnimationActive={false} dataKey="return" fill="#10b981" name="Expected Return %" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -495,9 +495,9 @@ export default function Home() {
                   <YAxis label={{ value: 'Return %', angle: -90, position: 'insideLeft' }} />
                   <Tooltip formatter={(value: number | undefined) => value !== undefined ? `${value}%` : ''} />
                   <Legend />
-                  <Line type="monotone" dataKey="stocks" stroke="#8b5cf6" strokeWidth={2} name="Stocks" />
-                  <Line type="monotone" dataKey="bonds" stroke="#3b82f6" strokeWidth={2} name="Bonds" />
-                  <Line type="monotone" dataKey="cash" stroke="#10b981" strokeWidth={2} name="Cash" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="stocks" stroke="#8b5cf6" strokeWidth={2} name="Stocks" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="bonds" stroke="#3b82f6" strokeWidth={2} name="Bonds" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="cash" stroke="#10b981" strokeWidth={2} name="Cash" />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -608,7 +608,7 @@ export default function Home() {
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
                       />
                       <Legend />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="balance" 
                         stroke="#3b82f6" 
@@ -617,7 +617,7 @@ export default function Home() {
                         dot={{ r: 3 }}
                         activeDot={{ r: 5 }}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="contributions" 
                         stroke="#94a3b8" 
@@ -626,7 +626,7 @@ export default function Home() {
                         name="Your Contributions"
                         dot={false}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="growth" 
                         stroke="#10b981" 
@@ -711,7 +711,7 @@ export default function Home() {
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
                       />
                       <Legend />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="value" 
                         stroke="#ef4444" 
@@ -720,7 +720,7 @@ export default function Home() {
                         dot={{ r: 3 }}
                         activeDot={{ r: 5 }}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="original" 
                         stroke="#94a3b8" 

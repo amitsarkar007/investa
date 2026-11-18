@@ -22,6 +22,15 @@ type IconName =
   | 'eye'
   | 'steps'
   | 'check'
+  | 'chart-down'
+  | 'target'
+  | 'refresh'
+  | 'briefcase'
+  | 'dice'
+  | 'cap'
+  | 'card'
+  | 'clipboard'
+  | 'users'
 
 const paths: Record<IconName, JSX.Element> = {
   banknote: (
@@ -140,6 +149,64 @@ const paths: Record<IconName, JSX.Element> = {
     <>
       <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" strokeLinejoin="round" />
       <circle cx="12" cy="12" r="2.8" />
+    </>
+  ),
+  'chart-down': (
+    <>
+      <path d="M4 4v16h16" strokeLinecap="round" />
+      <path d="M7.5 9.5l3.5 3.5 2.5-2.5 5 5.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M15.5 16h3v-3" strokeLinecap="round" strokeLinejoin="round" />
+    </>
+  ),
+  target: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none" />
+    </>
+  ),
+  refresh: (
+    <>
+      <path d="M19.7 12a7.7 7.7 0 11-2.3-5.5" strokeLinecap="round" />
+      <path d="M20 3.8v3.4h-3.4" strokeLinecap="round" strokeLinejoin="round" />
+    </>
+  ),
+  briefcase: (
+    <>
+      <rect x="3.5" y="8" width="17" height="12" rx="2" />
+      <path d="M9 8V6a2 2 0 012-2h2a2 2 0 012 2v2M3.5 13.5h17" strokeLinecap="round" />
+    </>
+  ),
+  dice: (
+    <>
+      <rect x="4" y="4" width="16" height="16" rx="3" />
+      <path d="M8.5 8.5h.01M15.5 8.5h.01M12 12h.01M8.5 15.5h.01M15.5 15.5h.01" strokeLinecap="round" strokeWidth="2.6" />
+    </>
+  ),
+  cap: (
+    <>
+      <path d="M12 5L2.5 9.5 12 14l9.5-4.5L12 5z" strokeLinejoin="round" />
+      <path d="M6.5 11.5V16c0 1.2 2.5 2.5 5.5 2.5s5.5-1.3 5.5-2.5v-4.5M21 10v5" strokeLinecap="round" strokeLinejoin="round" />
+    </>
+  ),
+  card: (
+    <>
+      <rect x="3" y="6" width="18" height="13" rx="2" />
+      <path d="M3 10h18M6.5 15h4" strokeLinecap="round" />
+    </>
+  ),
+  clipboard: (
+    <>
+      <rect x="5" y="5" width="14" height="17" rx="2" />
+      <path d="M9 5V3.5h6V5M9 11h6M9 15h6" strokeLinecap="round" />
+    </>
+  ),
+  users: (
+    <>
+      <circle cx="9" cy="8.5" r="3" />
+      <path d="M3.5 19.5c1.2-3 3.2-4.5 5.5-4.5s4.3 1.5 5.5 4.5" strokeLinecap="round" />
+      <circle cx="16.5" cy="9.5" r="2.4" />
+      <path d="M16 15.2c2 .3 3.7 1.7 4.5 4.3" strokeLinecap="round" />
     </>
   ),
   check: (

@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
+import Icon from '../components/Icon'
 
 const fears = [
   {
     title: '"Investing is gambling"',
     body: 'Long-term investing is about discipline, not luck. While short-term markets can be volatile, historical data shows that diversified portfolios tend to grow over decades.',
-    icon: '🎲'
+    icon: 'dice'
   },
   {
     title: '"I need a lot of money"',
     body: 'Small, consistent amounts build powerful habits. Many platforms let you start with as little as £25 per month. The key is starting, not the amount.',
-    icon: '💰'
+    icon: 'banknote'
   },
   {
     title: '"I am too late"',
@@ -19,27 +20,27 @@ const fears = [
   {
     title: '"I will lose everything"',
     body: 'Diversification reduces risk. Education reduces fear. By spreading investments across different asset classes, you reduce the chance of losing everything.',
-    icon: '😰'
+    icon: 'warning'
   },
   {
     title: '"It\'s too complicated"',
     body: 'You don\'t need to understand everything at once. Start with the basics, learn gradually, and use simple strategies like index funds.',
-    icon: '📚'
+    icon: 'book'
   },
   {
     title: '"I need to watch it daily"',
     body: 'Long-term investing means checking occasionally, not daily. Set up automatic contributions and review quarterly or annually.',
-    icon: '👀'
+    icon: 'eye'
   },
   {
     title: '"Markets always crash"',
     body: 'While markets do have downturns, they have historically recovered and grown over the long term. Time in the market helps smooth out volatility.',
-    icon: '📉'
+    icon: 'chart-down'
   },
   {
     title: '"Only experts can do it"',
     body: 'With index funds and simple strategies, you don\'t need to be an expert. Many successful investors use passive, low-cost approaches.',
-    icon: '🎓'
+    icon: 'cap'
   }
 ]
 
@@ -58,7 +59,7 @@ export default function Fears() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {fears.map((fear) => (
               <div key={fear.title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="text-3xl mb-3" aria-hidden="true">{fear.icon}</div>
+                <div className="mb-3"><Icon name={fear.icon as never} className="h-8 w-8 text-emerald-600" /></div>
                 <h3 className="font-semibold mb-2">{fear.title}</h3>
                 <p className="text-sm text-slate-600">{fear.body}</p>
               </div>

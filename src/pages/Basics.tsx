@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { useMemo, useState } from 'react'
+import Icon from '../components/Icon'
 
 export default function Basics() {
   const [principal, setPrincipal] = useState(1000)
@@ -64,16 +65,16 @@ export default function Basics() {
           <h2 className="text-3xl md:text-4xl section-title text-center">Core Concepts</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
-              ['Money', 'A tool to trade time and effort today for options later.', '💷'],
-              ['Saving vs Investing', 'Saving is safety. Investing is growth with risk.', '🏦'],
-              ['Interest', "A fee paid for using someone else's money.", '📈'],
-              ['Compound growth', 'Your returns earn returns. Time makes it powerful.', '📊'],
-              ['Risk vs Reward', 'Higher potential returns usually mean bigger ups and downs.', '⚖️'],
+              ['Money', 'A tool to trade time and effort today for options later.', 'pound'],
+              ['Saving vs Investing', 'Saving is safety. Investing is growth with risk.', 'bank'],
+              ['Interest', "A fee paid for using someone else's money.", 'chart-up'],
+              ['Compound growth', 'Your returns earn returns. Time makes it powerful.', 'chart-bar'],
+              ['Risk vs Reward', 'Higher potential returns usually mean bigger ups and downs.', 'scale'],
               ['Time', 'Time smooths short-term noise and helps growth.', '⏰'],
-              ['Financial literacy', 'Knowing how money decisions affect your future choices.', '📚']
+              ['Financial literacy', 'Knowing how money decisions affect your future choices.', 'book']
             ].map(([title, body, icon]) => (
               <div key={title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="text-3xl mb-2" aria-hidden="true">{icon}</div>
+                <div className="mb-2"><Icon name={icon as never} className="h-8 w-8 text-emerald-600" /></div>
                 <h3 className="font-semibold text-lg mb-2">{title}</h3>
                 <p className="text-sm text-slate-600">{body}</p>
               </div>
@@ -112,7 +113,7 @@ export default function Basics() {
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
                       />
                       <Legend />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="balance" 
                         stroke="#3b82f6" 
@@ -121,7 +122,7 @@ export default function Basics() {
                         dot={{ r: 3 }}
                         activeDot={{ r: 5 }}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="contributions" 
                         stroke="#94a3b8" 
@@ -130,7 +131,7 @@ export default function Basics() {
                         name="Your Contributions"
                         dot={false}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="growth" 
                         stroke="#10b981" 
