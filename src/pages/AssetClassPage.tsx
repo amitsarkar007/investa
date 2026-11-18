@@ -152,11 +152,11 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <div className="h-3 rounded-r bg-red-400" style={{ width: `${item.risk * 10}%` }} />
-                      <span className="text-xs text-slate-500">risk {item.risk}/10</span>
+                      <span className="text-xs text-slate-500">risk level {item.risk}/10</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="h-3 rounded-r bg-emerald-500" style={{ width: `${item.return * 10}%` }} />
-                      <span className="text-xs text-slate-500">return {item.return}/10</span>
+                      <span className="text-xs text-slate-500">typical return {item.return}/10</span>
                     </div>
                   </div>
                 </div>
@@ -181,8 +181,16 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
           </div>
           <div className="bg-white rounded-3xl shadow-lg p-8 space-y-3 border border-slate-100">
             <h2 className="text-2xl font-semibold">How it works</h2>
-            <Diagram name={assetDiagrams[asset.id] ?? 'asset-stocks'} />
             <p className="text-slate-600 leading-relaxed">{asset.howItWorks}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white rounded-3xl shadow-lg p-8 border border-slate-100">
+            <h2 className="text-2xl font-semibold mb-4 text-center">The big picture</h2>
+            <Diagram name={assetDiagrams[asset.id] ?? 'asset-stocks'} className="max-w-3xl mx-auto" />
           </div>
         </div>
       </section>
