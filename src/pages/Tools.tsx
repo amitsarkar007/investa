@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { CompoundGrowthCalc, FeeImpactCalc, CgtCalc, IncomeTaxCalc } from '../components/Calculators'
 
 // Sample data for asset class risk/return comparison
 const riskReturnData = [
@@ -108,6 +109,21 @@ export default function Tools() {
             Free, interactive tools to help you plan, understand projections, and see how different parameters affect your investments. All tools include visual graphs and projections based on your inputs.
           </p>
         </div>
+
+        <section className="space-y-8">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl md:text-4xl section-title">Try it yourself</h2>
+            <p className="text-lg text-slate-600">
+              Move the sliders and watch the numbers change - the fastest way to feel how growth, fees and tax really work.
+            </p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <CompoundGrowthCalc />
+            <FeeImpactCalc />
+            <CgtCalc />
+            <IncomeTaxCalc />
+          </div>
+        </section>
 
         <section className="space-y-8">
           <div className="text-center space-y-3">
