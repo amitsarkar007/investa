@@ -223,9 +223,9 @@ export const assetClasses: AssetClass[] = [
         body: 'Understanding UK tax rules helps you keep more of your returns. ISAs and pensions offer tax advantages.',
         bullets: [
           'Stocks and Shares ISA: Up to £20,000 per year, all gains and dividends are tax-free',
-          'Capital Gains Tax: Applies if you sell outside an ISA and profits exceed the annual allowance (£6,000 in 2023/24)',
-          'Dividend tax: First £1,000 of dividends are tax-free, then taxed at your income tax rate',
-          'Pension contributions: Get tax relief, but money is locked until age 55+',
+          'Capital Gains Tax: Applies if you sell outside an ISA and total gains exceed the annual exempt amount (£3,000 in 2026/27), taxed at 18% or 24% depending on your income tax band',
+          'Dividend tax: First £500 of dividends are tax-free (2026/27), then taxed at 10.75%, 35.75% or 39.35% depending on your income tax band',
+          'Pension contributions: Get tax relief, but money is locked until the minimum pension age (55 now, rising to 57 from April 2028)',
           'Always check current tax rules as they change regularly'
         ]
       },
@@ -410,9 +410,9 @@ export const assetClasses: AssetClass[] = [
         body: 'Fund investing has tax implications. Using tax-advantaged accounts can help you keep more of your returns.',
         bullets: [
           'Stocks and Shares ISA: Up to £20,000 per year, all gains are tax-free',
-          'Dividend tax: Applies outside ISAs after the £1,000 annual dividend allowance',
+          'Dividend tax: Applies outside ISAs after the £500 annual dividend allowance (2026/27)',
           'Capital Gains Tax: Applies if you sell outside an ISA and profits exceed the annual allowance',
-          'Pension funds: Get tax relief on contributions, but money is locked until age 55+',
+          'Pension funds: Get tax relief on contributions, but money is locked until the minimum pension age (55 now, rising to 57 from April 2028)',
           'Always check current tax rules as they change regularly'
         ]
       },
@@ -604,7 +604,7 @@ export const assetClasses: AssetClass[] = [
         body: 'ETFs have tax implications. Using tax-advantaged accounts maximizes your returns.',
         bullets: [
           'Stocks and Shares ISA: Up to £20,000 per year, all gains are tax-free',
-          'Dividend tax: Applies outside ISAs after the £1,000 annual dividend allowance',
+          'Dividend tax: Applies outside ISAs after the £500 annual dividend allowance (2026/27)',
           'Capital Gains Tax: Applies if you sell outside an ISA and profits exceed the annual allowance',
           'Withholding tax: Some international ETFs may have foreign tax implications',
           'Always check current tax rules as they change regularly'
