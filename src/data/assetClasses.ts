@@ -15,7 +15,7 @@ export type AssetClass = {
     body: string
     bullets?: string[]
   }[]
-  platforms?: { name: string; url: string }[]
+  platforms?: { name: string; url: string; frn?: string; note?: string }[]
   categories?: { name: string; description: string }[]
 }
 
@@ -91,12 +91,10 @@ export const assetClasses: AssetClass[] = [
       }
     ],
     platforms: [
-      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk' },
-      { name: 'AJ Bell Youinvest', url: 'https://www.youinvest.co.uk' },
-      { name: 'Interactive Investor', url: 'https://www.ii.co.uk' },
-      { name: "Government's Savings and Investments (NS&I)", url: 'https://www.nsandi.com' },
-      { name: 'Fidelity', url: 'https://www.fidelity.co.uk' },
-      { name: 'Vanguard Investor', url: 'https://www.vanguardinvestor.co.uk' }
+      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk', frn: '115248' },
+      { name: 'AJ Bell', url: 'https://www.ajbell.co.uk', frn: '155593' },
+      { name: 'interactive investor', url: 'https://www.ii.co.uk', frn: '141282' },
+      { name: 'NS&I (government savings)', url: 'https://www.nsandi.com', note: 'Backed by HM Treasury, not FCA-regulated' },
     ],
     categories: [
       {
@@ -251,12 +249,10 @@ export const assetClasses: AssetClass[] = [
       }
     ],
     platforms: [
-      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk' },
-      { name: 'AJ Bell Youinvest', url: 'https://www.youinvest.co.uk' },
-      { name: 'Interactive Investor', url: 'https://www.ii.co.uk' },
-      { name: 'Vanguard Investor', url: 'https://www.vanguardinvestor.co.uk' },
-      { name: 'Fidelity', url: 'https://www.fidelity.co.uk' },
-      { name: 'Trading 212', url: 'https://www.trading212.com' }
+      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk', frn: '115248' },
+      { name: 'AJ Bell', url: 'https://www.ajbell.co.uk', frn: '155593' },
+      { name: 'interactive investor', url: 'https://www.ii.co.uk', frn: '141282' },
+      { name: 'Trading 212 UK', url: 'https://www.trading212.com', frn: '609146' },
     ],
     categories: [
       {
@@ -438,12 +434,10 @@ export const assetClasses: AssetClass[] = [
       }
     ],
     platforms: [
-      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk' },
-      { name: 'AJ Bell Youinvest', url: 'https://www.youinvest.co.uk' },
-      { name: 'Interactive Investor', url: 'https://www.ii.co.uk' },
-      { name: 'Vanguard Investor', url: 'https://www.vanguardinvestor.co.uk' },
-      { name: 'iShares (BlackRock)', url: 'https://www.ishares.com/uk' },
-      { name: 'Legal & General Investment Management (LGIM)', url: 'https://www.lgim.com/uk/en' }
+      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk', frn: '115248' },
+      { name: 'AJ Bell', url: 'https://www.ajbell.co.uk', frn: '155593' },
+      { name: 'Vanguard Investor UK', url: 'https://www.vanguardinvestor.co.uk', frn: '527839' },
+      { name: 'interactive investor', url: 'https://www.ii.co.uk', frn: '141282' },
     ],
     categories: [
       {
@@ -632,10 +626,10 @@ export const assetClasses: AssetClass[] = [
       }
     ],
     platforms: [
-      { name: 'Vanguard', url: 'https://www.vanguard.com' },
-      { name: 'iShares', url: 'https://www.ishares.com' },
-      { name: 'SPDR', url: 'https://www.spdrs.com' },
-      { name: 'Legal & General Investment Management (LGIM)', url: 'https://www.lgim.com/uk/en' }
+      { name: 'interactive investor', url: 'https://www.ii.co.uk', frn: '141282' },
+      { name: 'InvestEngine', url: 'https://www.investengine.com', frn: '801128' },
+      { name: 'Trading 212 UK', url: 'https://www.trading212.com', frn: '609146' },
+      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk', frn: '115248' },
     ],
     categories: [
       {
@@ -676,12 +670,9 @@ export const assetClasses: AssetClass[] = [
     goodFor: ['Income seekers', 'Diversification'],
     watchOuts: ['Too much concentration in one property'],
     platforms: [
-      { name: 'Zillow', url: 'https://www.zillow.com' },
-      { name: 'Realtor', url: 'https://www.realtor.com' },
-      { name: 'Redfin', url: 'https://www.redfin.com' },
-      { name: 'Property Partner', url: 'https://www.propertypartner.co' },
-      { name: 'Bricklane', url: 'https://www.bricklane.com' },
-      { name: 'The House Crowd', url: 'https://www.thehousecrowd.com' }
+      { name: 'Hargreaves Lansdown (property funds and REITs)', url: 'https://www.hl.co.uk', frn: '115248' },
+      { name: 'AJ Bell (property funds and REITs)', url: 'https://www.ajbell.co.uk', frn: '155593' },
+      { name: 'interactive investor (property funds and REITs)', url: 'https://www.ii.co.uk', frn: '141282' },
     ],
     categories: [
       {
@@ -722,12 +713,9 @@ export const assetClasses: AssetClass[] = [
     goodFor: ['Diversification', 'Inflation hedging'],
     watchOuts: ['Speculation without a plan'],
     platforms: [
-      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk' },
-      { name: 'AJ Bell Youinvest', url: 'https://www.youinvest.co.uk' },
-      { name: 'Interactive Investor', url: 'https://www.ii.co.uk' },
-      { name: 'eToro', url: 'https://www.etoro.com' },
-      { name: 'Plus500', url: 'https://www.plus500.com' },
-      { name: 'Interactive Brokers', url: 'https://www.interactivebrokers.co.uk' }
+      { name: 'Hargreaves Lansdown (gold and commodity ETCs)', url: 'https://www.hl.co.uk', frn: '115248' },
+      { name: 'interactive investor (gold and commodity ETCs)', url: 'https://www.ii.co.uk', frn: '141282' },
+      { name: 'Trading 212 UK (commodity ETCs)', url: 'https://www.trading212.com', frn: '609146' },
     ],
     categories: [
       {
@@ -772,10 +760,7 @@ export const assetClasses: AssetClass[] = [
     goodFor: ['High-risk tolerance', 'Speculative learning'],
     watchOuts: ['Scams and hype cycles'],
     platforms: [
-      { name: 'Coinbase', url: 'https://www.coinbase.com' },
-      { name: 'Binance', url: 'https://www.binance.com' },
-      { name: 'Kraken', url: 'https://www.kraken.com' },
-      { name: 'Bitstamp', url: 'https://www.bitstamp.net/' }
+      { name: 'FCA Financial Services Register', url: 'https://register.fca.org.uk', note: 'Check any crypto firm is on the FCA cryptoasset register before using it. Crypto is not FSCS protected and scams are common.' },
     ],
     categories: [
       {
@@ -816,11 +801,8 @@ export const assetClasses: AssetClass[] = [
     goodFor: ['Income seekers', 'Alternative diversification'],
     watchOuts: ['Concentration in few loans'],
     platforms: [
-      { name: 'LendingClub', url: 'https://www.lendingclub.com' },
-      { name: 'Prosper', url: 'https://www.prosper.com' },
-      { name: 'RateSetter', url: 'https://www.ratesetter.com' },
-      { name: 'Zopa', url: 'https://www.zopa.com' },
-      { name: 'Funding Circle', url: 'https://www.fundingcircle.com' }
+      { name: 'Funding Circle (loans to small businesses)', url: 'https://www.fundingcircle.com/uk/', frn: '722513' },
+      { name: 'FCA Financial Services Register', url: 'https://register.fca.org.uk', note: 'Retail P2P lending has shrunk in the UK and is not FSCS protected - check any platform here first.' },
     ],
     categories: [
       {
@@ -861,12 +843,8 @@ export const assetClasses: AssetClass[] = [
     goodFor: ['Passion-driven investing'],
     watchOuts: ['Overpaying due to hype'],
     platforms: [
-      { name: "Sotheby's", url: 'https://www.sothebys.com' },
-      { name: "Christie's", url: 'https://www.christies.com' },
-      { name: 'eBay', url: 'https://www.ebay.com' },
-      { name: 'The Fine Art Group', url: 'https://www.thefineartgroup.com' },
-      { name: 'Masterworks', url: 'https://www.masterworks.io' },
-      { name: 'StartEngine', url: 'https://www.startengine.com' }
+      { name: "Sotheby's (auction house)", url: 'https://www.sothebys.com', note: 'Auction houses are not FCA-regulated - no FSCS protection' },
+      { name: "Christie's (auction house)", url: 'https://www.christies.com', note: 'Auction houses are not FCA-regulated - no FSCS protection' },
     ],
     categories: [
       {
@@ -907,12 +885,10 @@ export const assetClasses: AssetClass[] = [
     goodFor: ['Retirement planning', 'Long-term wealth building'],
     watchOuts: ['Ignoring fees and fund selection'],
     platforms: [
-      { name: 'Vanguard', url: 'https://www.vanguard.com' },
-      { name: 'Fidelity', url: 'https://www.fidelity.com' },
-      { name: 'Charles Schwab', url: 'https://www.schwab.com' },
-      { name: 'AJ Bell Youinvest', url: 'https://www.youinvest.co.uk' },
-      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk' },
-      { name: 'Nutmeg', url: 'https://www.nutmeg.com' }
+      { name: 'PensionBee', url: 'https://www.pensionbee.com', frn: '744931' },
+      { name: 'Vanguard Investor UK', url: 'https://www.vanguardinvestor.co.uk', frn: '527839' },
+      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk', frn: '115248' },
+      { name: 'AJ Bell', url: 'https://www.ajbell.co.uk', frn: '155593' },
     ],
     categories: [
       {
@@ -953,10 +929,11 @@ export const assetClasses: AssetClass[] = [
     goodFor: ['Tax-efficient investing', 'General savings goals'],
     watchOuts: ['Leaving money idle in cash'],
     platforms: [
-      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk' },
-      { name: 'AJ Bell Youinvest', url: 'https://www.youinvest.co.uk' },
-      { name: 'Interactive Investor', url: 'https://www.ii.co.uk' },
-      { name: 'Nutmeg', url: 'https://www.nutmeg.com' }
+      { name: 'Moneybox', url: 'https://www.moneyboxapp.com', frn: '712935' },
+      { name: 'Hargreaves Lansdown', url: 'https://www.hl.co.uk', frn: '115248' },
+      { name: 'AJ Bell', url: 'https://www.ajbell.co.uk', frn: '155593' },
+      { name: 'interactive investor', url: 'https://www.ii.co.uk', frn: '141282' },
+      { name: 'Vanguard Investor UK', url: 'https://www.vanguardinvestor.co.uk', frn: '527839' },
     ],
     categories: [
       {

@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { assetClassMap, assetClasses } from '../data/assetClasses'
 import Icon from '../components/Icon'
+import Diagram from '../components/Diagram'
 
 type AssetClassPageProps = {
   assetId?: string
@@ -38,6 +39,20 @@ const expectedReturns: Record<string, number> = {
   collectibles: 5,
   pension: 6,
   isa: 4
+}
+
+const assetDiagrams: Record<string, string> = {
+  bonds: 'asset-bonds',
+  stocks: 'asset-stocks',
+  funds: 'asset-basket',
+  etf: 'asset-basket',
+  realestate: 'asset-property',
+  commodities: 'asset-commodities',
+  crypto: 'asset-crypto',
+  p2plending: 'asset-p2p',
+  collectibles: 'asset-collectibles',
+  pension: 'asset-pension',
+  isa: 'asset-isa',
 }
 
 export default function AssetClassPage({ assetId }: AssetClassPageProps) {
@@ -137,11 +152,11 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <div className="h-3 rounded-r bg-red-400" style={{ width: `${item.risk * 10}%` }} />
-                      <span className="text-xs text-slate-500">risk {item.risk}/10</span>
+                      <span className="text-xs text-slate-500">risk level {item.risk}/10</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="h-3 rounded-r bg-emerald-500" style={{ width: `${item.return * 10}%` }} />
-                      <span className="text-xs text-slate-500">return {item.return}/10</span>
+                      <span className="text-xs text-slate-500">typical return {item.return}/10</span>
                     </div>
                   </div>
                 </div>
@@ -167,6 +182,15 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
           <div className="bg-white rounded-3xl shadow-lg p-8 space-y-3 border border-slate-100">
             <h2 className="text-2xl font-semibold">How it works</h2>
             <p className="text-slate-600 leading-relaxed">{asset.howItWorks}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white rounded-3xl shadow-lg p-8 border border-slate-100">
+            <h2 className="text-2xl font-semibold mb-4 text-center">The big picture</h2>
+            <Diagram name={assetDiagrams[asset.id] ?? 'asset-stocks'} className="max-w-3xl mx-auto" />
           </div>
         </div>
       </section>
@@ -273,12 +297,18 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                           </a>
+                          {platform.frn && (
+                            <span className="block text-xs text-slate-500 mt-0.5">
+                              FCA-authorised, Firm Reference Number (FRN) {platform.frn} - check at register.fca.org.uk
+                            </span>
+                          )}
+                          {platform.note && <span className="block text-xs text-amber-700 mt-0.5">{platform.note}</span>}
                         </li>
                       )
                     })}
                   </ul>
                   <p className="text-xs text-slate-500 mt-4">
-                    Always compare fees, features, and read reviews before choosing a platform.
+                    FRNs verified against the FCA register on 18 November 2026. Always check the firm yourself at register.fca.org.uk before sending money.
                   </p>
                 </div>
               )}

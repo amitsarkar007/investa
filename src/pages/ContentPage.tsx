@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { ContentPageData } from '../data/contentPages'
+import Diagram from '../components/Diagram'
 
 export default function ContentPage({ page }: { page: ContentPageData }) {
   return (
@@ -27,6 +28,7 @@ export default function ContentPage({ page }: { page: ContentPageData }) {
           {page.sections.map((section) => (
             <section key={section.title} className="bg-white rounded-3xl shadow-lg border border-slate-100 p-8 space-y-4">
               <h2 className="text-2xl font-semibold text-[#0f2a43]">{section.title}</h2>
+              {section.diagram && <Diagram name={section.diagram} />}
               {section.body && <p className="text-slate-700 leading-relaxed">{section.body}</p>}
               {section.bullets && (
                 <ul className="list-disc list-inside text-slate-700 space-y-2">

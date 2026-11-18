@@ -1,5 +1,6 @@
 export type ContentSection = {
   title: string
+  diagram?: string
   body?: string
   bullets?: string[]
   table?: { head: string[]; rows: string[][] }
@@ -32,6 +33,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'The big numbers for 2026/27',
+        diagram: 'tax-bands',
         body: 'The UK tax year runs from 6 April to 5 April. These are the key figures for the 2026 to 2027 tax year, taken from GOV.UK:',
         table: {
           head: ['Allowance or rate', '2026 to 2027'],
@@ -42,6 +44,8 @@ export const contentPages: ContentPageData[] = [
             ['Dividend allowance', '£500 per tax year'],
             ['Dividend tax rates above the allowance', '10.75% basic / 35.75% higher / 39.35% additional'],
             ['Personal Allowance (income tax)', '£12,570'],
+            ['Income tax bands (England, Wales, NI)', '20% / 40% / 45% above the Personal Allowance'],
+            ['Employee National Insurance (Class 1)', '8% main rate / 2% above £50,270'],
           ],
         },
       },
@@ -70,6 +74,8 @@ export const contentPages: ContentPageData[] = [
       { label: 'GOV.UK - Self Assessment tax returns', url: 'https://www.gov.uk/self-assessment-tax-returns' },
     ],
     related: [
+      { label: 'Income Tax Bands & Allowances', to: '/tax/income-tax' },
+      { label: 'Extra Income & Your Tax', to: '/tax/extra-income' },
       { label: 'Capital Gains Tax', to: '/tax/capital-gains-tax' },
       { label: 'Self Assessment', to: '/tax/self-assessment' },
       { label: 'ISAs & Tax Allowances', to: '/tax/isa-and-allowances' },
@@ -87,6 +93,7 @@ export const contentPages: ContentPageData[] = [
     sections: [
       {
         title: 'What Capital Gains Tax is',
+        diagram: 'cgt-worked',
         body: 'Capital Gains Tax (CGT) is the tax on the profit when you sell or "dispose of" something that has increased in value - shares, funds, ETFs, a second property, crypto, and more. You are taxed on the gain (what you sold it for minus what you paid, minus certain costs), not on the full sale price. Buying and holding triggers nothing: CGT only becomes relevant when you dispose of an asset.',
       },
       {
@@ -180,6 +187,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'The deadlines that matter',
+        diagram: 'payments-on-account',
         table: {
           head: ['Deadline', 'What happens'],
           rows: [
@@ -248,6 +256,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'The four ISA types',
+        diagram: 'isa-wrapper',
         table: {
           head: ['Type', 'What it holds'],
           rows: [
@@ -310,6 +319,7 @@ export const contentPages: ContentPageData[] = [
     sections: [
       {
         title: 'Why costs matter so much',
+        diagram: 'fee-drag',
         body: 'Costs are the one part of investing you can control. Markets go up and down, but fees are certain - and they compound against you every year. A 1% annual cost difference on a £10,000 portfolio growing at 6% for 25 years is worth roughly £15,000. Understanding every layer of cost is one of the highest-return things a beginner can learn.',
       },
       {
@@ -362,18 +372,19 @@ export const contentPages: ContentPageData[] = [
   {
     path: '/investing-abroad',
     title: 'Investing in Foreign Currency',
-    tagline: 'Dollars, euros, yen, yuan and rupees - how UK investors buy overseas assets, and the tax that follows.',
+    tagline: '$ USD, € EUR, ¥ JPY, ¥ CNY, ₹ INR - how UK investors buy overseas assets, and the tax that follows.',
     description:
       'How UK investors invest in USD, EUR, JPY, CNY and INR assets: currency conversion and FX fees, currency risk and hedged funds, how to access restricted markets like China and India, withholding tax, and reporting foreign gains to HMRC in pounds.',
     lastChecked: '18 November 2026',
     sections: [
       {
         title: 'How buying foreign assets actually works',
-        body: 'You do not usually need a foreign bank account. A UK investment platform holds your pounds and, when you buy a US share for example, converts GBP to USD at its exchange rate plus an FX conversion fee. The same conversion happens in reverse when you sell or receive dividends. Many platforms also offer multi-currency accounts so you can hold dollars or euros between trades instead of converting every time.',
+        body: 'You do not usually need a foreign bank account. A UK investment platform holds your pounds and, when you buy a US share for example, converts £ GBP to $ USD at its exchange rate plus an FX conversion fee. The same conversion happens in reverse when you sell or receive dividends. Many platforms also offer multi-currency accounts so you can hold $ USD or € EUR between trades instead of converting every time.',
       },
       {
         title: 'Currency risk: the return you did not sign up for',
-        body: 'When you invest abroad you are making two bets at once: one on the asset, one on the currency. If the US market rises 10% but the pound strengthens 10% against the dollar, your return in pounds is roughly zero. Over long periods currency moves can help or hurt - it is an extra source of volatility, not free money.',
+        diagram: 'currency-risk',
+        body: 'When you invest abroad you are making two bets at once: one on the asset, one on the currency. If the US market rises 10% but £ GBP strengthens 10% against $ USD, your return in £ GBP is roughly zero. Over long periods currency moves can help or hurt - it is an extra source of volatility, not free money.',
         bullets: [
           'Unhedged funds leave currency movements in your returns (the default, and fine for most long-term investors).',
           'Hedged funds use financial contracts to strip out most currency movement, for a small extra fee - common for bond funds, where currency swings can swamp the underlying return.',
@@ -384,18 +395,18 @@ export const contentPages: ContentPageData[] = [
         table: {
           head: ['Currency', 'How UK investors usually get exposure'],
           rows: [
-            ['US Dollar (USD)', 'Directly - most UK platforms offer US shares and ETFs. Expect an FX fee per trade and a W-8BEN form for reduced dividend withholding tax.'],
-            ['Euro (EUR)', 'Directly on many platforms via European exchanges, or through eurozone ETFs and funds priced in pounds.'],
-            ['Japanese Yen (JPY)', 'Through Japan index funds and ETFs, or Japanese shares on platforms that offer the Tokyo market.'],
-            ['Chinese Yuan (CNY)', 'Direct mainland (A-share) access is restricted for most retail investors; the usual route is China ETFs and funds, sometimes using Stock Connect. Rules change - check what your platform offers.'],
-            ['Indian Rupee (INR)', 'Non-residents generally cannot invest directly in Indian markets; the practical route is India ETFs and funds listed in London or the US.'],
+            ['$ USD (US dollar)', 'Directly - most UK platforms offer US shares and ETFs. Expect an FX fee per trade and a W-8BEN form for reduced dividend withholding tax.'],
+            ['€ EUR (euro)', 'Directly on many platforms via European exchanges, or through eurozone ETFs and funds priced in £ GBP.'],
+            ['¥ JPY (Japanese yen)', 'Through Japan index funds and ETFs, or Japanese shares on platforms that offer the Tokyo market.'],
+            ['¥ CNY (Chinese yuan)', 'Direct mainland (A-share) access is restricted for most retail investors; the usual route is China ETFs and funds, sometimes using Stock Connect. Rules change - check what your platform offers.'],
+            ['₹ INR (Indian rupee)', 'Non-residents generally cannot invest directly in Indian markets; the practical route is India ETFs and funds listed in London or the US.'],
           ],
         },
       },
       {
         title: 'The tax that follows you',
         bullets: [
-          'HMRC taxes UK residents on worldwide gains and income. Foreign gains and dividends must be converted into pounds sterling for your tax return.',
+          'HMRC taxes UK residents on worldwide gains and income. Foreign gains and dividends must be converted into £ GBP for your tax return.',
           'Many countries withhold tax on dividends before you receive them (the US normally takes 15% under the UK-US treaty if you have filed a W-8BEN).',
           'You can usually claim Foreign Tax Credit Relief in Self Assessment so the same income is not fully taxed twice.',
           'Foreign income and gains go on the foreign pages (SA106) of your tax return; capital gains still count towards your £3,000 annual exempt amount.',
@@ -404,10 +415,10 @@ export const contentPages: ContentPageData[] = [
       {
         title: 'Practical beginner rules',
         bullets: [
-          'Start with globally diversified funds priced in pounds - you get foreign exposure without managing currencies at all.',
+          'Start with globally diversified funds priced in £ GBP - you get foreign exposure without managing currencies at all.',
           'If you trade foreign shares directly, compare platforms on FX fees - they vary widely and apply both ways.',
           'Do not hold large foreign-currency cash balances "waiting" - that is currency speculation, not investing.',
-          'Remember: a fund priced in pounds can still carry full currency risk if it holds overseas assets. The label currency is not the exposure currency.',
+          'Remember: a fund priced in £ GBP can still carry full currency risk if it holds overseas assets. The label currency is not the exposure currency.',
         ],
       },
     ],
@@ -441,6 +452,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'FSCS: your safety net, up to £85,000',
+        diagram: 'fscs-shield',
         body: 'The Financial Services Compensation Scheme (FSCS) pays compensation if an FCA-authorised firm fails. For investments, the limit is up to £85,000 per eligible person, per firm (for firms that failed after 1 April 2019). Two things to understand:',
         bullets: [
           'FSCS covers firm failure and certain bad advice - not normal market losses. If your fund falls 30%, that is investing, not a claim.',
@@ -472,9 +484,340 @@ export const contentPages: ContentPageData[] = [
       { label: 'FSCS - Investment protection', url: 'https://www.fscs.org.uk/what-we-cover/investments/' },
     ],
     related: [
+      { label: 'Financial Advisers, Explained', to: '/financial-advisers' },
       { label: 'Ethics & Warnings', to: '/ethics' },
       { label: 'Common Fears & Myths', to: '/fears' },
       { label: 'Cryptocurrencies (education only)', to: '/crypto' },
+    ],
+  },
+  {
+    path: '/tax/income-tax',
+    title: 'Income Tax Bands & Allowances',
+    tagline: 'What the UK takes from what you earn - the bands, the allowance, and the £100,000 trap.',
+    description:
+      'UK income tax for 2026/27 in plain English: the £12,570 Personal Allowance, the 20%, 40% and 45% bands, the Personal Allowance taper above £100,000, employee National Insurance at 8% and 2%, and a worked example.',
+    lastChecked: '18 November 2026',
+    sections: [
+      {
+        title: 'The bands for 2026/27',
+        diagram: 'tax-bands',
+        body: 'Income tax is charged in slices. You never pay the higher rate on your whole income - only on the part that falls inside each band. These are the rates for England, Wales and Northern Ireland (Scotland sets its own bands):',
+        table: {
+          head: ['Band', 'Taxable income (2026/27)', 'Rate'],
+          rows: [
+            ['Personal Allowance', 'Up to £12,570', '0%'],
+            ['Basic rate', '£12,571 to £50,270', '20%'],
+            ['Higher rate', '£50,271 to £125,140', '40%'],
+            ['Additional rate', 'Over £125,140', '45%'],
+          ],
+        },
+      },
+      {
+        title: 'Worked example: a £60,000 salary',
+        bullets: [
+          'First £12,570: Personal Allowance - no tax.',
+          '£12,571 to £50,270 (£37,700): taxed at 20% = £7,540.',
+          '£50,271 to £60,000 (£9,730): taxed at 40% = £3,892.',
+          'Total income tax: £11,432. The higher rate only touched the slice above £50,270.',
+        ],
+      },
+      {
+        title: 'The £100,000 trap: the Personal Allowance taper',
+        diagram: 'taper',
+        body: 'Once your adjusted net income goes above £100,000, your Personal Allowance shrinks by £1 for every £2 over the line. It reaches zero at £125,140. Losing the allowance while paying 40% creates an effective 60% tax rate on income between £100,000 and £125,140 - one of the highest marginal rates in the UK system. Pension contributions can bring adjusted net income back below £100,000 and restore the allowance.',
+      },
+      {
+        title: 'National Insurance is separate - and extra',
+        body: 'Employees also pay Class 1 National Insurance on earnings: 8% on earnings between £12,570 and £50,270, then 2% above £50,270 (2026/27). It shows on your payslip alongside income tax but funds different things, including your State Pension record. Self-employed people pay Class 4 instead - covered on the Extra Income page.',
+      },
+      {
+        title: 'Scotland is different',
+        body: 'Scottish taxpayers pay Scottish income tax with its own bands (including starter, intermediate, advanced and top rates - 48% above £125,140 in 2026/27) on earnings, rental and pension income. Savings and dividend income still use UK-wide rates. If you live in Scotland, check the Scottish bands on GOV.UK.',
+      },
+      {
+        title: 'Allowances that can raise your tax-free amount',
+        bullets: [
+          'Marriage Allowance: if one partner earns under £12,570 and the other is a basic-rate taxpayer, up to £1,260 of allowance can be transferred, saving up to £252 a year.',
+          'Blind Person\'s Allowance: an extra tax-free amount added to your Personal Allowance.',
+          'Trading and property allowances: up to £1,000 each of side income can be tax-free - see Extra Income & Your Tax.',
+        ],
+      },
+    ],
+    sources: [
+      { label: 'GOV.UK - Income Tax rates and Personal Allowances', url: 'https://www.gov.uk/income-tax-rates' },
+      { label: 'GOV.UK - Rates and thresholds for employers 2026 to 2027', url: 'https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027' },
+      { label: 'GOV.UK - Scottish income tax', url: 'https://www.gov.uk/scottish-income-tax' },
+    ],
+    related: [
+      { label: 'Extra Income & Your Tax', to: '/tax/extra-income' },
+      { label: 'Self Assessment', to: '/tax/self-assessment' },
+      { label: 'Tax & Allowances Hub', to: '/tax' },
+      { label: 'ISAs & Tax Allowances', to: '/tax/isa-and-allowances' },
+    ],
+    warning: 'Tax rules depend on your circumstances and change. This is education, not tax advice - check GOV.UK or speak to a qualified adviser for your situation.',
+  },
+  {
+    path: '/tax/extra-income',
+    title: 'Extra Income & Your Tax',
+    tagline: 'Side business, dividends, interest, rent, trading profits - how each one stacks on top of your salary.',
+    description:
+      'How additional income affects your UK tax: side business profits and Class 4 National Insurance, the £1,000 trading and property allowances, dividend and savings tax, rental income, payments on account, and a worked example for 2026/27.',
+    lastChecked: '18 November 2026',
+    sections: [
+      {
+        title: 'The golden rule: income stacks',
+        diagram: 'stacking',
+        body: 'HMRC adds up almost everything you earn in a tax year and taxes the total in slices. Your salary usually uses up your Personal Allowance and basic-rate band first - so extra income often lands in a higher band than you expect. The stacking order is: earnings and pensions first, then savings interest, then dividends on top.',
+      },
+      {
+        title: 'Side business and freelancing (sole trader)',
+        bullets: [
+          'Trading allowance: if your gross trading income is £1,000 or less in a tax year, you do not need to tell HMRC at all.',
+          'Above £1,000 you register for Self Assessment (by 5 October after the tax year) and pay income tax on profits - income minus allowable expenses - at your marginal band.',
+          'Class 4 National Insurance: 6% on profits between £12,570 and £50,270, then 2% above (2026/27).',
+          'Trading through a limited company instead? Profits pay Corporation Tax first, and you are then taxed on salary and dividends you take out - a different calculation entirely.',
+        ],
+      },
+      {
+        title: 'Payments on account: the January surprise',
+        diagram: 'payments-on-account',
+        body: 'If your Self Assessment bill is over £1,000 (and less than 80% of your tax is collected at source), HMRC asks for advance payments towards next year: half on 31 January and half on 31 July, each usually half of last year\'s bill. First-timers are often caught out: your first January payment can be 150% of the year\'s tax - the bill itself plus the first payment on account. If you expect to earn less, you can apply to reduce them, but underpaying means interest.',
+      },
+      {
+        title: 'Savings interest',
+        body: 'Interest outside ISAs is taxed as income, but most people pay nothing thanks to two allowances: the starting rate for savings (up to £5,000 of tax-free interest for lower earners, shrinking £1 for every £1 of other income above £12,570) and the Personal Savings Allowance (£1,000 of interest tax-free for basic-rate taxpayers, £500 for higher-rate, £0 for additional-rate). Banks report interest to HMRC automatically.',
+      },
+      {
+        title: 'Dividends',
+        body: 'Dividends stack on top of everything else. The first £500 is tax-free (2026/27); above that you pay 10.75% in the basic band, 35.75% in the higher band and 39.35% in the additional band. Dividends inside an ISA or pension are always tax-free.',
+      },
+      {
+        title: 'Rental income',
+        bullets: [
+          'Property allowance: gross rental income of £1,000 or less in a tax year does not need to be declared.',
+          'Above that, rental profits (rent minus allowable costs) are taxed as income at your marginal band.',
+          'Individual landlords get only a 20% tax credit on mortgage interest - it is no longer fully deductible, which can push "profitable" rentals into real losses for higher-rate taxpayers.',
+        ],
+      },
+      {
+        title: 'Worked example: salary + side business + dividends',
+        body: 'A £40,000 salary, £8,000 of sole-trader profit and £1,500 of dividends in 2026/27:',
+        bullets: [
+          'Salary: £27,430 taxable after the Personal Allowance, all in the basic band = £5,486 tax.',
+          'Side profit £8,000: total income is now £48,000, still basic rate, so £8,000 x 20% = £1,600 income tax, plus Class 4 NI: £8,000 x 6% = £480.',
+          'Dividends: £1,500 minus the £500 allowance = £1,000 at 10.75% = £107.50.',
+          'Total extra tax on top of PAYE: £2,187.50 - reported through Self Assessment, with payments on account likely the following year.',
+        ],
+      },
+    ],
+    sources: [
+      { label: 'GOV.UK - Tax-free allowances on property and trading income', url: 'https://www.gov.uk/guidance/tax-free-allowances-on-property-and-trading-income' },
+      { label: 'GOV.UK - Self-employed National Insurance rates', url: 'https://www.gov.uk/self-employed-national-insurance-rates' },
+      { label: 'GOV.UK - Payments on account', url: 'https://www.gov.uk/understand-self-assessment-bill/payments-on-account' },
+      { label: 'GOV.UK - Tax on dividends', url: 'https://www.gov.uk/tax-on-dividends' },
+      { label: 'GOV.UK - Tax on savings interest', url: 'https://www.gov.uk/apply-tax-free-interest-on-savings' },
+    ],
+    related: [
+      { label: 'Income Tax Bands & Allowances', to: '/tax/income-tax' },
+      { label: 'Self Assessment', to: '/tax/self-assessment' },
+      { label: 'Capital Gains Tax', to: '/tax/capital-gains-tax' },
+      { label: 'Tax & Allowances Hub', to: '/tax' },
+    ],
+    warning: 'Everyone\'s stack is different and small changes can move you between bands. This is general education for 2026/27, not tax advice.',
+  },
+  {
+    path: '/financial-advisers',
+    title: 'Financial Advisers, Explained',
+    tagline: 'What advisers actually do, what they cost, how to check one - and when you do not need one.',
+    description:
+      'UK financial advisers in plain English: independent vs restricted advice, typical fees (hourly £100-£350, initial 1-3%, ongoing 0.5-1%), how to verify an adviser on the FCA register and Firm Checker, FSCS and Ombudsman protection, and the questions to ask before paying.',
+    lastChecked: '18 November 2026',
+    sections: [
+      {
+        title: 'What a financial adviser does',
+        body: 'A regulated financial adviser gives personal recommendations: they assess your situation, goals and risk tolerance, then recommend specific products or investments for you. That is different from education (like this site) and from execution-only platforms (where you choose yourself). Good advisers also handle tax planning, pension consolidation, inheritance planning and keeping you calm in a crash.',
+      },
+      {
+        title: 'Independent vs restricted',
+        bullets: [
+          'Independent (IFA): can recommend from the whole market and must genuinely consider all product types.',
+          'Restricted: can only recommend certain products, providers or types - which might be fine, but you should know what the restriction is before paying.',
+          'An adviser must tell you which they are. "Tied" or salespeople for one company are not advisers in this sense at all.',
+        ],
+      },
+      {
+        title: 'What advice costs',
+        body: 'Advisers charge in three ways, sometimes combined. Typical ranges, from MoneyHelper:',
+        table: {
+          head: ['Fee type', 'Typical range'],
+          rows: [
+            ['Hourly rate', '£100 to £350 an hour'],
+            ['Initial advice on pensions/investments', '1% to 3% of the amount (e.g. £1,000 to £3,000 on £100,000)'],
+            ['Ongoing advice', '0.5% to 1% a year'],
+            ['Fixed one-off fee', 'Agreed in advance for a defined piece of work'],
+          ],
+        },
+      },
+      {
+        title: 'Ongoing fees: do the maths every year',
+        body: 'A 0.5% ongoing fee sounds small. On a £200,000 pot it is £1,000 every single year - and it grows as your pot grows. MoneyHelper\'s own guidance is to compare the total annual cost, not just the initial fee. Ask what you actually get each year for the ongoing fee: a review meeting, rebalancing, tax checks - or nothing.',
+      },
+      {
+        title: 'How to check an adviser in five minutes',
+        diagram: 'adviser-check',
+        bullets: [
+          'Use the FCA Firm Checker or Financial Services Register (register.fca.org.uk): search the firm and confirm it is authorised - and for the activities you need.',
+          'Check the individual adviser on the same register; ask the firm for their full name as registered.',
+          'Search the FCA Warning List for the firm name - a hit means walk away.',
+          'Match contact details: clone firms copy real firms\' names, so call the number on the register, not the one you were given.',
+          'If a firm is only "registered" (e.g. for payments or crypto AML) rather than authorised, you are unlikely to have FSCS or Ombudsman protection.',
+        ],
+      },
+      {
+        title: 'Your protection if things go wrong',
+        bullets: [
+          'Financial Ombudsman Service: free dispute resolution if advice was unsuitable - the adviser must be FCA-authorised for you to use it.',
+          'FSCS: if an authorised firm fails and owes you money (including for bad advice), compensation is available up to £85,000 per person per firm.',
+          'Neither covers normal investment losses - a recommendation that performed badly but was suitable is not a claim.',
+        ],
+      },
+      {
+        title: 'When advice is worth paying for - and when it is not',
+        bullets: [
+          'Often worth it: defined-benefit pension transfers (legally required above £30,000 of safeguarded benefits), complex tax and inheritance situations, large lump sums, retirement drawdown planning.',
+          'Often not needed: starting a simple ISA into a diversified low-cost fund - the education on this site plus a mainstream platform covers it.',
+          'A middle option: many advisers offer a one-off "advice surgery" or fixed-fee review instead of ongoing management.',
+          'Pensions advice allowance: you can take up to £500 tax-free from your pension to pay for retirement advice, up to three times in total (once per tax year).',
+        ],
+      },
+      {
+        title: 'Questions to ask before you sign anything',
+        bullets: [
+          'Are you independent or restricted - and restricted to what, exactly?',
+          'What is your FCA Firm Reference Number (FRN)? (Then check it.)',
+          'What are ALL the charges - initial, ongoing, exit, and the underlying product fees - in pounds per year?',
+          'What do I receive each year for the ongoing fee?',
+          'Are you advising me or selling to me - and are you paid commission on anything you recommend?',
+        ],
+      },
+    ],
+    sources: [
+      { label: 'MoneyHelper - Guide to financial adviser fees', url: 'https://www.moneyhelper.org.uk/en/getting-help-and-advice/financial-advisers/guide-to-financial-adviser-fees' },
+      { label: 'FCA - How to check a firm or individual is authorised', url: 'https://www.fca.org.uk/consumers/how-check-firm-individual-authorised' },
+      { label: 'FCA - Financial Services Register', url: 'https://register.fca.org.uk/' },
+      { label: 'FSCS - Investment protection', url: 'https://www.fscs.org.uk/what-we-cover/investments/' },
+    ],
+    related: [
+      { label: 'Regulation & Your Protection', to: '/regulation' },
+      { label: 'What Investing Costs', to: '/costs' },
+      { label: 'Tax & Allowances Hub', to: '/tax' },
+      { label: 'FAQs', to: '/faq' },
+    ],
+    warning: 'Investa does not recommend any adviser or firm. Always verify authorisation on the FCA register yourself before paying for advice.',
+  },
+  {
+    path: '/how-investa-is-different',
+    title: 'How Investa Is Different',
+    tagline: 'There are brilliant UK money sites. Here is what each one does - and the gap Investa fills.',
+    description:
+      'How Investa compares with MoneySavingExpert, MoneyHelper, Boring Money, Money to the Masses, Monevator and platform academies - every claim verified from their own pages, with sources.',
+    lastChecked: '18 November 2026',
+    sections: [
+      {
+        title: 'The UK money sites we rate',
+        body: 'Good investing education already exists in the UK. We would rather be honest about that than pretend otherwise. Every claim below is taken from the site\'s own pages - click the sources and check.',
+        table: {
+          head: ['Site', 'What it says about itself', 'How it pays the bills'],
+          rows: [
+            ['MoneySavingExpert', 'Consumer money-saving guides across all of personal finance. "Guides are written purely from a best way to save money stance" - affiliate links are added afterwards by a separate team.', 'Affiliate links, added after guides are written (its own How this site is financed page).'],
+            ['MoneyHelper', '"Free, impartial guidance that\'s backed by government." Covers money and pensions for everyone.', 'Government-backed (MaPS). No commercial links.'],
+            ['Boring Money', '"Independent experts screen and review the market" to help people find investments, ISAs and pensions.', 'Commercial research and comparison business.'],
+            ['Money to the Masses', '"Helps millions of people every year make the right choices and find the best product."', 'Commercial personal finance site.'],
+            ['Monevator', 'A long-form investing blog. "The site makes money only through advertising and through affiliate commission if you click on a link... and subsequently buy something."', 'Advertising and affiliate commission (its own About page).'],
+            ['Platform academies', 'Learning hubs run by investment platforms such as Hargreaves Lansdown and interactive investor.', 'They sell investments - the education supports the product.'],
+          ],
+        },
+      },
+      {
+        title: 'So what is Investa for?',
+        body: 'All of those sites are worth reading. Investa exists because we kept hitting the same gaps when learning ourselves:',
+        bullets: [
+          'Visuals first. Every concept starts with a picture - tax bands, compounding, currency risk - before a wall of words.',
+          'Sliders, not just text. Our calculators let you drag the numbers and watch growth, fees and tax change live.',
+          'The investor\'s tax journey in one place: Capital Gains Tax (CGT), dividends, income tax bands, and exactly how to report it all on Self Assessment - with the current year\'s figures and a "last checked" date.',
+          'Multi-currency investing explained for UK beginners: $ USD, € EUR, ¥ JPY, ¥ CNY, ₹ INR - how to buy, what the fees are, and the tax that follows.',
+          'Neutral where-to-buy lists: every platform shown with its FCA Firm Reference Number (FRN) so you can verify it yourself. No rankings, no "best for you", no paid placement.',
+        ],
+      },
+      {
+        title: 'What we deliberately do not do',
+        bullets: [
+          'No "best buy" tables. We cannot know your situation, so we do not rank products for you.',
+          'No financial advice or personal recommendations - we are not FCA-authorised and do not pretend to be.',
+          'No crypto promotions of any kind.',
+          'No paywalls, no accounts, no email harvesting.',
+        ],
+      },
+    ],
+    sources: [
+      { label: 'MoneySavingExpert - How this site is financed', url: 'https://www.moneysavingexpert.com/site/moneysavingexpert-finance/' },
+      { label: 'MoneyHelper - About us', url: 'https://www.moneyhelper.org.uk/en/about-us' },
+      { label: 'Boring Money', url: 'https://www.boringmoney.co.uk' },
+      { label: 'Money to the Masses', url: 'https://moneytothemasses.com' },
+      { label: 'Monevator - About', url: 'https://monevator.com/about/' },
+    ],
+    related: [
+      { label: 'How We Make Money', to: '/how-we-make-money' },
+      { label: 'Ethics & Warnings', to: '/ethics' },
+      { label: 'About Investa', to: '/about' },
+      { label: 'Regulation & Your Protection', to: '/regulation' },
+    ],
+  },
+  {
+    path: '/how-we-make-money',
+    title: 'How We Make Money',
+    tagline: 'Short version: right now, we do not. Here is the whole truth.',
+    description:
+      'How Investa is funded: currently nothing - no affiliate links, no referral income, no sponsored content. What may change later (platform-approved affiliate programmes only, always labelled), and what never will.',
+    lastChecked: '18 November 2026',
+    sections: [
+      {
+        title: 'Today: nothing',
+        body: 'Investa is an educational project run by A2JS Technologies. Today the site earns £0. There are no affiliate links, no referral payments, no sponsored articles, no adverts, and no paid placements anywhere on this site. When we link to a platform, we link to its ordinary homepage with no tracking code. You can check: right-click any link and look at the address.',
+      },
+      {
+        title: 'Why build a site that earns nothing?',
+        body: 'Because we wanted the investing guide we could not find: one that explains the UK system - tax, costs, currencies, Self Assessment - simply, with pictures, without trying to sell anything. A2JS Technologies pays the (small) hosting bill. The site is cheap to run because there is no tracking, no accounts and no advertising technology.',
+      },
+      {
+        title: 'What might change later',
+        body: 'If Investa ever earns money, it will work like this, and only like this:',
+        bullets: [
+          'Affiliate programmes run by the platforms themselves, where their own compliance team approves the exact wording - the legal route the FCA expects for investment promotions.',
+          'Every paying link labelled as a paying link, next to the link itself - not hidden in a footer.',
+          'An unpaid alternative link wherever practical, the same approach MoneySavingExpert describes on its own finance page.',
+          'The education written first, links considered after - never the other way round.',
+        ],
+      },
+      {
+        title: 'What will never change',
+        bullets: [
+          'No crypto promotions. UK rules heavily restrict them and we want none of it.',
+          'No selling your data. We run no analytics and collect nothing to sell.',
+          'No rankings you cannot verify. Our lists stay neutral, FCA-checkable and unranked.',
+          'This page stays current. If the money model changes, this page changes first.',
+        ],
+      },
+    ],
+    sources: [
+      { label: 'MoneySavingExpert - How this site is financed (the model we would follow)', url: 'https://www.moneysavingexpert.com/site/moneysavingexpert-finance/' },
+      { label: 'FCA - Financial promotions: what content creators need to know', url: 'https://www.fca.org.uk/firms/financial-promotions-adverts/what-content-creators-need-know-posting' },
+      { label: 'FCA - Financial Services Register', url: 'https://register.fca.org.uk/' },
+    ],
+    related: [
+      { label: 'How Investa Is Different', to: '/how-investa-is-different' },
+      { label: 'Ethics & Warnings', to: '/ethics' },
+      { label: 'About Investa', to: '/about' },
     ],
   },
 ]
