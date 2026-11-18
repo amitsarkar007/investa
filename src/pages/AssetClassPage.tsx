@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { assetClassMap, assetClasses } from '../data/assetClasses'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
+import Icon from '../components/Icon'
 
 type AssetClassPageProps = {
   assetId?: string
@@ -172,7 +173,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
         <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-3">
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 shadow-lg border border-blue-100">
             <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span className="text-2xl">💡</span>
+              <Icon name="lightbulb" className="h-6 w-6 text-emerald-600" />
               Key ideas
             </h3>
             <ul className="text-sm text-slate-700 space-y-2">
@@ -186,7 +187,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
           </div>
           <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-6 shadow-lg border border-red-100">
             <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span className="text-2xl">⚠️</span>
+              <Icon name="warning" className="h-6 w-6 text-emerald-600" />
               Common risks
             </h3>
             <ul className="text-sm text-slate-700 space-y-2">
@@ -200,7 +201,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
           </div>
           <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 shadow-lg border border-green-100">
             <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span className="text-2xl">🚀</span>
+              <Icon name="steps" className="h-6 w-6 text-emerald-600" />
               Beginner steps
             </h3>
             <ol className="text-sm text-slate-700 space-y-2">
@@ -251,7 +252,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
               {asset.platforms && (
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
                   <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                    <span className="text-2xl">🏦</span>
+                    <Icon name="bank" className="h-6 w-6 text-emerald-600" />
                     Where to invest
                   </h3>
                   <ul className="space-y-3">
@@ -282,7 +283,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
               {asset.categories && (
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
                   <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                    <span className="text-2xl">📊</span>
+                    <Icon name="chart-bar" className="h-6 w-6 text-emerald-600" />
                     Common categories
                   </h3>
                   <div className="space-y-3">
@@ -339,7 +340,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
         <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-2">
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-8 shadow-xl">
             <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-              <span className="text-2xl">✅</span>
+              <Icon name="check" className="h-6 w-6 text-emerald-600" />
               Good for
             </h3>
             <ul className="space-y-3 text-sm text-slate-200">
@@ -353,7 +354,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
           </div>
           <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
             <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-              <span className="text-2xl">👀</span>
+              <Icon name="eye" className="h-6 w-6 text-emerald-600" />
               Watch outs
             </h3>
             <ul className="space-y-3 text-sm text-slate-600">

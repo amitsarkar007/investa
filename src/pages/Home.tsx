@@ -1,28 +1,29 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { assetClasses } from '../data/assetClasses'
+import Icon from '../components/Icon'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 const startCards = [
   {
     title: 'What investing is',
     body: 'Putting money to work so it can grow over time.',
-    icon: '💰'
+    icon: 'banknote'
   },
   {
     title: 'Who it is for',
     body: 'Complete beginners with no finance background needed.',
-    icon: '👋'
+    icon: 'user'
   },
   {
     title: 'What it is not',
     body: 'Not gambling, not a get-rich-quick scheme.',
-    icon: '🚫'
+    icon: 'no'
   },
   {
     title: 'How to use this site',
     body: 'All information is free and available right here. No courses, no programs.',
-    icon: '📚'
+    icon: 'book'
   }
 ]
 
@@ -49,17 +50,17 @@ const whatWeOffer = [
   {
     title: 'Comprehensive Guides',
     body: 'In-depth guides on all UK asset classes—stocks, bonds, property, and more.',
-    icon: '📚'
+    icon: 'book'
   },
   {
     title: 'Interactive Tools',
     body: 'Calculators and visualizations to help you understand and plan.',
-    icon: '🛠️'
+    icon: 'calculator'
   },
   {
     title: 'Clear Explanations',
     body: 'Plain language explanations for complete beginners. No jargon, no judgment.',
-    icon: '💬'
+    icon: 'chat'
   }
 ]
 
@@ -235,13 +236,13 @@ export default function Home() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { to: '/tax', icon: '🧾', title: 'Tax & Allowances', body: 'CGT rates, the £3,000 exempt amount, ISAs and dividend tax.' },
-              { to: '/costs', icon: '💸', title: 'What It Costs', body: 'Platform fees, fund charges, FX fees and stamp duty, explained.' },
-              { to: '/investing-abroad', icon: '🌍', title: 'Foreign Currency', body: 'Investing in USD, EUR, JPY, CNY and INR, and the tax that follows.' },
-              { to: '/regulation', icon: '🛡️', title: 'Regulation & Safety', body: 'FCA rules, £85,000 FSCS protection, and checking any firm.' }
+              { to: '/tax', icon: 'receipt', title: 'Tax & Allowances', body: 'CGT rates, the £3,000 exempt amount, ISAs and dividend tax.' },
+              { to: '/costs', icon: 'coins', title: 'What It Costs', body: 'Platform fees, fund charges, FX fees and stamp duty, explained.' },
+              { to: '/investing-abroad', icon: 'globe', title: 'Foreign Currency', body: 'Investing in USD, EUR, JPY, CNY and INR, and the tax that follows.' },
+              { to: '/regulation', icon: 'shield', title: 'Regulation & Safety', body: 'FCA rules, £85,000 FSCS protection, and checking any firm.' }
             ].map((card) => (
               <Link key={card.to} to={card.to} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:border-emerald-400 transition-colors block">
-                <div className="text-4xl mb-3" aria-hidden="true">{card.icon}</div>
+                <div className="mb-3"><Icon name={card.icon as never} /></div>
                 <h3 className="font-semibold text-lg mb-2 text-[#0f2a43]">{card.title}</h3>
                 <p className="text-sm text-slate-600">{card.body}</p>
               </Link>
@@ -261,7 +262,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {startCards.map((card) => (
               <div key={card.title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="text-4xl mb-3" aria-hidden="true">{card.icon}</div>
+                <div className="mb-3"><Icon name={card.icon as never} /></div>
                 <h3 className="font-semibold text-lg mb-2">{card.title}</h3>
                 <p className="text-sm text-slate-600">{card.body}</p>
               </div>
@@ -327,16 +328,16 @@ export default function Home() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
-              ['Money', 'A tool to trade time and effort today for options later.', '💷'],
-              ['Saving vs Investing', 'Saving is safety. Investing is growth with risk.', '🏦'],
-              ['Interest', "A fee paid for using someone else's money.", '📈'],
-              ['Compound growth', 'Your returns earn returns. Time makes it powerful.', '📊'],
-              ['Risk vs Reward', 'Higher potential returns usually mean bigger ups and downs.', '⚖️'],
-              ['Time', 'Time smooths short-term noise and helps growth.', '⏰'],
-              ['Financial literacy', 'Knowing how money decisions affect your future choices.', '📚']
+              ['Money', 'A tool to trade time and effort today for options later.', 'pound'],
+              ['Saving vs Investing', 'Saving is safety. Investing is growth with risk.', 'bank'],
+              ['Interest', "A fee paid for using someone else's money.", 'chart-up'],
+              ['Compound growth', 'Your returns earn returns. Time makes it powerful.', 'chart-bar'],
+              ['Risk vs Reward', 'Higher potential returns usually mean bigger ups and downs.', 'scale'],
+              ['Time', 'Time smooths short-term noise and helps growth.', 'clock'],
+              ['Financial literacy', 'Knowing how money decisions affect your future choices.', 'book']
             ].map(([title, body, icon]) => (
               <div key={title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="text-3xl mb-2" aria-hidden="true">{icon}</div>
+                <div className="mb-2"><Icon name={icon as never} className="h-8 w-8 text-emerald-600" /></div>
                 <h3 className="font-semibold text-lg mb-2">{title}</h3>
                 <p className="text-sm text-slate-600">{body}</p>
               </div>
@@ -758,7 +759,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-3">
             {whatWeOffer.map((item) => (
               <div key={item.title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="text-4xl mb-3" aria-hidden="true">{item.icon}</div>
+                <div className="mb-3"><Icon name={item.icon as never} /></div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                 <p className="text-sm text-slate-600">{item.body}</p>
               </div>
