@@ -19,6 +19,8 @@ import Fears from './pages/Fears'
 import RiskReturn from './pages/RiskReturn'
 import HistoricalReturns from './pages/HistoricalReturns'
 import NotFound from './pages/NotFound'
+import ContentPage from './pages/ContentPage'
+import { contentPages } from './data/contentPages'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -28,9 +30,9 @@ function ScrollToTop() {
   return null
 }
 
-export default function App() {
+export function AppShell() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <div className="flex min-h-screen flex-col">
         <Navbar />
@@ -64,12 +66,24 @@ export default function App() {
             <Route path="/pension" element={<AssetClassPage assetId="pension" />} />
             <Route path="/isa" element={<AssetClassPage assetId="isa" />} />
 
+            {contentPages.map((page) => (
+              <Route key={page.path} path={page.path} element={<ContentPage page={page} />} />
+            ))}
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />
         <ScrollToTopButton />
       </div>
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   )
 }

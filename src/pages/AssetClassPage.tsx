@@ -6,14 +6,9 @@ type AssetClassPageProps = {
   assetId?: string
 }
 
-// Helper function to generate affiliate links (placeholder - replace with actual affiliate program links)
-const generateAffiliateLink = (_platformName: string, originalUrl: string): string => {
-  // In a real implementation, you would use actual affiliate link generators
-  // For now, we'll add UTM parameters and note that affiliate links should be added
-  const email = 'its.amitsarkar@gmail.com'
-  // This is a placeholder - actual affiliate links would come from affiliate networks
-  return `${originalUrl}?ref=investa&email=${encodeURIComponent(email)}`
-}
+// Links to platforms are plain outbound links. Investa does not currently earn from them;
+// any future affiliate relationships will be clearly disclosed and use platform-approved links only.
+const platformUrl = (originalUrl: string): string => originalUrl
 
 // Risk level mapping for visualization
 const riskLevels: Record<string, number> = {
@@ -250,7 +245,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
         <section className="px-6">
           <div className="max-w-6xl mx-auto space-y-6">
             <div className="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-4 text-sm text-yellow-900">
-              <strong>Affiliate Disclosure:</strong> Some links below may be affiliate links. If you sign up through these links, we may earn a commission at no extra cost to you. This helps support our free educational content.
+              <strong>Disclosure:</strong> These are plain links to well-known UK platforms. Investa does not currently earn anything from them. If that ever changes, paying links will be clearly marked and our education will stay independent.
             </div>
             <div className="grid gap-6 lg:grid-cols-2">
               {asset.platforms && (
@@ -261,11 +256,11 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
                   </h3>
                   <ul className="space-y-3">
                     {asset.platforms.map((platform) => {
-                      const affiliateUrl = generateAffiliateLink(platform.name, platform.url)
+                      const url = platformUrl(platform.url)
                       return (
                         <li key={platform.url}>
                           <a 
-                            href={affiliateUrl} 
+                            href={url} 
                             target="_blank" 
                             rel="noreferrer noopener"
                             className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-medium hover:underline transition-colors"

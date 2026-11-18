@@ -147,3 +147,19 @@ Contact form available at `/contact` - uses formsubmit.co to send emails to its.
 ## License
 
 See `LICENSE` file.
+
+## Redesign (branch: redesign-mse-style)
+
+- New brand: SVG logo (`public/assets/images/logo.svg`) and favicon, navy/emerald palette, redesigned navbar and footer.
+- New educational hubs (MSE-style, sourced from GOV.UK/FCA/FSCS, education not advice):
+  - `/tax` Tax & Allowances Hub
+  - `/tax/capital-gains-tax` Capital Gains Tax (rates, £3,000 AEA, worked example, reporting)
+  - `/tax/self-assessment` Self Assessment for investors (deadlines, SA108, foreign income)
+  - `/tax/isa-and-allowances` ISAs, dividend allowance/rates, PSA
+  - `/costs` What Investing Costs (fees, FX, 0.5% stamp duty)
+  - `/investing-abroad` Investing in USD/EUR/JPY/CNY/INR + UK tax on foreign gains
+  - `/regulation` FCA, financial promotions, FSCS £85,000, safety checks
+- SEO: every route is pre-rendered to static HTML at build time (`scripts/prerender.mjs` via a Vite SSR build), with per-page title/description/canonical, plus `sitemap.xml` and `robots.txt`. No analytics.
+- Platform links on asset pages are now plain outbound links (no tracking params); disclosure updated.
+
+Build: `npm run build` (tsc + vite build + SSR prerender). Facts on tax pages last checked 18 November 2026.
