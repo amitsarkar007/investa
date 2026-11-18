@@ -156,8 +156,8 @@ function IsaWrapper({ className }: P) {
   return (
     <svg viewBox="0 0 760 170" className={className ?? W} role="img" aria-label="ISA wrapper: investments inside the ISA shield are protected from UK income tax and Capital Gains Tax">
       <rect x={140} y={20} width={480} height={130} rx={16} fill="#ecfdf5" stroke="#10b981" strokeWidth={3} strokeDasharray="10 6" />
-      <text x={380} y={44} textAnchor="middle" fontSize={14} fontWeight={700} fill="#047857">
-        INDIVIDUAL SAVINGS ACCOUNT (ISA) WRAPPER - up to £20,000 per tax year
+      <text x={380} y={44} textAnchor="middle" fontSize={11} fontWeight={700} fill="#047857">
+        INDIVIDUAL SAVINGS ACCOUNT (ISA) WRAPPER - £20,000 per tax year
       </text>
       {[
         { x: 190, t: 'Stocks' },
@@ -172,8 +172,8 @@ function IsaWrapper({ className }: P) {
           </text>
         </g>
       ))}
-      <text x={380} y={130} textAnchor="middle" fontSize={12} fill="#047857">
-        no UK income tax · no Capital Gains Tax · nothing to report to HM Revenue and Customs (HMRC)
+      <text x={380} y={130} textAnchor="middle" fontSize={11} fill="#047857">
+        no UK income tax · no Capital Gains Tax · nothing to report to HMRC (the tax office)
       </text>
       <text x={700} y={85} textAnchor="middle" fontSize={26} fill="#ef4444" fontWeight={700}>
         ✕
