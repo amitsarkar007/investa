@@ -5,7 +5,8 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `px-1 py-2 hover:text-emerald-700 ${isActive ? 'text-emerald-700 border-b-2 border-emerald-600' : 'text-slate-700'}`
 
 const assetClassRoutes = ['/bonds', '/stocks', '/funds', '/etf', '/realestate', '/commodities', '/crypto', '/p2plending', '/collectibles', '/pension', '/isa']
-const taxRoutes = ['/tax', '/tax/capital-gains-tax', '/tax/self-assessment', '/tax/isa-and-allowances']
+const taxRoutes = ['/tax', '/tax/income-tax', '/tax/extra-income', '/tax/capital-gains-tax', '/tax/self-assessment', '/tax/isa-and-allowances']
+const guideRoutes = ['/costs', '/investing-abroad', '/regulation', '/financial-advisers', '/learning']
 
 const assetLinks = [
   { to: '/bonds', label: 'Bonds' },
@@ -23,9 +24,19 @@ const assetLinks = [
 
 const taxLinks = [
   { to: '/tax', label: 'Tax & Allowances Hub' },
+  { to: '/tax/income-tax', label: 'Income Tax Bands' },
+  { to: '/tax/extra-income', label: 'Extra Income & Your Tax' },
   { to: '/tax/capital-gains-tax', label: 'Capital Gains Tax' },
   { to: '/tax/self-assessment', label: 'Self Assessment' },
   { to: '/tax/isa-and-allowances', label: 'ISAs & Tax Allowances' },
+]
+
+const guideLinks = [
+  { to: '/costs', label: 'What Investing Costs' },
+  { to: '/investing-abroad', label: 'Foreign Currency' },
+  { to: '/regulation', label: 'Regulation & Protection' },
+  { to: '/financial-advisers', label: 'Financial Advisers' },
+  { to: '/learning', label: 'All Guides' },
 ]
 
 function Chevron() {
@@ -38,13 +49,14 @@ function Chevron() {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [openMenu, setOpenMenu] = useState<'assets' | 'tax' | null>(null)
+  const [openMenu, setOpenMenu] = useState<'assets' | 'tax' | 'guides' | null>(null)
   const location = useLocation()
   const isAssetClassPage = assetClassRoutes.includes(location.pathname)
   const isTaxPage = taxRoutes.includes(location.pathname)
+  const isGuidePage = guideRoutes.includes(location.pathname)
 
   const dropdown = (
-    id: 'assets' | 'tax',
+    id: 'assets' | 'tax' | 'guides',
     label: string,
     links: { to: string; label: string }[],
     active: boolean
@@ -93,15 +105,7 @@ export default function Navbar() {
             </NavLink>
             {dropdown('assets', 'Asset Classes', assetLinks, isAssetClassPage)}
             {dropdown('tax', 'Tax', taxLinks, isTaxPage)}
-            <NavLink to="/costs" className={navLinkClass}>
-              Costs
-            </NavLink>
-            <NavLink to="/investing-abroad" className={navLinkClass}>
-              Foreign Currency
-            </NavLink>
-            <NavLink to="/regulation" className={navLinkClass}>
-              Regulation
-            </NavLink>
+            {dropdown('guides', 'Guides', guideLinks, isGuidePage)}
             <NavLink to="/tools" className={navLinkClass}>
               Tools
             </NavLink>
@@ -128,6 +132,9 @@ export default function Navbar() {
                 { to: '/start', label: 'Start Here' },
                 { to: '/learning', label: 'All Guides' },
                 { to: '/tax', label: 'Tax & Allowances' },
+                { to: '/tax/income-tax', label: 'Income Tax Bands' },
+                { to: '/tax/extra-income', label: 'Extra Income & Your Tax' },
+                { to: '/financial-advisers', label: 'Financial Advisers' },
                 { to: '/costs', label: 'What Investing Costs' },
                 { to: '/investing-abroad', label: 'Investing in Foreign Currency' },
                 { to: '/regulation', label: 'Regulation & Protection' },
