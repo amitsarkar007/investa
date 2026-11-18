@@ -297,12 +297,18 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                           </a>
+                          {platform.frn && (
+                            <span className="block text-xs text-slate-500 mt-0.5">
+                              FCA-authorised, Firm Reference Number (FRN) {platform.frn} - check at register.fca.org.uk
+                            </span>
+                          )}
+                          {platform.note && <span className="block text-xs text-amber-700 mt-0.5">{platform.note}</span>}
                         </li>
                       )
                     })}
                   </ul>
                   <p className="text-xs text-slate-500 mt-4">
-                    Always compare fees, features, and read reviews before choosing a platform.
+                    FRNs verified against the FCA register on 18 November 2026. Always check the firm yourself at register.fca.org.uk before sending money.
                   </p>
                 </div>
               )}
