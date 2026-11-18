@@ -165,7 +165,7 @@ export function CgtCalc() {
       </div>
       <Result>
         <p className="mb-1">
-          Tax-free allowance: <strong>{gbp(Math.min(gain, AEA))}</strong> of {gbp(AEA)} used · Taxable gain: <strong>{gbp(taxable)}</strong>
+          Tax-free allowance (called the Annual Exempt Amount): <strong>{gbp(Math.min(gain, AEA))}</strong> of {gbp(AEA)} used · Taxable gain: <strong>{gbp(taxable)}</strong>
         </p>
         <p>
           CGT to pay (2026/27): <strong className="text-emerald-800">{gbp2(tax)}</strong>
@@ -173,8 +173,8 @@ export function CgtCalc() {
       </Result>
       <Bar
         segments={[
-          { label: 'Tax-free (AEA)', value: Math.min(gain, AEA), color: '#94a3b8' },
-          { label: 'HMRC', value: tax, color: '#ef4444' },
+          { label: 'Tax-free slice', value: Math.min(gain, AEA), color: '#94a3b8' },
+          { label: 'Tax to HMRC (the tax office)', value: tax, color: '#ef4444' },
           { label: 'You keep', value: Math.max(0, taxable - tax), color: '#10b981' },
         ]}
       />

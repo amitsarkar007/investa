@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { assetClasses } from '../data/assetClasses'
 import Icon from '../components/Icon'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { CompoundGrowthCalc, FeeImpactCalc, CgtCalc } from '../components/Calculators'
 
 const startCards = [
   {
@@ -46,23 +47,6 @@ const fears = [
   }
 ]
 
-const whatWeOffer = [
-  {
-    title: 'Comprehensive Guides',
-    body: 'In-depth guides on all UK asset classes—stocks, bonds, property, and more.',
-    icon: 'book'
-  },
-  {
-    title: 'Interactive Tools',
-    body: 'Calculators and visualizations to help you understand and plan.',
-    icon: 'calculator'
-  },
-  {
-    title: 'Clear Explanations',
-    body: 'Plain language explanations for complete beginners. No jargon, no judgment.',
-    icon: 'chat'
-  }
-]
 
 // Sample data for asset class risk/return comparison
 const riskReturnData = [
@@ -89,77 +73,42 @@ const historicalReturnsData = [
 ]
 
 export default function Home() {
-  const [principal, setPrincipal] = useState(1000)
-  const [monthly, setMonthly] = useState(100)
-  const [rate, setRate] = useState(6)
-  const [years, setYears] = useState(20)
-
-  const [inflationAmount, setInflationAmount] = useState(10000)
-  const [inflationRate, setInflationRate] = useState(3)
-  const [inflationYears, setInflationYears] = useState(10)
-
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 }).format(value)
 
-  const compoundResult = useMemo(() => {
-    const periods = years * 12
-    const monthlyRate = rate / 100 / 12
-    const dataPoints = []
-    
-    // Generate data points for every year (or more frequently for better visualization)
-    for (let i = 0; i <= periods; i += 3) {
-      if (i === 0) {
-        dataPoints.push({ year: 0, balance: principal, contributions: principal, growth: 0 })
-      } else {
-        let tempBalance = principal
-        for (let j = 0; j < i; j += 1) {
-          tempBalance = tempBalance * (1 + monthlyRate) + monthly
-        }
-        const tempContributions = principal + monthly * i
-        const growth = tempBalance - tempContributions
-        dataPoints.push({ 
-          year: Math.round((i / 12) * 10) / 10, 
-          balance: Math.round(tempBalance * 100) / 100, 
-          contributions: tempContributions,
-          growth: Math.round(growth * 100) / 100
-        })
-      }
-    }
-    
-    // Calculate final values
-    let finalBalance = principal
-    for (let i = 0; i < periods; i += 1) {
-      finalBalance = finalBalance * (1 + monthlyRate) + monthly
-    }
-    const contributions = principal + monthly * periods
-    const totalGrowth = finalBalance - contributions
-    
-    return {
-      balance: Math.round(finalBalance * 100) / 100,
-      contributions,
-      growth: Math.round(totalGrowth * 100) / 100,
-      dataPoints
-    }
-  }, [principal, monthly, rate, years])
 
-  const inflationResult = useMemo(() => {
-    return inflationAmount * Math.pow(1 + inflationRate / 100, inflationYears)
-  }, [inflationAmount, inflationRate, inflationYears])
 
-  const inflationDataPoints = useMemo(() => {
+  // Worked example: £1,000 up front plus £100 a month at 6% a year, for 20 years.
+  const compoundingPoints = useMemo(() => {
     const points = []
-    // Generate points for every year for smoother visualization
-    for (let i = 0; i <= inflationYears; i += 1) {
-      const value = inflationAmount * Math.pow(1 + inflationRate / 100, i)
+    let balance = 1000
+    points.push({ year: 0, balance: 1000, contributions: 1000, growth: 0 })
+    for (let y = 1; y <= 20; y += 1) {
+      for (let m = 0; m < 12; m += 1) {
+        balance = balance * (1 + 0.06 / 12) + 100
+      }
+      const contributions = 1000 + 100 * 12 * y
       points.push({
-        year: i,
-        value: Math.round(value * 100) / 100,
-        original: inflationAmount,
-        loss: Math.round((value - inflationAmount) * 100) / 100
+        year: y,
+        balance: Math.round(balance * 100) / 100,
+        contributions,
+        growth: Math.round((balance - contributions) * 100) / 100
       })
     }
     return points
-  }, [inflationAmount, inflationRate, inflationYears])
+  }, [])
+
+  // What £10,000 cash is really worth over 20 years if inflation runs at 3% a year.
+  const inflationDataPoints = useMemo(() => {
+    const points = []
+    for (let i = 0; i <= 20; i += 1) {
+      points.push({
+        year: i,
+        value: Math.round((10000 / Math.pow(1.03, i)) * 100) / 100
+      })
+    }
+    return points
+  }, [])
 
   return (
     <main id="main" className="space-y-16 pb-20">
@@ -228,52 +177,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="tax-costs-rules" className="px-6 py-12 bg-slate-100">
-        <div className="max-w-6xl mx-auto space-y-6">
-          <div className="space-y-2 text-center">
-            <h2 className="text-3xl md:text-4xl section-title">The rules of the game</h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">Most people lose more to costs and tax than to bad investments. Learn the rules first.</p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              { to: '/tax', icon: 'receipt', title: 'Tax & Allowances', body: 'CGT rates, the £3,000 exempt amount, ISAs and dividend tax.' },
-              { to: '/costs', icon: 'coins', title: 'What It Costs', body: 'Platform fees, fund charges, FX fees and stamp duty, explained.' },
-              { to: '/investing-abroad', icon: 'globe', title: 'Foreign Currency', body: 'Investing in USD, EUR, JPY, CNY and INR, and the tax that follows.' },
-              { to: '/regulation', icon: 'shield', title: 'Regulation & Safety', body: 'FCA rules, £85,000 FSCS protection, and checking any firm.' }
-            ].map((card) => (
-              <Link key={card.to} to={card.to} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:border-emerald-400 transition-colors block">
-                <div className="mb-3"><Icon name={card.icon as never} /></div>
-                <h3 className="font-semibold text-lg mb-2 text-[#0f2a43]">{card.title}</h3>
-                <p className="text-sm text-slate-600">{card.body}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="start" className="px-6">
-        <div className="max-w-6xl mx-auto space-y-8">
-          <div className="space-y-3 text-center">
-            <h2 className="text-3xl md:text-4xl section-title">Start Here</h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Investing is simply using your money to help you later. This site is for complete beginners, with no finance background needed. All information is available here—no courses, no programs, just free education.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {startCards.map((card) => (
-              <div key={card.title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="mb-3"><Icon name={card.icon as never} /></div>
-                <h3 className="font-semibold text-lg mb-2">{card.title}</h3>
-                <p className="text-sm text-slate-600">{card.body}</p>
-              </div>
-            ))}
-          </div>
-          <div className="rounded-2xl bg-blue-50 border-2 border-blue-100 p-6 text-sm text-blue-900">
-            <strong>Important:</strong> This website provides free educational information only, not financial advice. All content is available on-site—we don't offer courses or education programs. Always do your own research.
-          </div>
-        </div>
-      </section>
-
       <section id="why-invest" className="px-6">
         <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2 items-center">
           <div className="space-y-4">
@@ -320,6 +223,52 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="tax-costs-rules" className="px-6 py-12 bg-slate-100">
+        <div className="max-w-6xl mx-auto space-y-6">
+          <div className="space-y-2 text-center">
+            <h2 className="text-3xl md:text-4xl section-title">The rules of the game</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">Most people lose more to costs and tax than to bad investments. Learn the rules first.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { to: '/tax', icon: 'receipt', title: 'Tax & Allowances', body: 'CGT rates, the £3,000 exempt amount, ISAs and dividend tax.' },
+              { to: '/costs', icon: 'coins', title: 'What It Costs', body: 'Platform fees, fund charges, FX fees and stamp duty, explained.' },
+              { to: '/investing-abroad', icon: 'globe', title: 'Foreign Currency', body: 'Investing in $ USD, € EUR, ¥ JPY and ₹ INR, and the tax that follows.' },
+              { to: '/regulation', icon: 'shield', title: 'Regulation & Safety', body: 'FCA rules, £85,000 FSCS protection, and checking any firm.' }
+            ].map((card) => (
+              <Link key={card.to} to={card.to} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:border-emerald-400 transition-colors block">
+                <div className="mb-3"><Icon name={card.icon as never} /></div>
+                <h3 className="font-semibold text-lg mb-2 text-[#0f2a43]">{card.title}</h3>
+                <p className="text-sm text-slate-600">{card.body}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="start" className="px-6">
+        <div className="max-w-6xl mx-auto space-y-8">
+          <div className="space-y-3 text-center">
+            <h2 className="text-3xl md:text-4xl section-title">Start Here</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Investing is simply using your money to help you later. This site is for complete beginners, with no finance background needed. All information is available here - no courses, no programs, just free education.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {startCards.map((card) => (
+              <div key={card.title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
+                <div className="mb-3"><Icon name={card.icon as never} /></div>
+                <h3 className="font-semibold text-lg mb-2">{card.title}</h3>
+                <p className="text-sm text-slate-600">{card.body}</p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-2xl bg-blue-50 border-2 border-blue-100 p-6 text-sm text-blue-900">
+            <strong>Important:</strong> This website provides free educational information only, not financial advice. All content is available on-site - we don't offer courses or education programs. Always do your own research.
+          </div>
+        </div>
+      </section>
+
       <section id="basics" className="px-6">
         <div className="max-w-6xl mx-auto space-y-8">
           <div className="space-y-3 text-center">
@@ -349,10 +298,10 @@ export default function Home() {
               <p className="text-slate-600 mb-4">
                 Compounding means you earn returns on your original money and on the growth it has already made.
               </p>
-              {compoundResult.dataPoints && compoundResult.dataPoints.length > 0 && (
+              {compoundingPoints.length > 0 && (
                 <div className="h-64 mb-4">
                   <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={compoundResult.dataPoints} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
+                    <LineChart data={compoundingPoints} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                       <XAxis 
                         dataKey="year" 
@@ -524,255 +473,18 @@ export default function Home() {
 
       <section id="tools" className="px-6">
         <div className="max-w-6xl mx-auto space-y-8">
-          <h2 className="text-3xl md:text-4xl section-title text-center">Interactive Calculators</h2>
+          <div className="space-y-3 text-center">
+            <h2 className="text-3xl md:text-4xl section-title">Interactive Calculators</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">Drag the sliders. Watch the numbers move. No maths needed.</p>
+          </div>
           <div className="grid gap-6 lg:grid-cols-3">
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
-              <h3 className="font-semibold text-lg mb-4">Compound growth</h3>
-              <label htmlFor="principal" className="text-sm text-slate-600">Starting amount (£)</label>
-              <input
-                id="principal"
-                type="number"
-                min="0"
-                name="principal"
-                inputMode="decimal"
-                className="w-full border border-slate-200 rounded-lg p-2 mt-1 mb-3 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
-                value={principal}
-                onChange={(event) => setPrincipal(Number(event.target.value))}
-              />
-              <label htmlFor="monthly" className="text-sm text-slate-600">Monthly contribution (£)</label>
-              <input
-                id="monthly"
-                type="number"
-                min="0"
-                name="monthly"
-                inputMode="decimal"
-                className="w-full border border-slate-200 rounded-lg p-2 mt-1 mb-3 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
-                value={monthly}
-                onChange={(event) => setMonthly(Number(event.target.value))}
-              />
-              <label htmlFor="rate" className="text-sm text-slate-600">Annual growth rate (%)</label>
-              <input
-                id="rate"
-                type="number"
-                min="0"
-                step="0.1"
-                name="rate"
-                inputMode="decimal"
-                className="w-full border border-slate-200 rounded-lg p-2 mt-1 mb-3 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
-                value={rate}
-                onChange={(event) => setRate(Number(event.target.value))}
-              />
-              <label htmlFor="years" className="text-sm text-slate-600">Years</label>
-              <input
-                id="years"
-                type="number"
-                min="0"
-                name="years"
-                inputMode="numeric"
-                className="w-full border border-slate-200 rounded-lg p-2 mt-1 mb-4 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
-                value={years}
-                onChange={(event) => setYears(Number(event.target.value))}
-              />
-              <div className="rounded-xl bg-blue-50 p-4 border border-blue-100 mb-4">
-                <p className="text-sm text-slate-700 mb-1">
-                  <strong>Estimated balance:</strong> {formatCurrency(compoundResult.balance)}
-                </p>
-                <p className="text-xs text-slate-600 mb-1">
-                  Total contributions: {formatCurrency(compoundResult.contributions)}
-                </p>
-                <p className="text-xs text-green-700 font-semibold">
-                  Investment growth: {formatCurrency(compoundResult.growth)} ({((compoundResult.growth / compoundResult.contributions) * 100).toFixed(1)}%)
-                </p>
-              </div>
-              {compoundResult.dataPoints && compoundResult.dataPoints.length > 0 && (
-                <div className="h-64">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={compoundResult.dataPoints} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                      <XAxis 
-                        dataKey="year" 
-                        label={{ value: 'Years', position: 'insideBottom', offset: -5 }}
-                        tick={{ fontSize: 12 }}
-                      />
-                      <YAxis 
-                        label={{ value: '£', angle: -90, position: 'insideLeft' }}
-                        tick={{ fontSize: 12 }}
-                        tickFormatter={(value) => `£${(value / 1000).toFixed(0)}k`}
-                      />
-                      <Tooltip 
-                        formatter={(value: number | undefined, name?: string) => {
-                          if (value === undefined) return ''
-                          return [formatCurrency(value), name || '']
-                        }}
-                        labelFormatter={(label) => `Year ${label}`}
-                        contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
-                      />
-                      <Legend />
-                      <Line isAnimationActive={false} 
-                        type="monotone" 
-                        dataKey="balance" 
-                        stroke="#3b82f6" 
-                        strokeWidth={3} 
-                        name="Total Value" 
-                        dot={{ r: 3 }}
-                        activeDot={{ r: 5 }}
-                      />
-                      <Line isAnimationActive={false} 
-                        type="monotone" 
-                        dataKey="contributions" 
-                        stroke="#94a3b8" 
-                        strokeWidth={2} 
-                        strokeDasharray="5 5" 
-                        name="Your Contributions"
-                        dot={false}
-                      />
-                      <Line isAnimationActive={false} 
-                        type="monotone" 
-                        dataKey="growth" 
-                        stroke="#10b981" 
-                        strokeWidth={2} 
-                        name="Investment Growth"
-                        dot={false}
-                      />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-              )}
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
-              <h3 className="font-semibold text-lg mb-4">Inflation impact</h3>
-              <label htmlFor="inflationAmount" className="text-sm text-slate-600">Current cost (£)</label>
-              <input
-                id="inflationAmount"
-                type="number"
-                min="0"
-                name="inflationAmount"
-                inputMode="decimal"
-                className="w-full border border-slate-200 rounded-lg p-2 mt-1 mb-3 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
-                value={inflationAmount}
-                onChange={(event) => setInflationAmount(Number(event.target.value))}
-              />
-              <label htmlFor="inflationRate" className="text-sm text-slate-600">Inflation rate (%)</label>
-              <input
-                id="inflationRate"
-                type="number"
-                min="0"
-                step="0.1"
-                name="inflationRate"
-                inputMode="decimal"
-                className="w-full border border-slate-200 rounded-lg p-2 mt-1 mb-3 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
-                value={inflationRate}
-                onChange={(event) => setInflationRate(Number(event.target.value))}
-              />
-              <label htmlFor="inflationYears" className="text-sm text-slate-600">Years</label>
-              <input
-                id="inflationYears"
-                type="number"
-                min="0"
-                name="inflationYears"
-                inputMode="numeric"
-                className="w-full border border-slate-200 rounded-lg p-2 mt-1 mb-4 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
-                value={inflationYears}
-                onChange={(event) => setInflationYears(Number(event.target.value))}
-              />
-              <div className="rounded-xl bg-red-50 p-4 border border-red-100 mb-4">
-                <p className="text-sm text-slate-700 mb-1">
-                  <strong>Future cost:</strong> {formatCurrency(inflationResult)}
-                </p>
-                <p className="text-xs text-slate-600 mb-1">
-                  Original cost: {formatCurrency(inflationAmount)}
-                </p>
-                <p className="text-xs text-red-700 font-semibold">
-                  Additional needed: {formatCurrency(inflationResult - inflationAmount)} ({((inflationResult / inflationAmount - 1) * 100).toFixed(1)}% increase)
-                </p>
-                <p className="text-xs text-slate-600 mt-1">Your money buys less over time.</p>
-              </div>
-              {inflationDataPoints && inflationDataPoints.length > 0 && (
-                <div className="h-64">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={inflationDataPoints} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                      <XAxis 
-                        dataKey="year" 
-                        label={{ value: 'Years', position: 'insideBottom', offset: -5 }}
-                        tick={{ fontSize: 12 }}
-                      />
-                      <YAxis 
-                        label={{ value: '£ Value', angle: -90, position: 'insideLeft' }}
-                        tick={{ fontSize: 12 }}
-                        tickFormatter={(value) => `£${(value / 1000).toFixed(0)}k`}
-                      />
-                      <Tooltip 
-                        formatter={(value: number | undefined, name?: string) => {
-                          if (value === undefined) return ''
-                          return [formatCurrency(value), name || '']
-                        }}
-                        labelFormatter={(label) => `Year ${label}`}
-                        contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
-                      />
-                      <Legend />
-                      <Line isAnimationActive={false} 
-                        type="monotone" 
-                        dataKey="value" 
-                        stroke="#ef4444" 
-                        strokeWidth={3} 
-                        name="Future Cost"
-                        dot={{ r: 3 }}
-                        activeDot={{ r: 5 }}
-                      />
-                      <Line isAnimationActive={false} 
-                        type="monotone" 
-                        dataKey="original" 
-                        stroke="#94a3b8" 
-                        strokeWidth={2} 
-                        strokeDasharray="5 5" 
-                        name="Original Value"
-                        dot={false}
-                      />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-              )}
-            </div>
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
-              <h3 className="font-semibold text-lg mb-4">Time vs money</h3>
-              <p className="text-sm text-slate-600 mb-3">
-                Time is the most powerful factor. Even small amounts can grow with enough years.
-              </p>
-              <div className="rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 p-4 border border-purple-100 text-sm">
-                <p className="font-semibold text-slate-800 mb-2">Key insight:</p>
-                <p className="text-slate-700">Start with time, then add consistency. Focus on decades, not weeks.</p>
-              </div>
-            </div>
+            <CompoundGrowthCalc />
+            <FeeImpactCalc />
+            <CgtCalc />
           </div>
-        </div>
-      </section>
-
-      <section id="what-we-offer" className="px-6 bg-gradient-to-br from-slate-50 to-blue-50 py-12">
-        <div className="max-w-6xl mx-auto space-y-8">
-          <div className="text-center space-y-3">
-            <h2 className="text-3xl md:text-4xl section-title">What We Offer</h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Free guides, tools, and resources to help you understand UK investing. No courses, no programs—just clear information when you need it.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {whatWeOffer.map((item) => (
-              <div key={item.title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="mb-3"><Icon name={item.icon as never} /></div>
-                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-600">{item.body}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <Link 
-              to="/learning" 
-              className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-blue-700 transition-colors"
-            >
-              Browse All Guides
-            </Link>
-          </div>
+          <p className="text-center text-sm text-slate-500">
+            More tools, including income tax and Self Assessment calculators, on the <Link to="/tools" className="text-blue-600 underline">Tools page</Link>.
+          </p>
         </div>
       </section>
 
@@ -782,7 +494,7 @@ export default function Home() {
             <div>
               <h2 className="text-3xl md:text-4xl section-title">Ready to Get Started?</h2>
               <p className="text-lg text-blue-100 mt-3">
-                All information is free and available right here. No courses, no programs—just clear, comprehensive guides on UK investing.
+                All information is free and available right here. No courses, no programs - just clear, comprehensive guides on UK investing.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
