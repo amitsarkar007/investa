@@ -1,28 +1,29 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { assetClasses } from '../data/assetClasses'
+import Icon from '../components/Icon'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 const startCards = [
   {
     title: 'What investing is',
     body: 'Putting money to work so it can grow over time.',
-    icon: '💰'
+    icon: 'banknote'
   },
   {
     title: 'Who it is for',
     body: 'Complete beginners with no finance background needed.',
-    icon: '👋'
+    icon: 'user'
   },
   {
     title: 'What it is not',
     body: 'Not gambling, not a get-rich-quick scheme.',
-    icon: '🚫'
+    icon: 'no'
   },
   {
     title: 'How to use this site',
     body: 'All information is free and available right here. No courses, no programs.',
-    icon: '📚'
+    icon: 'book'
   }
 ]
 
@@ -49,17 +50,17 @@ const whatWeOffer = [
   {
     title: 'Comprehensive Guides',
     body: 'In-depth guides on all UK asset classes—stocks, bonds, property, and more.',
-    icon: '📚'
+    icon: 'book'
   },
   {
     title: 'Interactive Tools',
     body: 'Calculators and visualizations to help you understand and plan.',
-    icon: '🛠️'
+    icon: 'calculator'
   },
   {
     title: 'Clear Explanations',
     body: 'Plain language explanations for complete beginners. No jargon, no judgment.',
-    icon: '💬'
+    icon: 'chat'
   }
 ]
 
@@ -162,64 +163,90 @@ export default function Home() {
 
   return (
     <main id="main" className="space-y-16 pb-20">
-      <section className="pt-12 pb-10 px-6 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="pt-14 pb-12 px-6 bg-[#0f2a43]">
         <div className="max-w-6xl mx-auto grid gap-10 lg:grid-cols-2 items-center">
           <div className="space-y-6">
-            <p className="uppercase tracking-widest text-sm text-blue-600 font-semibold">Welcome / Start Here</p>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight" style={{ textWrap: 'balance' }}>
-              UK Investment Education: All Asset Classes Explained
+            <p className="uppercase tracking-widest text-sm text-emerald-400 font-semibold">UK investing, explained in plain English</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white" style={{ textWrap: 'balance' }}>
+              Every asset class. Every cost. Every tax rule. Free.
             </h1>
-            <p className="text-lg text-slate-700">
-              Free, comprehensive guides on stocks, bonds, funds, property, commodities, and more. Everything you need to understand UK investing—all in one place, no courses required.
+            <p className="text-lg text-slate-300">
+              Investa is a free educational guide to UK investing: how each asset class works, what it really costs, how Capital Gains Tax and ISAs work, how to invest in dollars, euros and yen, and how to report it all on Self Assessment. Like a money-saving guide, but for learning to invest.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-white font-semibold shadow-lg hover:bg-blue-700 transition-colors" to="/start">
+              <Link className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-white font-semibold shadow-lg hover:bg-emerald-600 transition-colors" to="/start">
                 Start learning
               </Link>
-              <Link className="inline-flex items-center justify-center rounded-full border-2 border-blue-600 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50 transition-colors" to="/learning">
+              <Link className="inline-flex items-center justify-center rounded-full border-2 border-emerald-400 px-6 py-3 font-semibold text-emerald-300 hover:bg-white/5 transition-colors" to="/learning">
                 Browse Guides
               </Link>
             </div>
-            <p className="text-sm text-slate-600">✓ Free educational content ✓ No courses or programs ✓ UK-focused</p>
+            <p className="text-sm text-slate-400">✓ Free educational content ✓ Sourced from GOV.UK &amp; FCA ✓ Education, never advice</p>
           </div>
           <div className="bg-white rounded-3xl shadow-xl p-8 space-y-4">
-            <div className="text-sm font-semibold text-blue-600">Why people use Investa</div>
+            <div className="text-sm font-semibold text-emerald-700">New to all of this?</div>
             <div className="grid gap-4">
               {[
                 {
-                  title: 'Plain language',
-                  body: 'We explain investing like you are brand new. No shame.'
+                  title: '1. Learn the basics',
+                  body: 'What investing is, why it matters, and the fears worth ignoring.',
+                  to: '/start'
                 },
                 {
-                  title: 'All asset classes',
-                  body: 'Comprehensive coverage of stocks, bonds, property, and more.'
+                  title: '2. Understand each asset class',
+                  body: 'From bonds to ETFs to ISAs, one plain-English guide at a time.',
+                  to: '/learning'
                 },
                 {
-                  title: 'Tools & Calculators',
-                  body: 'Interactive calculators and visualizations to make concepts clear.'
+                  title: '3. Know the costs and the tax',
+                  body: 'Fees, CGT, ISAs and Self Assessment - before you invest a pound.',
+                  to: '/tax'
                 }
               ].map((item) => (
-                <div key={item.title} className="flex items-start gap-3">
-                  <span className="text-blue-600 text-xl" aria-hidden="true">●</span>
+                <Link key={item.title} to={item.to} className="flex items-start gap-3 rounded-2xl p-3 hover:bg-emerald-50 transition-colors">
+                  <span className="text-emerald-600 text-xl" aria-hidden="true">●</span>
                   <div>
                     <div className="font-semibold text-slate-800">{item.title}</div>
                     <p className="text-sm text-slate-600">{item.body}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="grid grid-cols-3 gap-4 pt-4 text-center text-sm">
               {[
                 ['11', 'Asset Classes'],
-                ['3', 'Calculators'],
+                ['4', 'Tax Guides'],
                 ['100%', 'Free']
               ].map(([value, label]) => (
-                <div key={label} className="rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 p-4">
-                  <div className="text-xl font-bold text-blue-700">{value}</div>
+                <div key={label} className="rounded-2xl bg-emerald-50 p-4">
+                  <div className="text-xl font-bold text-emerald-700">{value}</div>
                   <div className="text-slate-600">{label}</div>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tax-costs-rules" className="px-6 py-12 bg-slate-100">
+        <div className="max-w-6xl mx-auto space-y-6">
+          <div className="space-y-2 text-center">
+            <h2 className="text-3xl md:text-4xl section-title">The rules of the game</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">Most people lose more to costs and tax than to bad investments. Learn the rules first.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { to: '/tax', icon: 'receipt', title: 'Tax & Allowances', body: 'CGT rates, the £3,000 exempt amount, ISAs and dividend tax.' },
+              { to: '/costs', icon: 'coins', title: 'What It Costs', body: 'Platform fees, fund charges, FX fees and stamp duty, explained.' },
+              { to: '/investing-abroad', icon: 'globe', title: 'Foreign Currency', body: 'Investing in USD, EUR, JPY, CNY and INR, and the tax that follows.' },
+              { to: '/regulation', icon: 'shield', title: 'Regulation & Safety', body: 'FCA rules, £85,000 FSCS protection, and checking any firm.' }
+            ].map((card) => (
+              <Link key={card.to} to={card.to} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:border-emerald-400 transition-colors block">
+                <div className="mb-3"><Icon name={card.icon as never} /></div>
+                <h3 className="font-semibold text-lg mb-2 text-[#0f2a43]">{card.title}</h3>
+                <p className="text-sm text-slate-600">{card.body}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -235,7 +262,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {startCards.map((card) => (
               <div key={card.title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="text-4xl mb-3" aria-hidden="true">{card.icon}</div>
+                <div className="mb-3"><Icon name={card.icon as never} /></div>
                 <h3 className="font-semibold text-lg mb-2">{card.title}</h3>
                 <p className="text-sm text-slate-600">{card.body}</p>
               </div>
@@ -282,7 +309,7 @@ export default function Home() {
                   <XAxis dataKey="year" label={{ value: 'Years', position: 'insideBottom', offset: -5 }} />
                   <YAxis label={{ value: '£ Value', angle: -90, position: 'insideLeft' }} />
                   <Tooltip formatter={(value: number | undefined) => value !== undefined ? formatCurrency(value) : ''} />
-                  <Line type="monotone" dataKey="value" stroke="#ef4444" strokeWidth={3} name="Purchasing Power" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="value" stroke="#ef4444" strokeWidth={3} name="Purchasing Power" />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -301,16 +328,16 @@ export default function Home() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
-              ['Money', 'A tool to trade time and effort today for options later.', '💷'],
-              ['Saving vs Investing', 'Saving is safety. Investing is growth with risk.', '🏦'],
-              ['Interest', "A fee paid for using someone else's money.", '📈'],
-              ['Compound growth', 'Your returns earn returns. Time makes it powerful.', '📊'],
-              ['Risk vs Reward', 'Higher potential returns usually mean bigger ups and downs.', '⚖️'],
-              ['Time', 'Time smooths short-term noise and helps growth.', '⏰'],
-              ['Financial literacy', 'Knowing how money decisions affect your future choices.', '📚']
+              ['Money', 'A tool to trade time and effort today for options later.', 'pound'],
+              ['Saving vs Investing', 'Saving is safety. Investing is growth with risk.', 'bank'],
+              ['Interest', "A fee paid for using someone else's money.", 'chart-up'],
+              ['Compound growth', 'Your returns earn returns. Time makes it powerful.', 'chart-bar'],
+              ['Risk vs Reward', 'Higher potential returns usually mean bigger ups and downs.', 'scale'],
+              ['Time', 'Time smooths short-term noise and helps growth.', 'clock'],
+              ['Financial literacy', 'Knowing how money decisions affect your future choices.', 'book']
             ].map(([title, body, icon]) => (
               <div key={title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="text-3xl mb-2" aria-hidden="true">{icon}</div>
+                <div className="mb-2"><Icon name={icon as never} className="h-8 w-8 text-emerald-600" /></div>
                 <h3 className="font-semibold text-lg mb-2">{title}</h3>
                 <p className="text-sm text-slate-600">{body}</p>
               </div>
@@ -346,7 +373,7 @@ export default function Home() {
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
                       />
                       <Legend />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="balance" 
                         stroke="#3b82f6" 
@@ -355,7 +382,7 @@ export default function Home() {
                         dot={{ r: 3 }}
                         activeDot={{ r: 5 }}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="contributions" 
                         stroke="#94a3b8" 
@@ -364,7 +391,7 @@ export default function Home() {
                         name="Your Contributions"
                         dot={false}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="growth" 
                         stroke="#10b981" 
@@ -439,8 +466,8 @@ export default function Home() {
                   <YAxis dataKey="name" type="category" width={100} />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="risk" fill="#ef4444" name="Risk (1-10)" />
-                  <Bar dataKey="return" fill="#10b981" name="Expected Return %" />
+                  <Bar isAnimationActive={false} dataKey="risk" fill="#ef4444" name="Risk (1-10)" />
+                  <Bar isAnimationActive={false} dataKey="return" fill="#10b981" name="Expected Return %" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -468,9 +495,9 @@ export default function Home() {
                   <YAxis label={{ value: 'Return %', angle: -90, position: 'insideLeft' }} />
                   <Tooltip formatter={(value: number | undefined) => value !== undefined ? `${value}%` : ''} />
                   <Legend />
-                  <Line type="monotone" dataKey="stocks" stroke="#8b5cf6" strokeWidth={2} name="Stocks" />
-                  <Line type="monotone" dataKey="bonds" stroke="#3b82f6" strokeWidth={2} name="Bonds" />
-                  <Line type="monotone" dataKey="cash" stroke="#10b981" strokeWidth={2} name="Cash" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="stocks" stroke="#8b5cf6" strokeWidth={2} name="Stocks" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="bonds" stroke="#3b82f6" strokeWidth={2} name="Bonds" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="cash" stroke="#10b981" strokeWidth={2} name="Cash" />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -581,7 +608,7 @@ export default function Home() {
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
                       />
                       <Legend />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="balance" 
                         stroke="#3b82f6" 
@@ -590,7 +617,7 @@ export default function Home() {
                         dot={{ r: 3 }}
                         activeDot={{ r: 5 }}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="contributions" 
                         stroke="#94a3b8" 
@@ -599,7 +626,7 @@ export default function Home() {
                         name="Your Contributions"
                         dot={false}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="growth" 
                         stroke="#10b981" 
@@ -684,7 +711,7 @@ export default function Home() {
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #e2e8f0', borderRadius: '8px' }}
                       />
                       <Legend />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="value" 
                         stroke="#ef4444" 
@@ -693,7 +720,7 @@ export default function Home() {
                         dot={{ r: 3 }}
                         activeDot={{ r: 5 }}
                       />
-                      <Line 
+                      <Line isAnimationActive={false} 
                         type="monotone" 
                         dataKey="original" 
                         stroke="#94a3b8" 
@@ -732,7 +759,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-3">
             {whatWeOffer.map((item) => (
               <div key={item.title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="text-4xl mb-3" aria-hidden="true">{item.icon}</div>
+                <div className="mb-3"><Icon name={item.icon as never} /></div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                 <p className="text-sm text-slate-600">{item.body}</p>
               </div>

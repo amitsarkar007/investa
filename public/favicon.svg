@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="10" fill="#0f2a43"/>
+  <rect x="8" y="26" width="7" height="14" rx="1.5" fill="#10b981"/>
+  <rect x="19" y="19" width="7" height="21" rx="1.5" fill="#10b981"/>
+  <rect x="30" y="12" width="7" height="28" rx="1.5" fill="#10b981"/>
+  <text x="24" y="17" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">£</text>
+</svg>

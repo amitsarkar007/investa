@@ -1,19 +1,14 @@
 import { Link, useParams } from 'react-router-dom'
 import { assetClassMap, assetClasses } from '../data/assetClasses'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
+import Icon from '../components/Icon'
 
 type AssetClassPageProps = {
   assetId?: string
 }
 
-// Helper function to generate affiliate links (placeholder - replace with actual affiliate program links)
-const generateAffiliateLink = (_platformName: string, originalUrl: string): string => {
-  // In a real implementation, you would use actual affiliate link generators
-  // For now, we'll add UTM parameters and note that affiliate links should be added
-  const email = 'its.amitsarkar@gmail.com'
-  // This is a placeholder - actual affiliate links would come from affiliate networks
-  return `${originalUrl}?ref=investa&email=${encodeURIComponent(email)}`
-}
+// Links to platforms are plain outbound links. Investa does not currently earn from them;
+// any future affiliate relationships will be clearly disclosed and use platform-approved links only.
+const platformUrl = (originalUrl: string): string => originalUrl
 
 // Risk level mapping for visualization
 const riskLevels: Record<string, number> = {
@@ -71,18 +66,22 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
   const riskLevel = riskLevels[id] || 5
   const expectedReturn = expectedReturns[id] || 5
 
-  // Comparison data with other asset classes
-  const comparisonData = [
+  // Comparison with the other major asset classes. If this asset is one of the
+  // benchmarks, mark that row instead of adding a duplicate.
+  type CmpRow = { name: string; risk: number; return: number; highlight?: boolean }
+  const benchmarks: CmpRow[] = [
     { name: 'Cash', risk: 1, return: 2 },
     { name: 'Bonds', risk: 3, return: 4 },
     { name: 'Stocks', risk: 7, return: 8 },
-    { name: asset.name, risk: riskLevel, return: expectedReturn, highlight: true },
     { name: 'Real Estate', risk: 5, return: 6 },
     { name: 'Commodities', risk: 8, return: 7 }
-  ].filter(item => item.name !== 'Bonds' || id === 'bonds')
-    .filter(item => item.name !== 'Stocks' || id === 'stocks')
-    .filter(item => item.name !== 'Real Estate' || id === 'realestate')
-    .filter(item => item.name !== 'Commodities' || id === 'commodities')
+  ]
+  const isBenchmark = benchmarks.some((b) => b.name === asset.name)
+  const comparisonData = isBenchmark
+    ? benchmarks.map((b) =>
+        b.name === asset.name ? { ...b, risk: riskLevel, return: expectedReturn, highlight: true } : b
+      )
+    : [...benchmarks.slice(0, 3), { name: asset.name, risk: riskLevel, return: expectedReturn, highlight: true }, ...benchmarks.slice(3)]
 
   // Pie chart data for portfolio allocation example
   const portfolioExample = [
@@ -90,9 +89,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
     { name: 'Stocks', value: 40 },
     { name: 'Bonds', value: 20 },
     { name: 'Cash', value: 10 }
-  ]
-
-  const COLORS = ['#3b82f6', '#8b5cf6', '#10b981', '#f59e0b']
+  ].filter((item, index) => index === 0 || item.name !== asset.name)
 
   return (
     <main className="space-y-14 pb-20">
@@ -130,28 +127,29 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-3xl shadow-xl p-8 border border-slate-100">
             <h2 className="text-2xl font-semibold mb-6 text-center">Risk vs Return Profile</h2>
-            <div className="h-80">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={comparisonData} layout="vertical">
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                  <XAxis type="number" domain={[0, 10]} label={{ value: 'Level (1-10)', position: 'insideBottom', offset: -5 }} />
-                  <YAxis dataKey="name" type="category" width={120} />
-                  <Tooltip />
-                  <Legend />
-                  <Bar 
-                    dataKey="risk" 
-                    fill="#ef4444" 
-                    name="Risk Level" 
-                    radius={[0, 4, 4, 0]}
-                  />
-                  <Bar 
-                    dataKey="return" 
-                    fill="#10b981" 
-                    name="Expected Return %" 
-                    radius={[0, 4, 4, 0]}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
+            <div className="space-y-4" role="img" aria-label="Risk versus return comparison bar chart">
+              {comparisonData.map((item) => (
+                <div key={item.name} className={`grid grid-cols-[110px_1fr] sm:grid-cols-[140px_1fr] items-center gap-3 ${item.highlight ? 'font-semibold' : ''}`}>
+                  <div className="text-sm text-slate-700 text-right">
+                    {item.name}
+                    {item.highlight && <span className="ml-1 text-xs text-emerald-700">(this)</span>}
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <div className="h-3 rounded-r bg-red-400" style={{ width: `${item.risk * 10}%` }} />
+                      <span className="text-xs text-slate-500">risk {item.risk}/10</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="h-3 rounded-r bg-emerald-500" style={{ width: `${item.return * 10}%` }} />
+                      <span className="text-xs text-slate-500">return {item.return}/10</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <div className="flex justify-center gap-6 pt-2 text-xs text-slate-500">
+                <span className="inline-flex items-center gap-1.5"><span className="inline-block h-3 w-3 rounded bg-red-400" /> Risk level</span>
+                <span className="inline-flex items-center gap-1.5"><span className="inline-block h-3 w-3 rounded bg-emerald-500" /> Expected return</span>
+              </div>
             </div>
             <p className="text-sm text-slate-500 mt-4 text-center">
               * Risk and return are approximate and vary based on market conditions. Past performance does not guarantee future results.
@@ -177,7 +175,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
         <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-3">
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 shadow-lg border border-blue-100">
             <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span className="text-2xl">💡</span>
+              <Icon name="lightbulb" className="h-6 w-6 text-emerald-600" />
               Key ideas
             </h3>
             <ul className="text-sm text-slate-700 space-y-2">
@@ -191,7 +189,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
           </div>
           <div className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-6 shadow-lg border border-red-100">
             <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span className="text-2xl">⚠️</span>
+              <Icon name="warning" className="h-6 w-6 text-emerald-600" />
               Common risks
             </h3>
             <ul className="text-sm text-slate-700 space-y-2">
@@ -205,7 +203,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
           </div>
           <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 shadow-lg border border-green-100">
             <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
-              <span className="text-2xl">🚀</span>
+              <Icon name="steps" className="h-6 w-6 text-emerald-600" />
               Beginner steps
             </h3>
             <ol className="text-sm text-slate-700 space-y-2">
@@ -250,22 +248,22 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
         <section className="px-6">
           <div className="max-w-6xl mx-auto space-y-6">
             <div className="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-4 text-sm text-yellow-900">
-              <strong>Affiliate Disclosure:</strong> Some links below may be affiliate links. If you sign up through these links, we may earn a commission at no extra cost to you. This helps support our free educational content.
+              <strong>Disclosure:</strong> These are plain links to well-known UK platforms. Investa does not currently earn anything from them. If that ever changes, paying links will be clearly marked and our education will stay independent.
             </div>
             <div className="grid gap-6 lg:grid-cols-2">
               {asset.platforms && (
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
                   <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                    <span className="text-2xl">🏦</span>
+                    <Icon name="bank" className="h-6 w-6 text-emerald-600" />
                     Where to invest
                   </h3>
                   <ul className="space-y-3">
                     {asset.platforms.map((platform) => {
-                      const affiliateUrl = generateAffiliateLink(platform.name, platform.url)
+                      const url = platformUrl(platform.url)
                       return (
                         <li key={platform.url}>
                           <a 
-                            href={affiliateUrl} 
+                            href={url} 
                             target="_blank" 
                             rel="noreferrer noopener"
                             className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-medium hover:underline transition-colors"
@@ -287,7 +285,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
               {asset.categories && (
                 <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
                   <h3 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                    <span className="text-2xl">📊</span>
+                    <Icon name="chart-bar" className="h-6 w-6 text-emerald-600" />
                     Common categories
                   </h3>
                   <div className="space-y-3">
@@ -312,26 +310,25 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
             <p className="text-sm text-slate-600 text-center mb-6">
               This is a simplified example showing how {asset.name} might fit into a diversified portfolio.
             </p>
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={portfolioExample}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={({ name, percent }) => `${name}: ${percent ? (percent * 100).toFixed(0) : 0}%`}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {portfolioExample.map((_entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip />
-                </PieChart>
-              </ResponsiveContainer>
+            <div role="img" aria-label="Example portfolio allocation">
+              <div className="flex h-8 w-full overflow-hidden rounded-full">
+                {portfolioExample.map((item, index) => (
+                  <div
+                    key={item.name}
+                    style={{ width: `${item.value}%`, backgroundColor: ['#0f2a43', '#10b981', '#3b82f6', '#f59e0b'][index % 4] }}
+                    title={`${item.name} ${item.value}%`}
+                  />
+                ))}
+              </div>
+              <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                {portfolioExample.map((item, index) => (
+                  <li key={item.name} className="flex items-center gap-2 text-sm text-slate-700">
+                    <span className="inline-block h-3.5 w-3.5 rounded" style={{ backgroundColor: ['#0f2a43', '#10b981', '#3b82f6', '#f59e0b'][index % 4] }} />
+                    <span className="font-medium">{item.name}</span>
+                    <span className="text-slate-500">{item.value}%</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             <p className="text-xs text-slate-500 mt-4 text-center">
               * This is an example only. Your allocation should match your risk tolerance and goals.
@@ -344,7 +341,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
         <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-2">
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-8 shadow-xl">
             <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-              <span className="text-2xl">✅</span>
+              <Icon name="check" className="h-6 w-6 text-emerald-600" />
               Good for
             </h3>
             <ul className="space-y-3 text-sm text-slate-200">
@@ -358,7 +355,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
           </div>
           <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
             <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-              <span className="text-2xl">👀</span>
+              <Icon name="eye" className="h-6 w-6 text-emerald-600" />
               Watch outs
             </h3>
             <ul className="space-y-3 text-sm text-slate-600">

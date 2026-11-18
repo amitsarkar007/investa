@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="Investa">
+  <defs>
+    <linearGradient id="bars" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#047857"/>
+      <stop offset="1" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  <!-- mark: three ascending bars with a pound coin -->
+  <rect x="2" y="26" width="10" height="18" rx="2" fill="url(#bars)"/>
+  <rect x="16" y="18" width="10" height="26" rx="2" fill="url(#bars)"/>
+  <rect x="30" y="10" width="10" height="34" rx="2" fill="url(#bars)"/>
+  <circle cx="35" cy="8" r="7" fill="#0f2a43"/>
+  <text x="35" y="11.5" font-family="Inter, Arial, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">£</text>
+  <!-- wordmark -->
+  <text x="48" y="33" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800" fill="#0f2a43" letter-spacing="-0.5">Investa</text>
+</svg>

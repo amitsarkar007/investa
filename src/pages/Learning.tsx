@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
 import { assetClasses } from '../data/assetClasses'
+import Icon from '../components/Icon'
 
 const guideCategories = [
   {
     title: 'Getting Started',
     description: 'Essential guides for complete beginners. Start here if you are brand new to investing.',
     guides: [
-      { title: 'What is Investing?', link: '/start', icon: '📖', description: 'A gentle introduction to investing basics' },
-      { title: 'Why Investing Matters', link: '/why-invest', icon: '💡', description: 'Understanding the importance of investing' },
-      { title: 'Basic Money Concepts', link: '/basics', icon: '💰', description: 'Fundamental concepts explained simply' },
-      { title: 'Common Fears & Myths', link: '/fears', icon: '😰', description: 'Addressing common concerns and misconceptions' },
-      { title: 'Financial Definitions', link: '/definitions', icon: '📚', description: 'Plain-language explanations of financial terms' }
+      { title: 'What is Investing?', link: '/start', icon: 'book', description: 'A gentle introduction to investing basics' },
+      { title: 'Why Investing Matters', link: '/why-invest', icon: 'lightbulb', description: 'Understanding the importance of investing' },
+      { title: 'Basic Money Concepts', link: '/basics', icon: 'banknote', description: 'Fundamental concepts explained simply' },
+      { title: 'Common Fears & Myths', link: '/fears', icon: 'warning', description: 'Addressing common concerns and misconceptions' },
+      { title: 'Financial Definitions', link: '/definitions', icon: 'book', description: 'Plain-language explanations of financial terms' }
     ]
   },
   {
@@ -19,7 +20,7 @@ const guideCategories = [
     guides: assetClasses.map(asset => ({
       title: asset.name,
       link: `/${asset.id}`,
-      icon: '📊',
+      icon: 'chart-bar',
       description: asset.tagline
     }))
   },
@@ -27,20 +28,20 @@ const guideCategories = [
     title: 'Tools & Calculators',
     description: 'Interactive tools and visualizations to help you plan, understand projections, and see how different parameters affect your investments.',
     guides: [
-      { title: 'Compound Growth Calculator', link: '/tools', icon: '📈', description: 'See how your investments grow over time with interactive graphs' },
-      { title: 'Inflation Impact Calculator', link: '/tools', icon: '📉', description: 'Understand how inflation affects purchasing power with visual projections' },
-      { title: 'Risk vs Return Comparison', link: '/risk-return', icon: '⚖️', description: 'Compare risk and return profiles across asset classes' },
-      { title: 'Historical Returns', link: '/historical', icon: '📊', description: 'View historical performance data across different asset classes' }
+      { title: 'Compound Growth Calculator', link: '/tools', icon: 'chart-up', description: 'See how your investments grow over time with interactive graphs' },
+      { title: 'Inflation Impact Calculator', link: '/tools', icon: 'chart-down', description: 'Understand how inflation affects purchasing power with visual projections' },
+      { title: 'Risk vs Return Comparison', link: '/risk-return', icon: 'scale', description: 'Compare risk and return profiles across asset classes' },
+      { title: 'Historical Returns', link: '/historical', icon: 'chart-bar', description: 'View historical performance data across different asset classes' }
     ]
   },
   {
     title: 'Advanced Topics',
     description: 'Deeper dives into specific investment strategies, tax considerations, and portfolio management.',
     guides: [
-      { title: 'Portfolio Diversification', link: '/learning', icon: '🎯', description: 'Learn how to build a balanced, diversified portfolio' },
-      { title: 'Passive vs Active Investing', link: '/basics', icon: '🔄', description: 'Understand the difference and which approach suits you' },
-      { title: 'Tax-Efficient Investing', link: '/isa', icon: '💼', description: 'Learn about ISAs and other tax-advantaged accounts' },
-      { title: 'Retirement Planning', link: '/pension', icon: '🏦', description: 'Guide to pension funds and long-term retirement planning' }
+      { title: 'Portfolio Diversification', link: '/learning', icon: 'target', description: 'Learn how to build a balanced, diversified portfolio' },
+      { title: 'Passive vs Active Investing', link: '/basics', icon: 'refresh', description: 'Understand the difference and which approach suits you' },
+      { title: 'Tax-Efficient Investing', link: '/isa', icon: 'briefcase', description: 'Learn about ISAs and other tax-advantaged accounts' },
+      { title: 'Retirement Planning', link: '/pension', icon: 'bank', description: 'Guide to pension funds and long-term retirement planning' }
     ]
   }
 ]
@@ -70,7 +71,7 @@ export default function Learning() {
                   className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100 group"
                 >
                   <div className="flex items-start gap-4">
-                    <span className="text-3xl" aria-hidden="true" role="img">{guide.icon}</span>
+                    <Icon name={guide.icon as never} className="h-8 w-8 text-emerald-600" />
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg mb-1 group-hover:text-blue-600 transition-colors">
                         {guide.title}

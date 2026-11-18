@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import Icon from '../components/Icon'
 
 // Historical returns data (simplified example)
 const historicalReturnsData = [
@@ -37,9 +38,9 @@ export default function HistoricalReturns() {
                   <YAxis label={{ value: 'Return %', angle: -90, position: 'insideLeft' }} />
                   <Tooltip formatter={(value: number | undefined) => value !== undefined ? `${value}%` : ''} />
                   <Legend />
-                  <Line type="monotone" dataKey="stocks" stroke="#8b5cf6" strokeWidth={2} name="Stocks" />
-                  <Line type="monotone" dataKey="bonds" stroke="#3b82f6" strokeWidth={2} name="Bonds" />
-                  <Line type="monotone" dataKey="cash" stroke="#10b981" strokeWidth={2} name="Cash" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="stocks" stroke="#8b5cf6" strokeWidth={2} name="Stocks" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="bonds" stroke="#3b82f6" strokeWidth={2} name="Bonds" />
+                  <Line isAnimationActive={false} type="monotone" dataKey="cash" stroke="#10b981" strokeWidth={2} name="Cash" />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -56,21 +57,21 @@ export default function HistoricalReturns() {
               {
                 title: 'Volatility Varies',
                 body: 'Stocks show more ups and downs year-to-year, while cash and bonds are more stable but offer lower returns.',
-                icon: '📊'
+                icon: 'chart-bar'
               },
               {
                 title: 'Long-term Trends',
                 body: 'Over longer periods, stocks have historically outperformed bonds and cash, despite short-term volatility.',
-                icon: '📈'
+                icon: 'chart-up'
               },
               {
                 title: 'No Guarantees',
                 body: 'Past performance doesn\'t predict future results. Markets can change, and what worked before may not work again.',
-                icon: '⚠️'
+                icon: 'warning'
               }
             ].map((item) => (
               <div key={item.title} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
-                <div className="text-3xl mb-3" aria-hidden="true">{item.icon}</div>
+                <div className="mb-3"><Icon name={item.icon as never} className="h-8 w-8 text-emerald-600" /></div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                 <p className="text-sm text-slate-600">{item.body}</p>
               </div>

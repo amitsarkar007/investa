@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { useMemo, useState } from 'react'
+import Icon from '../components/Icon'
 
 export default function WhyInvest() {
   const [inflationAmount, setInflationAmount] = useState(10000)
@@ -73,7 +74,7 @@ export default function WhyInvest() {
                     <XAxis dataKey="year" label={{ value: 'Years', position: 'insideBottom', offset: -5 }} />
                     <YAxis label={{ value: '£ Value', angle: -90, position: 'insideLeft' }} />
                     <Tooltip formatter={(value: number | undefined) => value !== undefined ? formatCurrency(value) : ''} />
-                    <Line type="monotone" dataKey="value" stroke="#ef4444" strokeWidth={3} name="Purchasing Power" />
+                    <Line isAnimationActive={false} type="monotone" dataKey="value" stroke="#ef4444" strokeWidth={3} name="Purchasing Power" />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
@@ -156,21 +157,21 @@ export default function WhyInvest() {
               {
                 title: 'Beat inflation',
                 body: 'Investing helps your money grow faster than prices rise, protecting your purchasing power.',
-                icon: '📈'
+                icon: 'chart-up'
               },
               {
                 title: 'Real goals',
                 body: 'Whether it\'s retirement, a house, or financial freedom, investing helps you reach your goals.',
-                icon: '🎯'
+                icon: 'target'
               },
               {
                 title: 'Start small',
                 body: 'You don\'t need a lot to begin. Small, consistent amounts build powerful habits.',
-                icon: '💰'
+                icon: 'banknote'
               }
             ].map((item) => (
               <div key={item.title} className="bg-white rounded-2xl p-6 shadow-lg card-hover border border-slate-100">
-                <div className="text-4xl mb-3" aria-hidden="true">{item.icon}</div>
+                <div className="mb-3"><Icon name={item.icon as never} /></div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                 <p className="text-sm text-slate-600">{item.body}</p>
               </div>
