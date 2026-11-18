@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import { assetClassMap, assetClasses } from '../data/assetClasses'
 import Icon from '../components/Icon'
+import Diagram from '../components/Diagram'
 
 type AssetClassPageProps = {
   assetId?: string
@@ -38,6 +39,20 @@ const expectedReturns: Record<string, number> = {
   collectibles: 5,
   pension: 6,
   isa: 4
+}
+
+const assetDiagrams: Record<string, string> = {
+  bonds: 'asset-bonds',
+  stocks: 'asset-stocks',
+  funds: 'asset-basket',
+  etf: 'asset-basket',
+  realestate: 'asset-property',
+  commodities: 'asset-commodities',
+  crypto: 'asset-crypto',
+  p2plending: 'asset-p2p',
+  collectibles: 'asset-collectibles',
+  pension: 'asset-pension',
+  isa: 'asset-isa',
 }
 
 export default function AssetClassPage({ assetId }: AssetClassPageProps) {
@@ -166,6 +181,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
           </div>
           <div className="bg-white rounded-3xl shadow-lg p-8 space-y-3 border border-slate-100">
             <h2 className="text-2xl font-semibold">How it works</h2>
+            <Diagram name={assetDiagrams[asset.id] ?? 'asset-stocks'} />
             <p className="text-slate-600 leading-relaxed">{asset.howItWorks}</p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 export type ContentSection = {
   title: string
+  diagram?: string
   body?: string
   bullets?: string[]
   table?: { head: string[]; rows: string[][] }
@@ -32,6 +33,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'The big numbers for 2026/27',
+        diagram: 'tax-bands',
         body: 'The UK tax year runs from 6 April to 5 April. These are the key figures for the 2026 to 2027 tax year, taken from GOV.UK:',
         table: {
           head: ['Allowance or rate', '2026 to 2027'],
@@ -91,6 +93,7 @@ export const contentPages: ContentPageData[] = [
     sections: [
       {
         title: 'What Capital Gains Tax is',
+        diagram: 'cgt-worked',
         body: 'Capital Gains Tax (CGT) is the tax on the profit when you sell or "dispose of" something that has increased in value - shares, funds, ETFs, a second property, crypto, and more. You are taxed on the gain (what you sold it for minus what you paid, minus certain costs), not on the full sale price. Buying and holding triggers nothing: CGT only becomes relevant when you dispose of an asset.',
       },
       {
@@ -184,6 +187,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'The deadlines that matter',
+        diagram: 'payments-on-account',
         table: {
           head: ['Deadline', 'What happens'],
           rows: [
@@ -252,6 +256,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'The four ISA types',
+        diagram: 'isa-wrapper',
         table: {
           head: ['Type', 'What it holds'],
           rows: [
@@ -314,6 +319,7 @@ export const contentPages: ContentPageData[] = [
     sections: [
       {
         title: 'Why costs matter so much',
+        diagram: 'fee-drag',
         body: 'Costs are the one part of investing you can control. Markets go up and down, but fees are certain - and they compound against you every year. A 1% annual cost difference on a £10,000 portfolio growing at 6% for 25 years is worth roughly £15,000. Understanding every layer of cost is one of the highest-return things a beginner can learn.',
       },
       {
@@ -377,6 +383,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'Currency risk: the return you did not sign up for',
+        diagram: 'currency-risk',
         body: 'When you invest abroad you are making two bets at once: one on the asset, one on the currency. If the US market rises 10% but £ GBP strengthens 10% against $ USD, your return in £ GBP is roughly zero. Over long periods currency moves can help or hurt - it is an extra source of volatility, not free money.',
         bullets: [
           'Unhedged funds leave currency movements in your returns (the default, and fine for most long-term investors).',
@@ -445,6 +452,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'FSCS: your safety net, up to £85,000',
+        diagram: 'fscs-shield',
         body: 'The Financial Services Compensation Scheme (FSCS) pays compensation if an FCA-authorised firm fails. For investments, the limit is up to £85,000 per eligible person, per firm (for firms that failed after 1 April 2019). Two things to understand:',
         bullets: [
           'FSCS covers firm failure and certain bad advice - not normal market losses. If your fund falls 30%, that is investing, not a claim.',
@@ -492,6 +500,7 @@ export const contentPages: ContentPageData[] = [
     sections: [
       {
         title: 'The bands for 2026/27',
+        diagram: 'tax-bands',
         body: 'Income tax is charged in slices. You never pay the higher rate on your whole income - only on the part that falls inside each band. These are the rates for England, Wales and Northern Ireland (Scotland sets its own bands):',
         table: {
           head: ['Band', 'Taxable income (2026/27)', 'Rate'],
@@ -514,6 +523,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'The £100,000 trap: the Personal Allowance taper',
+        diagram: 'taper',
         body: 'Once your adjusted net income goes above £100,000, your Personal Allowance shrinks by £1 for every £2 over the line. It reaches zero at £125,140. Losing the allowance while paying 40% creates an effective 60% tax rate on income between £100,000 and £125,140 - one of the highest marginal rates in the UK system. Pension contributions can bring adjusted net income back below £100,000 and restore the allowance.',
       },
       {
@@ -556,6 +566,7 @@ export const contentPages: ContentPageData[] = [
     sections: [
       {
         title: 'The golden rule: income stacks',
+        diagram: 'stacking',
         body: 'HMRC adds up almost everything you earn in a tax year and taxes the total in slices. Your salary usually uses up your Personal Allowance and basic-rate band first - so extra income often lands in a higher band than you expect. The stacking order is: earnings and pensions first, then savings interest, then dividends on top.',
       },
       {
@@ -569,6 +580,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'Payments on account: the January surprise',
+        diagram: 'payments-on-account',
         body: 'If your Self Assessment bill is over £1,000 (and less than 80% of your tax is collected at source), HMRC asks for advance payments towards next year: half on 31 January and half on 31 July, each usually half of last year\'s bill. First-timers are often caught out: your first January payment can be 150% of the year\'s tax - the bill itself plus the first payment on account. If you expect to earn less, you can apply to reduce them, but underpaying means interest.',
       },
       {
@@ -652,6 +664,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'How to check an adviser in five minutes',
+        diagram: 'adviser-check',
         bullets: [
           'Use the FCA Firm Checker or Financial Services Register (register.fca.org.uk): search the firm and confirm it is authorised - and for the activities you need.',
           'Check the individual adviser on the same register; ask the firm for their full name as registered.',
