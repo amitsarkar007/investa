@@ -715,6 +715,111 @@ export const contentPages: ContentPageData[] = [
     ],
     warning: 'Investa does not recommend any adviser or firm. Always verify authorisation on the FCA register yourself before paying for advice.',
   },
+  {
+    path: '/how-investa-is-different',
+    title: 'How Investa Is Different',
+    tagline: 'There are brilliant UK money sites. Here is what each one does - and the gap Investa fills.',
+    description:
+      'How Investa compares with MoneySavingExpert, MoneyHelper, Boring Money, Money to the Masses, Monevator and platform academies - every claim verified from their own pages, with sources.',
+    lastChecked: '18 November 2026',
+    sections: [
+      {
+        title: 'The UK money sites we rate',
+        body: 'Good investing education already exists in the UK. We would rather be honest about that than pretend otherwise. Every claim below is taken from the site\'s own pages - click the sources and check.',
+        table: {
+          head: ['Site', 'What it says about itself', 'How it pays the bills'],
+          rows: [
+            ['MoneySavingExpert', 'Consumer money-saving guides across all of personal finance. "Guides are written purely from a best way to save money stance" - affiliate links are added afterwards by a separate team.', 'Affiliate links, added after guides are written (its own How this site is financed page).'],
+            ['MoneyHelper', '"Free, impartial guidance that\'s backed by government." Covers money and pensions for everyone.', 'Government-backed (MaPS). No commercial links.'],
+            ['Boring Money', '"Independent experts screen and review the market" to help people find investments, ISAs and pensions.', 'Commercial research and comparison business.'],
+            ['Money to the Masses', '"Helps millions of people every year make the right choices and find the best product."', 'Commercial personal finance site.'],
+            ['Monevator', 'A long-form investing blog. "The site makes money only through advertising and through affiliate commission if you click on a link... and subsequently buy something."', 'Advertising and affiliate commission (its own About page).'],
+            ['Platform academies', 'Learning hubs run by investment platforms such as Hargreaves Lansdown and interactive investor.', 'They sell investments - the education supports the product.'],
+          ],
+        },
+      },
+      {
+        title: 'So what is Investa for?',
+        body: 'All of those sites are worth reading. Investa exists because we kept hitting the same gaps when learning ourselves:',
+        bullets: [
+          'Visuals first. Every concept starts with a picture - tax bands, compounding, currency risk - before a wall of words.',
+          'Sliders, not just text. Our calculators let you drag the numbers and watch growth, fees and tax change live.',
+          'The investor\'s tax journey in one place: Capital Gains Tax (CGT), dividends, income tax bands, and exactly how to report it all on Self Assessment - with the current year\'s figures and a "last checked" date.',
+          'Multi-currency investing explained for UK beginners: $ USD, € EUR, ¥ JPY, ¥ CNY, ₹ INR - how to buy, what the fees are, and the tax that follows.',
+          'Neutral where-to-buy lists: every platform shown with its FCA Firm Reference Number (FRN) so you can verify it yourself. No rankings, no "best for you", no paid placement.',
+        ],
+      },
+      {
+        title: 'What we deliberately do not do',
+        bullets: [
+          'No "best buy" tables. We cannot know your situation, so we do not rank products for you.',
+          'No financial advice or personal recommendations - we are not FCA-authorised and do not pretend to be.',
+          'No crypto promotions of any kind.',
+          'No paywalls, no accounts, no email harvesting.',
+        ],
+      },
+    ],
+    sources: [
+      { label: 'MoneySavingExpert - How this site is financed', url: 'https://www.moneysavingexpert.com/site/moneysavingexpert-finance/' },
+      { label: 'MoneyHelper - About us', url: 'https://www.moneyhelper.org.uk/en/about-us' },
+      { label: 'Boring Money', url: 'https://www.boringmoney.co.uk' },
+      { label: 'Money to the Masses', url: 'https://moneytothemasses.com' },
+      { label: 'Monevator - About', url: 'https://monevator.com/about/' },
+    ],
+    related: [
+      { label: 'How We Make Money', to: '/how-we-make-money' },
+      { label: 'Ethics & Warnings', to: '/ethics' },
+      { label: 'About Investa', to: '/about' },
+      { label: 'Regulation & Your Protection', to: '/regulation' },
+    ],
+  },
+  {
+    path: '/how-we-make-money',
+    title: 'How We Make Money',
+    tagline: 'Short version: right now, we do not. Here is the whole truth.',
+    description:
+      'How Investa is funded: currently nothing - no affiliate links, no referral income, no sponsored content. What may change later (platform-approved affiliate programmes only, always labelled), and what never will.',
+    lastChecked: '18 November 2026',
+    sections: [
+      {
+        title: 'Today: nothing',
+        body: 'Investa is an educational project run by A2JS Technologies. Today the site earns £0. There are no affiliate links, no referral payments, no sponsored articles, no adverts, and no paid placements anywhere on this site. When we link to a platform, we link to its ordinary homepage with no tracking code. You can check: right-click any link and look at the address.',
+      },
+      {
+        title: 'Why build a site that earns nothing?',
+        body: 'Because we wanted the investing guide we could not find: one that explains the UK system - tax, costs, currencies, Self Assessment - simply, with pictures, without trying to sell anything. A2JS Technologies pays the (small) hosting bill. The site is cheap to run because there is no tracking, no accounts and no advertising technology.',
+      },
+      {
+        title: 'What might change later',
+        body: 'If Investa ever earns money, it will work like this, and only like this:',
+        bullets: [
+          'Affiliate programmes run by the platforms themselves, where their own compliance team approves the exact wording - the legal route the FCA expects for investment promotions.',
+          'Every paying link labelled as a paying link, next to the link itself - not hidden in a footer.',
+          'An unpaid alternative link wherever practical, the same approach MoneySavingExpert describes on its own finance page.',
+          'The education written first, links considered after - never the other way round.',
+        ],
+      },
+      {
+        title: 'What will never change',
+        bullets: [
+          'No crypto promotions. UK rules heavily restrict them and we want none of it.',
+          'No selling your data. We run no analytics and collect nothing to sell.',
+          'No rankings you cannot verify. Our lists stay neutral, FCA-checkable and unranked.',
+          'This page stays current. If the money model changes, this page changes first.',
+        ],
+      },
+    ],
+    sources: [
+      { label: 'MoneySavingExpert - How this site is financed (the model we would follow)', url: 'https://www.moneysavingexpert.com/site/moneysavingexpert-finance/' },
+      { label: 'FCA - Financial promotions: what content creators need to know', url: 'https://www.fca.org.uk/firms/financial-promotions-adverts/what-content-creators-need-know-posting' },
+      { label: 'FCA - Financial Services Register', url: 'https://register.fca.org.uk/' },
+    ],
+    related: [
+      { label: 'How Investa Is Different', to: '/how-investa-is-different' },
+      { label: 'Ethics & Warnings', to: '/ethics' },
+      { label: 'About Investa', to: '/about' },
+    ],
+  },
 ]
 
 export const contentPageByPath = (path: string) => contentPages.find((p) => p.path === path)

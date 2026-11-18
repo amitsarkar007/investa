@@ -26,11 +26,16 @@ export default function Footer() {
           <div className="text-sm space-y-2">
             <div className="text-white font-semibold">Tax & Rules</div>
             <Link className="block hover:text-white" to="/tax">Tax & Allowances Hub</Link>
+            <Link className="block hover:text-white" to="/tax/income-tax">Income Tax Bands</Link>
+            <Link className="block hover:text-white" to="/tax/extra-income">Extra Income & Your Tax</Link>
             <Link className="block hover:text-white" to="/tax/capital-gains-tax">Capital Gains Tax</Link>
             <Link className="block hover:text-white" to="/tax/self-assessment">Self Assessment</Link>
             <Link className="block hover:text-white" to="/tax/isa-and-allowances">ISAs & Allowances</Link>
             <Link className="block hover:text-white" to="/regulation">Regulation & Protection</Link>
+            <Link className="block hover:text-white" to="/financial-advisers">Financial Advisers</Link>
             <Link className="block hover:text-white" to="/ethics">Ethics & Warnings</Link>
+            <Link className="block hover:text-white" to="/how-investa-is-different">How Investa Is Different</Link>
+            <Link className="block hover:text-white" to="/how-we-make-money">How We Make Money</Link>
           </div>
           <div className="text-sm space-y-2">
             <div className="text-white font-semibold">Asset Classes</div>

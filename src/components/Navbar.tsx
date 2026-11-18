@@ -6,7 +6,7 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
 
 const assetClassRoutes = ['/bonds', '/stocks', '/funds', '/etf', '/realestate', '/commodities', '/crypto', '/p2plending', '/collectibles', '/pension', '/isa']
 const taxRoutes = ['/tax', '/tax/income-tax', '/tax/extra-income', '/tax/capital-gains-tax', '/tax/self-assessment', '/tax/isa-and-allowances']
-const guideRoutes = ['/costs', '/investing-abroad', '/regulation', '/financial-advisers', '/learning']
+const guideRoutes = ['/costs', '/investing-abroad', '/regulation', '/financial-advisers', '/how-investa-is-different', '/how-we-make-money', '/learning']
 
 const assetLinks = [
   { to: '/bonds', label: 'Bonds' },
@@ -36,6 +36,8 @@ const guideLinks = [
   { to: '/investing-abroad', label: 'Foreign Currency' },
   { to: '/regulation', label: 'Regulation & Protection' },
   { to: '/financial-advisers', label: 'Financial Advisers' },
+  { to: '/how-investa-is-different', label: 'How Investa Is Different' },
+  { to: '/how-we-make-money', label: 'How We Make Money' },
   { to: '/learning', label: 'All Guides' },
 ]
 
