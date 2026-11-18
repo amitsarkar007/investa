@@ -696,7 +696,7 @@ export const assetClasses: AssetClass[] = [
       'Start small and spread across the maximum number of loans.',
       'Consider an Innovative Finance Individual Savings Account (ISA) so the interest is tax-free.'
     ],
-    goodFor: ['A small income-seeking slice for people who accept the risks', 'Investors who understand there is no FSCS cover'],
+    goodFor: ['A small income-seeking slice for people who accept the risks', 'Investors who understand there is no government compensation safety net'],
     watchOuts: ['Chasing double-digit rates', 'Putting in money you might need back quickly', 'Assuming it works like a savings account - it does not'],
     sections: [
       {
@@ -799,8 +799,8 @@ export const assetClasses: AssetClass[] = [
       }
     ],
     platforms: [
-      { name: "Sotheby's (auction house)", url: 'https://www.sothebys.com', note: 'Auction houses are not FCA-regulated - no FSCS protection' },
-      { name: "Christie's (auction house)", url: 'https://www.christies.com', note: 'Auction houses are not FCA-regulated - no FSCS protection' },
+      { name: "Sotheby's (auction house)", url: 'https://www.sothebys.com', note: 'Auction houses are not regulated by the Financial Conduct Authority (FCA) - no Financial Services Compensation Scheme (FSCS) protection' },
+      { name: "Christie's (auction house)", url: 'https://www.christies.com', note: 'Auction houses are not regulated by the Financial Conduct Authority (FCA) - no Financial Services Compensation Scheme (FSCS) protection' },
     ],
     categories: [
       {
@@ -875,7 +875,7 @@ export const assetClasses: AssetClass[] = [
         body: 'From age 55 (57 from April 2028) you can normally take 25% of the pot tax-free. The rest is taxed as income in the year you withdraw it, so taking it all at once can push you into a higher band. Many people draw it gradually, or buy an annuity (a guaranteed income for life).'
       },
       {
-        title: 'Pension vs ISA',
+        title: 'Pension vs ISA (Individual Savings Account)',
         body: 'Pensions give tax relief going in but tax withdrawals later; an Individual Savings Account (ISA) gets no relief going in but everything out is tax-free. The classic answer: grab the employer match and pension relief first, then use ISAs for flexibility, since ISA money is never locked away.'
       }
     ],
@@ -931,7 +931,7 @@ export const assetClasses: AssetClass[] = [
     ],
     beginnerSteps: [
       'Pick your type: Cash ISA for safety, Stocks and Shares ISA for growth (see below).',
-      'Open one with an FCA-regulated provider - our list shows verified registration numbers.',
+      'Open one with a provider regulated by the Financial Conduct Authority (FCA) - our list shows verified registration numbers.',
       'Set a monthly payment. Using the allowance steadily beats a panicked lump sum in March.'
     ],
     goodFor: ['Literally every UK adult saver and investor', 'Long-term tax-free growth', 'Keeping tax paperwork at zero'],

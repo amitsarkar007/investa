@@ -120,7 +120,7 @@ export default function Home() {
               Every asset class. Every cost. Every tax rule. Free.
             </h1>
             <p className="text-lg text-slate-300">
-              Investa is a free educational guide to UK investing: how each asset class works, what it really costs, how Capital Gains Tax and ISAs work, how to invest in dollars, euros and yen, and how to report it all on Self Assessment. Like a money-saving guide, but for learning to invest.
+              Investa is a free educational guide to UK investing: how each asset class works, what it really costs, how Capital Gains Tax (CGT) and Individual Savings Accounts (ISAs) work, how to invest in dollars, euros and yen, and how to report it all on Self Assessment. Like a money-saving guide, but for learning to invest.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-white font-semibold shadow-lg hover:bg-emerald-600 transition-colors" to="/start">
@@ -130,7 +130,7 @@ export default function Home() {
                 Browse Guides
               </Link>
             </div>
-            <p className="text-sm text-slate-400">✓ Free educational content ✓ Sourced from GOV.UK &amp; FCA ✓ Education, never advice</p>
+            <p className="text-sm text-slate-400">✓ Free educational content ✓ Sourced from GOV.UK &amp; the Financial Conduct Authority (FCA) ✓ Education, never advice</p>
           </div>
           <div className="bg-white rounded-3xl shadow-xl p-8 space-y-4">
             <div className="text-sm font-semibold text-emerald-700">New to all of this?</div>
@@ -143,7 +143,7 @@ export default function Home() {
                 },
                 {
                   title: '2. Understand each asset class',
-                  body: 'From bonds to ETFs to ISAs, one plain-English guide at a time.',
+                  body: 'From bonds to funds to ISAs, one plain-English guide at a time.',
                   to: '/learning'
                 },
                 {
@@ -234,7 +234,7 @@ export default function Home() {
               { to: '/tax', icon: 'receipt', title: 'Tax & Allowances', body: 'CGT rates, the £3,000 exempt amount, ISAs and dividend tax.' },
               { to: '/costs', icon: 'coins', title: 'What It Costs', body: 'Platform fees, fund charges, FX fees and stamp duty, explained.' },
               { to: '/investing-abroad', icon: 'globe', title: 'Foreign Currency', body: 'Investing in $ USD, € EUR, ¥ JPY and ₹ INR, and the tax that follows.' },
-              { to: '/regulation', icon: 'shield', title: 'Regulation & Safety', body: 'FCA rules, £85,000 FSCS protection, and checking any firm.' }
+              { to: '/regulation', icon: 'shield', title: 'Regulation & Safety', body: 'Financial Conduct Authority (FCA) rules, the £85,000 Financial Services Compensation Scheme (FSCS) safety net, and checking any firm.' }
             ].map((card) => (
               <Link key={card.to} to={card.to} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-100 hover:border-emerald-400 transition-colors block">
                 <div className="mb-3"><Icon name={card.icon as never} /></div>

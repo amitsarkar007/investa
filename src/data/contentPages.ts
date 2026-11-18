@@ -29,7 +29,7 @@ export const contentPages: ContentPageData[] = [
     sections: [
       {
         title: 'Why tax matters more than picking winners',
-        body: 'Two investors can hold the same funds and end up with very different returns, purely because of tax. The UK gives you generous tax-free wrappers and allowances - but only if you know they exist and use them. This hub covers the four things that matter most: ISAs, Capital Gains Tax, dividend tax, and how to tell HMRC what you owe.',
+        body: 'Two investors can hold the same funds and end up with very different returns, purely because of tax. The UK gives you generous tax-free wrappers and allowances - but only if you know they exist and use them. This hub covers the four things that matter most: Individual Savings Accounts (ISAs), Capital Gains Tax (CGT), dividend tax, and how to tell HM Revenue and Customs (HMRC) what you owe.',
       },
       {
         title: 'The big numbers for 2026/27',
@@ -94,7 +94,7 @@ export const contentPages: ContentPageData[] = [
       {
         title: 'What Capital Gains Tax is',
         diagram: 'cgt-worked',
-        body: 'Capital Gains Tax (CGT) is the tax on the profit when you sell or "dispose of" something that has increased in value - shares, funds, ETFs, a second property, crypto, and more. You are taxed on the gain (what you sold it for minus what you paid, minus certain costs), not on the full sale price. Buying and holding triggers nothing: CGT only becomes relevant when you dispose of an asset.',
+        body: 'Capital Gains Tax (CGT) is the tax on the profit when you sell or "dispose of" something that has increased in value - shares, funds, Exchange Traded Funds (ETFs), a second property, crypto, and more. You are taxed on the gain (what you sold it for minus what you paid, minus certain costs), not on the full sale price. Buying and holding triggers nothing: CGT only becomes relevant when you dispose of an asset.',
       },
       {
         title: 'The tax-free allowance: the annual exempt amount',
@@ -166,7 +166,7 @@ export const contentPages: ContentPageData[] = [
   {
     path: '/tax/self-assessment',
     title: 'Self Assessment for Investors',
-    tagline: 'How to report your investment gains and income to HMRC - deadlines included.',
+    tagline: 'How to report your investment gains and income to HM Revenue and Customs (HMRC) - deadlines included.',
     description:
       'How UK investors report capital gains, dividends and foreign income on Self Assessment: who must file, the 5 October, 31 October and 31 January deadlines, which forms to use, and what records to keep.',
     lastChecked: '18 November 2026',
@@ -183,7 +183,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'Dividends and savings interest',
-        body: 'Dividend income above both your unused Personal Allowance and the £500 dividend allowance must be reported to HMRC. If you already file a return, it goes on there. If you do not, HMRC may be able to collect the tax by adjusting your tax code instead - check the GOV.UK dividends guidance for your situation. Dividends from shares held in an ISA are tax-free and are not reported.',
+        body: 'Dividend income above both your unused Personal Allowance and the £500 dividend allowance must be reported to HM Revenue and Customs (HMRC). If you already file a return, it goes on there. If you do not, HMRC may be able to collect the tax by adjusting your tax code instead - check the GOV.UK dividends guidance for your situation. Dividends from shares held in an Individual Savings Account (ISA) are tax-free and are not reported.',
       },
       {
         title: 'The deadlines that matter',
@@ -262,7 +262,7 @@ export const contentPages: ContentPageData[] = [
           rows: [
             ['Cash ISA', 'Savings in cash - tax-free interest.'],
             ['Stocks & Shares ISA', 'Funds, shares, ETFs, bonds - tax-free growth and dividends.'],
-            ['Innovative Finance ISA', 'Peer-to-peer lending - tax-free interest (higher risk, no FSCS protection in most cases).'],
+            ['Innovative Finance ISA', 'Peer-to-peer lending - tax-free interest (higher risk, usually no Financial Services Compensation Scheme (FSCS) protection).'],
             ['Lifetime ISA', 'Cash or investments for a first home or retirement - 25% government bonus, up to £4,000 per year within your £20,000 allowance, for those aged 18 to 39 to open.'],
           ],
         },
@@ -329,7 +329,7 @@ export const contentPages: ContentPageData[] = [
           rows: [
             ['Platform fee', 'What your broker or app charges to hold your account.', 'Flat monthly fee, or a percentage of your portfolio (often with a cap).'],
             ['Fund charges (OCF)', 'The fund manager\u2019s ongoing charge, taken inside the fund.', 'Around 0.05%-0.3% for index trackers; 0.5%-1%+ for active funds.'],
-            ['Dealing fees', 'Charged when you buy or sell shares or ETFs.', 'Zero on some apps, up to about £12 per trade elsewhere; funds often trade free.'],
+            ['Dealing fees', 'Charged when you buy or sell shares or Exchange Traded Funds (ETFs).', 'Zero on some apps, up to about £12 per trade elsewhere; funds often trade free.'],
             ['FX conversion fee', 'Charged each time pounds are converted to buy foreign assets.', 'Commonly around 0.15%-1.5% of the amount converted, each way.'],
             ['Bid-offer spread', 'The gap between the buying and selling price of an asset.', 'Tiny on big markets, wide on small or exotic ones.'],
             ['Stamp Duty (SDRT)', 'A UK government tax when you buy UK shares.', '0.5% of the purchase price; not charged on most ETFs and funds.'],
@@ -342,7 +342,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'A worked example',
-        body: 'Invest £200 a month for 20 years at 6% growth before costs. With total costs of 0.2% a year you end up with roughly £89,000. With total costs of 1.2% a year, roughly £78,000. Same market, same contributions - about £11,000 quietly transferred from you to the industry. This is why low-cost index funds inside a cheap ISA dominate so much sensible beginner investing.',
+        body: 'Invest £200 a month for 20 years at 6% growth before costs. With total costs of 0.2% a year you end up with roughly £89,000. With total costs of 1.2% a year, roughly £78,000. Same market, same contributions - about £11,000 quietly transferred from you to the industry. This is why low-cost index funds inside a cheap Individual Savings Account (ISA) dominate so much sensible beginner investing.',
       },
       {
         title: 'How to keep costs low',
@@ -361,7 +361,7 @@ export const contentPages: ContentPageData[] = [
     ],
     sources: [
       { label: 'GOV.UK - Tax when you buy shares', url: 'https://www.gov.uk/tax-buy-shares' },
-      { label: 'FCA - Investing: what to know before you start', url: 'https://www.fca.org.uk/consumers/investing-information' },
+      { label: 'Financial Conduct Authority (FCA) - Investing: what to know before you start', url: 'https://www.fca.org.uk/consumers/investing-information' },
     ],
     related: [
       { label: 'ETFs explained', to: '/etf' },
@@ -395,7 +395,7 @@ export const contentPages: ContentPageData[] = [
         table: {
           head: ['Currency', 'How UK investors usually get exposure'],
           rows: [
-            ['$ USD (US dollar)', 'Directly - most UK platforms offer US shares and ETFs. Expect an FX fee per trade and a W-8BEN form for reduced dividend withholding tax.'],
+            ['$ USD (US dollar)', 'Directly - most UK platforms offer US shares and Exchange Traded Funds (ETFs). Expect an FX fee per trade and a W-8BEN form for reduced dividend withholding tax.'],
             ['€ EUR (euro)', 'Directly on many platforms via European exchanges, or through eurozone ETFs and funds priced in £ GBP.'],
             ['¥ JPY (Japanese yen)', 'Through Japan index funds and ETFs, or Japanese shares on platforms that offer the Tokyo market.'],
             ['¥ CNY (Chinese yuan)', 'Direct mainland (A-share) access is restricted for most retail investors; the usual route is China ETFs and funds, sometimes using Stock Connect. Rules change - check what your platform offers.'],
@@ -406,7 +406,7 @@ export const contentPages: ContentPageData[] = [
       {
         title: 'The tax that follows you',
         bullets: [
-          'HMRC taxes UK residents on worldwide gains and income. Foreign gains and dividends must be converted into £ GBP for your tax return.',
+          'HM Revenue and Customs (HMRC) taxes UK residents on worldwide gains and income. Foreign gains and dividends must be converted into £ GBP for your tax return.',
           'Many countries withhold tax on dividends before you receive them (the US normally takes 15% under the UK-US treaty if you have filed a W-8BEN).',
           'You can usually claim Foreign Tax Credit Relief in Self Assessment so the same income is not fully taxed twice.',
           'Foreign income and gains go on the foreign pages (SA106) of your tax return; capital gains still count towards your £3,000 annual exempt amount.',
@@ -567,7 +567,7 @@ export const contentPages: ContentPageData[] = [
       {
         title: 'The golden rule: income stacks',
         diagram: 'stacking',
-        body: 'HMRC adds up almost everything you earn in a tax year and taxes the total in slices. Your salary usually uses up your Personal Allowance and basic-rate band first - so extra income often lands in a higher band than you expect. The stacking order is: earnings and pensions first, then savings interest, then dividends on top.',
+        body: 'HM Revenue and Customs (HMRC) adds up almost everything you earn in a tax year and taxes the total in slices. Your salary usually uses up your Personal Allowance and basic-rate band first - so extra income often lands in a higher band than you expect. The stacking order is: earnings and pensions first, then savings interest, then dividends on top.',
       },
       {
         title: 'Side business and freelancing (sole trader)',
@@ -585,7 +585,7 @@ export const contentPages: ContentPageData[] = [
       },
       {
         title: 'Savings interest',
-        body: 'Interest outside ISAs is taxed as income, but most people pay nothing thanks to two allowances: the starting rate for savings (up to £5,000 of tax-free interest for lower earners, shrinking £1 for every £1 of other income above £12,570) and the Personal Savings Allowance (£1,000 of interest tax-free for basic-rate taxpayers, £500 for higher-rate, £0 for additional-rate). Banks report interest to HMRC automatically.',
+        body: 'Interest outside Individual Savings Accounts (ISAs) is taxed as income, but most people pay nothing thanks to two allowances: the starting rate for savings (up to £5,000 of tax-free interest for lower earners, shrinking £1 for every £1 of other income above £12,570) and the Personal Savings Allowance (£1,000 of interest tax-free for basic-rate taxpayers, £500 for higher-rate, £0 for additional-rate). Banks report interest to HMRC automatically.',
       },
       {
         title: 'Dividends',
@@ -670,7 +670,7 @@ export const contentPages: ContentPageData[] = [
           'Check the individual adviser on the same register; ask the firm for their full name as registered.',
           'Search the FCA Warning List for the firm name - a hit means walk away.',
           'Match contact details: clone firms copy real firms\' names, so call the number on the register, not the one you were given.',
-          'If a firm is only "registered" (e.g. for payments or crypto AML) rather than authorised, you are unlikely to have FSCS or Ombudsman protection.',
+          'If a firm is only "registered" (e.g. for payments or crypto AML) rather than authorised, you are unlikely to have Financial Services Compensation Scheme (FSCS) or Financial Ombudsman protection.',
         ],
       },
       {
@@ -685,7 +685,7 @@ export const contentPages: ContentPageData[] = [
         title: 'When advice is worth paying for - and when it is not',
         bullets: [
           'Often worth it: defined-benefit pension transfers (legally required above £30,000 of safeguarded benefits), complex tax and inheritance situations, large lump sums, retirement drawdown planning.',
-          'Often not needed: starting a simple ISA into a diversified low-cost fund - the education on this site plus a mainstream platform covers it.',
+          'Often not needed: starting a simple Individual Savings Account (ISA) into a diversified low-cost fund - the education on this site plus a mainstream platform covers it.',
           'A middle option: many advisers offer a one-off "advice surgery" or fixed-fee review instead of ongoing management.',
           'Pensions advice allowance: you can take up to £500 tax-free from your pension to pay for retirement advice, up to three times in total (once per tax year).',
         ],
@@ -713,7 +713,7 @@ export const contentPages: ContentPageData[] = [
       { label: 'Tax & Allowances Hub', to: '/tax' },
       { label: 'FAQs', to: '/faq' },
     ],
-    warning: 'Investa does not recommend any adviser or firm. Always verify authorisation on the FCA register yourself before paying for advice.',
+    warning: 'Investa does not recommend any adviser or firm. Always verify authorisation on the Financial Conduct Authority (FCA) register yourself before paying for advice.',
   },
   {
     path: '/how-investa-is-different',
@@ -731,7 +731,7 @@ export const contentPages: ContentPageData[] = [
           rows: [
             ['MoneySavingExpert', 'Consumer money-saving guides across all of personal finance. "Guides are written purely from a best way to save money stance" - affiliate links are added afterwards by a separate team.', 'Affiliate links, added after guides are written (its own How this site is financed page).'],
             ['MoneyHelper', '"Free, impartial guidance that\'s backed by government." Covers money and pensions for everyone.', 'Government-backed (MaPS). No commercial links.'],
-            ['Boring Money', '"Independent experts screen and review the market" to help people find investments, ISAs and pensions.', 'Commercial research and comparison business.'],
+            ['Boring Money', '"Independent experts screen and review the market" to help people find investments, Individual Savings Accounts (ISAs) and pensions.', 'Commercial research and comparison business.'],
             ['Money to the Masses', '"Helps millions of people every year make the right choices and find the best product."', 'Commercial personal finance site.'],
             ['Monevator', 'A long-form investing blog. "The site makes money only through advertising and through affiliate commission if you click on a link... and subsequently buy something."', 'Advertising and affiliate commission (its own About page).'],
             ['Platform academies', 'Learning hubs run by investment platforms such as Hargreaves Lansdown and interactive investor.', 'They sell investments - the education supports the product.'],
@@ -746,7 +746,7 @@ export const contentPages: ContentPageData[] = [
           'Sliders, not just text. Our calculators let you drag the numbers and watch growth, fees and tax change live.',
           'The investor\'s tax journey in one place: Capital Gains Tax (CGT), dividends, income tax bands, and exactly how to report it all on Self Assessment - with the current year\'s figures and a "last checked" date.',
           'Multi-currency investing explained for UK beginners: $ USD, € EUR, ¥ JPY, ¥ CNY, ₹ INR - how to buy, what the fees are, and the tax that follows.',
-          'Neutral where-to-buy lists: every platform shown with its FCA Firm Reference Number (FRN) so you can verify it yourself. No rankings, no "best for you", no paid placement.',
+          'Neutral where-to-buy lists: every platform shown with its Financial Conduct Authority (FCA) Firm Reference Number (FRN) so you can verify it yourself. No rankings, no "best for you", no paid placement.',
         ],
       },
       {
@@ -793,7 +793,7 @@ export const contentPages: ContentPageData[] = [
         title: 'What might change later',
         body: 'If Investa ever earns money, it will work like this, and only like this:',
         bullets: [
-          'Affiliate programmes run by the platforms themselves, where their own compliance team approves the exact wording - the legal route the FCA expects for investment promotions.',
+          'Affiliate programmes run by the platforms themselves, where their own compliance team approves the exact wording - the legal route the Financial Conduct Authority (FCA) expects for investment promotions.',
           'Every paying link labelled as a paying link, next to the link itself - not hidden in a footer.',
           'An unpaid alternative link wherever practical, the same approach MoneySavingExpert describes on its own finance page.',
           'The education written first, links considered after - never the other way round.',

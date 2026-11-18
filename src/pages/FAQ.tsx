@@ -12,7 +12,7 @@ const faqs = [
   {
     question: 'What types of investments do you cover?',
     answer:
-      'We cover stocks, bonds, mutual funds, ETFs, real estate, commodities, cryptocurrencies, and more. See the Asset Classes section for an overview.'
+      'We cover stocks, bonds, mutual funds, Exchange Traded Funds (ETFs), real estate, commodities, cryptocurrencies, and more. See the Asset Classes section for an overview.'
   },
   {
     question: 'How can I contact support?',
