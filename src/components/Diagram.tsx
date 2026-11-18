@@ -10,7 +10,7 @@ const W = 'w-full h-auto'
 function TaxBands({ className }: P) {
   // widths proportional: PA 12570, basic 37700, higher 74870, additional (open-ended cap shown to 125140+)
   const segs = [
-    { x: 0, w: 62, c: '#cbd5e1', label: '£0', name: 'Personal Allowance', rate: '0%' },
+    { x: 0, w: 62, c: '#cbd5e1', label: '£0', name: 'Allowance', rate: '0%' },
     { x: 62, w: 188, c: '#10b981', label: '£12,570', name: 'Basic rate', rate: '20%' },
     { x: 250, w: 372, c: '#f59e0b', label: '£50,270', name: 'Higher rate', rate: '40%' },
     { x: 622, w: 98, c: '#ef4444', label: '£125,140', name: 'Additional', rate: '45%' },
@@ -23,7 +23,7 @@ function TaxBands({ className }: P) {
           <text x={s.x + s.w / 2} y={40} textAnchor="middle" fontSize={14} fontWeight={700} fill={s.c === '#cbd5e1' ? '#334155' : '#ffffff'}>
             {s.rate}
           </text>
-          <text x={s.x + s.w / 2} y={56} textAnchor="middle" fontSize={11} fill={s.c === '#cbd5e1' ? '#334155' : '#ffffff'}>
+          <text x={s.x + s.w / 2} y={56} textAnchor="middle" fontSize={s.w < 100 ? 9 : 11} fill={s.c === '#cbd5e1' ? '#334155' : '#ffffff'}>
             {s.name}
           </text>
           <text x={s.x} y={82} textAnchor="middle" fontSize={11} fill="#64748b">
@@ -61,7 +61,7 @@ function Taper({ className }: P) {
       <text x={575} y={80} textAnchor="middle" fontSize={12} fill="#b45309" fontWeight={700} transform="rotate(38 575 80)">
         taper: -£1 per £2
       </text>
-      <text x={575} y={125} textAnchor="middle" fontSize={11} fill="#b45309">
+      <text x={700} y={120} textAnchor="end" fontSize={11} fill="#b45309" fontWeight={700}>
         effective 60% tax zone
       </text>
     </svg>
