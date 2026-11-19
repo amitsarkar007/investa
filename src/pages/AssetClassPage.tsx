@@ -299,7 +299,7 @@ export default function AssetClassPage({ assetId }: AssetClassPageProps) {
                           </a>
                           {platform.frn && (
                             <span className="block text-xs text-slate-500 mt-0.5">
-                              FCA-authorised, Firm Reference Number (FRN) {platform.frn} - check at register.fca.org.uk
+                              Authorised by the Financial Conduct Authority (FCA), Firm Reference Number (FRN) {platform.frn} - check at register.fca.org.uk
                             </span>
                           )}
                           {platform.note && <span className="block text-xs text-amber-700 mt-0.5">{platform.note}</span>}

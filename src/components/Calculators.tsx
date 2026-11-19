@@ -144,7 +144,7 @@ export function CgtCalc() {
 
   return (
     <Card title="Capital Gains Tax: what would I owe?">
-      <Slider id="cgt-gain" label="Total gains this tax year (outside ISAs)" min={0} max={100000} step={250} value={gain} onChange={setGain} format={gbp} />
+      <Slider id="cgt-gain" label="Total gains this tax year (outside an Individual Savings Account, ISA)" min={0} max={100000} step={250} value={gain} onChange={setGain} format={gbp} />
       <div className="mb-4">
         <span className="text-sm text-slate-600 block mb-1">Your income tax band</span>
         <div className="grid grid-cols-2 gap-2" role="group" aria-label="Income tax band">
@@ -165,7 +165,7 @@ export function CgtCalc() {
       </div>
       <Result>
         <p className="mb-1">
-          Tax-free allowance: <strong>{gbp(Math.min(gain, AEA))}</strong> of {gbp(AEA)} used · Taxable gain: <strong>{gbp(taxable)}</strong>
+          Tax-free allowance (called the Annual Exempt Amount): <strong>{gbp(Math.min(gain, AEA))}</strong> of {gbp(AEA)} used · Taxable gain: <strong>{gbp(taxable)}</strong>
         </p>
         <p>
           CGT to pay (2026/27): <strong className="text-emerald-800">{gbp2(tax)}</strong>
@@ -173,8 +173,8 @@ export function CgtCalc() {
       </Result>
       <Bar
         segments={[
-          { label: 'Tax-free (AEA)', value: Math.min(gain, AEA), color: '#94a3b8' },
-          { label: 'HMRC', value: tax, color: '#ef4444' },
+          { label: 'Tax-free slice', value: Math.min(gain, AEA), color: '#94a3b8' },
+          { label: 'Tax to HMRC (the tax office)', value: tax, color: '#ef4444' },
           { label: 'You keep', value: Math.max(0, taxable - tax), color: '#10b981' },
         ]}
       />
@@ -215,10 +215,10 @@ export function IncomeTaxCalc() {
     <Card title="Income tax: salary + side income + dividends">
       <Slider id="it-salary" label="Salary (PAYE)" min={0} max={150000} step={500} value={salary} onChange={setSalary} format={gbp} />
       <Slider id="it-side" label="Side business profit" min={0} max={50000} step={250} value={side} onChange={setSide} format={gbp} />
-      <Slider id="it-divs" label="Dividends (outside ISAs)" min={0} max={20000} step={100} value={divs} onChange={setDivs} format={gbp} />
+      <Slider id="it-divs" label="Dividends (outside an Individual Savings Account, ISA)" min={0} max={20000} step={100} value={divs} onChange={setDivs} format={gbp} />
       <Result>
         <p className="mb-1">
-          Income tax: <strong>{gbp(r.earnTax)}</strong> · Class 4 NI: <strong>{gbp(r.ni)}</strong> · Dividend tax:{' '}
+          Income tax: <strong>{gbp(r.earnTax)}</strong> · Class 4 National Insurance (NI): <strong>{gbp(r.ni)}</strong> · Dividend tax:{' '}
           <strong>{gbp2(r.divTax)}</strong>
         </p>
         <p>
@@ -229,7 +229,7 @@ export function IncomeTaxCalc() {
         segments={[
           { label: 'You keep', value: r.takeHome, color: '#10b981' },
           { label: 'Income tax', value: r.earnTax, color: '#f59e0b' },
-          { label: 'Class 4 NI', value: r.ni, color: '#ef4444' },
+          { label: 'Class 4 National Insurance (NI)', value: r.ni, color: '#ef4444' },
           { label: 'Dividend tax', value: r.divTax, color: '#8b5cf6' },
         ]}
       />

@@ -88,7 +88,7 @@ export default function ContentPage({ page }: { page: ContentPageData }) {
         </section>
 
         <div className="mt-10 text-xs text-slate-500 border-t border-slate-200 pt-4">
-          Investa provides education only - not financial, tax or investment advice. We are not regulated by the FCA. Capital is at risk when you invest.
+          Investa provides education only - not financial, tax or investment advice. We are not regulated by the Financial Conduct Authority (FCA). Capital is at risk when you invest.
         </div>
       </div>
     </main>

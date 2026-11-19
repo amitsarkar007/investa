@@ -143,10 +143,10 @@ function CgtWorked({ className }: P) {
         £7,000 taxable gain
       </text>
       <text x={488} y={62} textAnchor="middle" fontSize={11} fill="#d1fae5">
-        x 18% (basic rate) = £1,260 tax to HMRC
+        x 18% (basic rate) = £1,260 tax to HM Revenue and Customs (HMRC)
       </text>
       <text x={20} y={100} fontSize={12} fill="#334155" fontWeight={600}>
-        A £10,000 gain outside an ISA: you keep £8,740. Inside an ISA you would keep all £10,000.
+        A £10,000 gain outside an Individual Savings Account (ISA): you keep £8,740. Inside an ISA you would keep all £10,000.
       </text>
     </svg>
   )
@@ -156,13 +156,13 @@ function IsaWrapper({ className }: P) {
   return (
     <svg viewBox="0 0 760 170" className={className ?? W} role="img" aria-label="ISA wrapper: investments inside the ISA shield are protected from UK income tax and Capital Gains Tax">
       <rect x={140} y={20} width={480} height={130} rx={16} fill="#ecfdf5" stroke="#10b981" strokeWidth={3} strokeDasharray="10 6" />
-      <text x={380} y={44} textAnchor="middle" fontSize={14} fontWeight={700} fill="#047857">
-        ISA WRAPPER - up to £20,000 per tax year
+      <text x={380} y={44} textAnchor="middle" fontSize={11} fontWeight={700} fill="#047857">
+        INDIVIDUAL SAVINGS ACCOUNT (ISA) WRAPPER - £20,000 per tax year
       </text>
       {[
         { x: 190, t: 'Stocks' },
         { x: 300, t: 'Funds' },
-        { x: 410, t: 'ETFs' },
+        { x: 415, t: 'ETFs (funds)' },
         { x: 520, t: 'Cash' },
       ].map((b) => (
         <g key={b.t}>
@@ -172,8 +172,8 @@ function IsaWrapper({ className }: P) {
           </text>
         </g>
       ))}
-      <text x={380} y={130} textAnchor="middle" fontSize={12} fill="#047857">
-        no UK income tax · no Capital Gains Tax · nothing to report to HMRC
+      <text x={380} y={130} textAnchor="middle" fontSize={11} fill="#047857">
+        no UK income tax · no Capital Gains Tax · nothing to report to HMRC (the tax office)
       </text>
       <text x={700} y={85} textAnchor="middle" fontSize={26} fill="#ef4444" fontWeight={700}>
         ✕
@@ -456,7 +456,7 @@ function AssetCrypto({ className }: P) {
         </g>
       ))}
       <text x={385} y={130} textAnchor="middle" fontSize={12} fill="#b91c1c" fontWeight={700}>
-        can double or halve in weeks · not FCA protected · high scam risk
+        can double or halve in weeks · no regulator protection · high scam risk
       </text>
     </svg>
   )
@@ -521,7 +521,7 @@ function AssetPension({ className }: P) {
         Your pension pot
       </text>
       <text x={380} y={94} textAnchor="middle" fontSize={11} fill="#047857">
-        you pay £80 → HMRC adds £20 (basic rate)
+        you pay £80 → HM Revenue and Customs (HMRC) adds £20 (basic rate)
       </text>
       <text x={120} y={80} textAnchor="middle" fontSize={11} fill="#64748b">
         locked until

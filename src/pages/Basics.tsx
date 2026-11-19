@@ -205,7 +205,7 @@ export default function Basics() {
                 <div>
                   <strong className="text-green-700">Passive investing:</strong>
                   <ul className="list-disc list-inside ml-2 mt-1 space-y-1 text-slate-600">
-                    <li>Buy and hold index funds or ETFs</li>
+                    <li>Buy and hold index funds or Exchange Traded Funds (ETFs)</li>
                     <li>Lower fees (typically 0.1-0.3% per year)</li>
                     <li>Less time and effort required</li>
                     <li>Matches market performance</li>
